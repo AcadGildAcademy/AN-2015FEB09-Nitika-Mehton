@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ff74e0ff"
+>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:paddingBottom="10dp"
+        android:ems="10"
+        android:layout_marginBottom="5dp"
+        android:hint="@string/name"
+        android:id="@+id/username"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:background="#fffff8f8" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:paddingBottom="10dp"
+        android:hint="@string/password"
+        android:id="@+id/userpassword"
+        android:layout_below="@+id/username"
+        android:layout_centerHorizontal="true"
+        android:background="#fffff3f8" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/userpassword"
+        android:layout_alignLeft="@+id/userpassword"
+        android:layout_alignStart="@+id/userpassword"
+        android:layout_marginTop="20dp"
+        android:layout_alignRight="@+id/userpassword"
+        android:layout_alignEnd="@+id/userpassword">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="sign in"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:id="@+id/signin"
+            android:background="#ff448bff" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="cancel"
+            android:layout_weight="1"
+            android:id="@+id/cacel"
+            android:background="#ff448bff" />
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:id="@+id/imag"
+        android:src="@drawable/unnamed"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/username"
+        android:layout_alignStart="@+id/username" />
+
+</RelativeLayout>

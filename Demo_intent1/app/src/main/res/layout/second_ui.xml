@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="197dp"
+        android:layout_height="300dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="100dp"
+        >
+
+
+        <Button
+            android:layout_width="@dimen/match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/id_specific"
+            android:id="@+id/id_specific"
+            android:paddingBottom="20dp"
+            android:layout_marginBottom="20dp"/>
+
+        <Button
+            android:layout_width="@dimen/match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/id_developer"
+            android:id="@+id/id_developer"
+            android:paddingBottom="20dp"
+            android:layout_marginBottom="20dp"/>
+
+        <EditText
+            android:layout_width="@dimen/match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/id_txt_search"
+            android:hint="Search"
+            android:layout_gravity="center_horizontal"
+            android:paddingBottom="20dp"
+            android:layout_marginBottom="20dp"/>
+
+        <Button
+            android:layout_width="@dimen/match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/id_search"
+            android:id="@+id/id_b_search"
+
+            android:paddingBottom="20dp"
+            android:layout_marginBottom="20dp"/>
+    </LinearLayout>
+
+</LinearLayout>

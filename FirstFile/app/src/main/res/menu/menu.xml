@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+     xmlns:nitika = "http://schemas.android.com/apk/res-auto"
+     xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.nitika.firstfile"
+    >
+<item android:id="@+id/fav"
+    android:title="fav_title"
+    android:icon="@android:drawable/btn_star"
+    nitika:showAsAction="always">
+    </item>
+
+    <item android:id="@+id/fav1"
+        android:title="fav1_title"
+
+
+        >
+    </item>
+    <item android:id="@+id/fav2"
+        android:title="fav2_title"
+        android:icon="@android:drawable/btn_star_big_off"
+
+       >
+    </item>
+</menu>
