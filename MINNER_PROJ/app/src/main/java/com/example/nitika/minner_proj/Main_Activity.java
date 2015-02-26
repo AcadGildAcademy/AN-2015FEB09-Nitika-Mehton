@@ -1,11 +1,6 @@
-package com.example.nitika.assg_dialog;
-
-import android.app.ActionBar;
-import android.app.Activity;
+package com.example.nitika.minner_proj;
+import com.example.nitika.minner_proj.CustomListAdapter;
 import android.app.AlertDialog;
-import android.app.Dialog;
-import android.app.FragmentManager;
-import android.content.ClipData;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -15,58 +10,44 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
+import com.example.nitika.minner_proj.Custom_class;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import java.sql.Array;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**
- * Created by NITIKA on 23-Feb-15.
+ * Created by NITIKA on 26-Feb-15.
  */
-public class Activity_main extends ActionBarActivity {
+public class Main_Activity extends ActionBarActivity{
 
     final Context context = this;
-     ListView list;
-
-
-    String[] name =  {"aman", "ekta", "kiran", "nitika", "shivani"};
-    String[] ph_no = {"100000000", "20000000", "3000000", "40000000", "5000000"};
-      //  FragmentManager fm=getFragmentManager();
-      List<Custom_list> ll = new ArrayList<Custom_list>();
-
-
-
+    String name,dis,date;
+    int i=0;
+    ListView list;
+    List<Custom_class> products;
+   // final DatePicker myDatePicker = (DatePicker)findViewById(R.id.myDatePicker);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_ui);
+        setContentView(R.layout.main_activity_ui);
+          //  name=EditText
 
-        Custom_list adapter1 = new Custom_list(Activity_main.this,name, ph_no);
-        list = (ListView) findViewById(R.id.id_listView);
-       list.setAdapter(adapter1);
-       list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getApplicationContext(), "You Clicked at " + name[+position], Toast.LENGTH_SHORT).show();
-            }
-        });
- getActionBar();
+
+
+        getActionBar();
+
 
     }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater m= getMenuInflater();
         m.inflate(R.menu.main,menu);
         return super.onCreateOptionsMenu(menu);
+
     }
 
     @Override
@@ -77,35 +58,44 @@ public class Activity_main extends ActionBarActivity {
         {
 
 
-            Toast.makeText(getApplication(),"done",Toast.LENGTH_LONG).show();
+
+            Toast.makeText(getApplication(), "done", Toast.LENGTH_LONG).show();
 
             // get prompts.xml view
             LayoutInflater li = LayoutInflater.from(context);
             View promptsView = li.inflate(R.layout.alert_fragment_dialog_ui, null);
+            final DatePicker myDatePicker = (DatePicker) promptsView.findViewById(R.id.myDatePicker);
 
-           AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+            // so that the calendar view won't appear
+            myDatePicker.setCalendarViewShown(false);
+
+            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
                     context);
 
             // set prompts.xml to alertdialog builder
             alertDialogBuilder.setView(promptsView);
 
-           final EditText username = (EditText) promptsView
+            final EditText username = (EditText) promptsView
                     .findViewById(R.id.id_name);
             final EditText userph = (EditText) promptsView
-                    .findViewById(R.id.id_phone_no);
+                    .findViewById(R.id.id_dis);
 
             // set dialog message
             alertDialogBuilder
                     .setCancelable(false)
                     .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                          add();
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    CustomListAdapter adapter1;
+                                    adapter1 = new CustomListAdapter(Main_Activity.this,products);
+                                    list = (ListView) findViewById(R.id.content_frame);
+                                    list.setAdapter(adapter1);
+
+                                }
+                            }
 
 
-
-                        }
-                    })
+                    )
                     .setNegativeButton("Cancel",
                             new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int id) {
@@ -118,7 +108,7 @@ public class Activity_main extends ActionBarActivity {
 
             // show it
             alertDialog.show();
-          // Alert_fragment_dialog alert_fragment_dialog =new Alert_fragment_dialog();
+            // Alert_fragment_dialog alert_fragment_dialog =new Alert_fragment_dialog();
             //alert_fragment_dialog.show(fm,"hello>>>>>");
         }
 
@@ -126,13 +116,7 @@ public class Activity_main extends ActionBarActivity {
     }
 
 
- void add()
- {
-     Toast.makeText(getApplicationContext(),"<<>>>",Toast.LENGTH_LONG).show();
-
-
-
- }
+    //context menu
 
 
 

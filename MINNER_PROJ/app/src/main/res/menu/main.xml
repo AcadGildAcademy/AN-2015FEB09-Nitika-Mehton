@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:nitika="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.nitika.assg_dialog"
+    >
+
+
+    <item android:id="@+id/tumb"
+        android:icon="@drawable/images"
+        android:title="MENU"
+        nitika:showAsAction="always"
+        ></item>
+    <item android:id="@+id/menu_pluse"
+        android:icon="@android:drawable/ic_input_add"
+        android:title="MENU"
+        nitika:showAsAction="always"
+        ></item>
+
+</menu>
