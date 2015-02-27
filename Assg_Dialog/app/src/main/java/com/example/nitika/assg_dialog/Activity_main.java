@@ -25,7 +25,9 @@ import android.widget.Toast;
 import java.sql.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by NITIKA on 23-Feb-15.
@@ -36,10 +38,7 @@ public class Activity_main extends ActionBarActivity {
      ListView list;
 
 
-    String[] name =  {"aman", "ekta", "kiran", "nitika", "shivani"};
-    String[] ph_no = {"100000000", "20000000", "3000000", "40000000", "5000000"};
-      //  FragmentManager fm=getFragmentManager();
-      List<Custom_list> ll = new ArrayList<Custom_list>();
+
 
 
 
@@ -48,14 +47,24 @@ public class Activity_main extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_ui);
+        Toast.makeText(getApplicationContext(), "You Clicked at " + "1", Toast.LENGTH_SHORT).show();
+        Set<String> name;
+        Set<String> ph_no;
+        name= new HashSet<String>();
+        ph_no= new HashSet<String>();
+        name.add("nitika");
+        ph_no.add("467346799823");
+        name.add("ekta");
+        ph_no.add("5423566");
 
-        Custom_list adapter1 = new Custom_list(Activity_main.this,name, ph_no);
+        Custom_list adapter1 = new Custom_list(Activity_main.this,name,ph_no );
         list = (ListView) findViewById(R.id.id_listView);
        list.setAdapter(adapter1);
+        Toast.makeText(getApplicationContext(), "You Clicked at " + "2", Toast.LENGTH_SHORT).show();
        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getApplicationContext(), "You Clicked at " + name[+position], Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(), "You Clicked at " + name[+position], Toast.LENGTH_SHORT).show();
             }
         });
  getActionBar();
