@@ -48,10 +48,10 @@ public class Activity_main extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_ui);
         Toast.makeText(getApplicationContext(), "You Clicked at " + "1", Toast.LENGTH_SHORT).show();
-        Set<String> name;
-        Set<String> ph_no;
-        name= new HashSet<String>();
-        ph_no= new HashSet<String>();
+        List<String> name;
+        List<String> ph_no;
+        name= new ArrayList<String>();
+        ph_no= new ArrayList<String>();
         name.add("nitika");
         ph_no.add("467346799823");
         name.add("ekta");
@@ -64,7 +64,7 @@ public class Activity_main extends ActionBarActivity {
        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                //Toast.makeText(getApplicationContext(), "You Clicked at " + name[+position], Toast.LENGTH_SHORT).show();
+               Toast.makeText(getApplicationContext(), "You Clicked at " + parent.getItemAtPosition(position), Toast.LENGTH_SHORT).show();
             }
         });
  getActionBar();
@@ -109,7 +109,7 @@ public class Activity_main extends ActionBarActivity {
                     .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                          add();
+                          add(username.getText().toString(),userph.getText().toString());
 
 
 
@@ -135,9 +135,9 @@ public class Activity_main extends ActionBarActivity {
     }
 
 
- void add()
+ void add(String name,String phNo)
  {
-     Toast.makeText(getApplicationContext(),"<<>>>",Toast.LENGTH_LONG).show();
+     Toast.makeText(getApplicationContext(),"<"+name+"><"+phNo+">",Toast.LENGTH_LONG).show();
 
 
 
