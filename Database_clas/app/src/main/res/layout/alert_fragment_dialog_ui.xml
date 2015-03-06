@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+
+        <EditText
+
+            android:layout_width="match_parent"
+            android:hint="Enter Title"
+            android:id="@+id/id_name"
+            android:layout_height="50dp">
+
+            </EditText>
+          <EditText
+              android:layout_width="match_parent"
+              android:hint="Enter discription"
+              android:layout_height="50dp"
+              android:id="@+id/id_phone_no"/>
+    <DatePicker
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/dialog_date">
+
+        </DatePicker>
+
+    <requestFocus></requestFocus>
+
+
+</LinearLayout>
