@@ -1,4 +1,4 @@
-package com.example.nitika.database_clas;
+package com.example.nitika.minner_proj;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -15,11 +15,9 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import java.nio.charset.MalformedInputException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -33,7 +31,7 @@ public class Activity_main extends ActionBarActivity {
     final Context context = this;
      ListView list;
         int i=0;
-    static int flag=0;
+
 
     List<Contact> contact;
 
@@ -41,11 +39,9 @@ public class Activity_main extends ActionBarActivity {
 
    Custom_list adapter1;
 
-    EditText tit;
-   EditText dis1;
-    int month ;
-    int day ;
-    int year;
+    EditText title;
+   EditText discription_txt;
+
 
 
 
@@ -63,8 +59,8 @@ public class Activity_main extends ActionBarActivity {
         contact = new ArrayList<Contact>();
 
     db = new DatabaseHandler(this);
-/*
-    //  flag=  db.getContactsCount();
+
+
              contact = db.getAllContacts();
            for (Contact cn : contact) {
                 String log = "ID-->" + cn.getID() + ",names-->" + cn.getNAME()
@@ -73,9 +69,7 @@ public class Activity_main extends ActionBarActivity {
 
             }
 
-        //
-        //
- */      Toast.makeText(getApplication(),"",Toast.LENGTH_LONG).show();
+
       adapter1 = new Custom_list(this,R.layout.list_ui,contact );
                    list = (ListView) findViewById(R.id.id_listView);
 if(list!=null) {
@@ -148,17 +142,16 @@ if(list!=null) {
 
             // set prompts.xml to alertdialog builder
             alertDialogBuilder.setView(promptsView);
+
             final DatePicker myDatePicker = (DatePicker) promptsView.findViewById(R.id.dialog_date);
             // so that the calendar view won't appear
             myDatePicker.setCalendarViewShown(false);
 
-           tit = (EditText) promptsView.findViewById(R.id.id_name);
-           dis1 = (EditText) promptsView.findViewById(R.id.id_discription);
-           month = myDatePicker.getMonth() + 1;
-           day = myDatePicker.getDayOfMonth();
-           year = myDatePicker.getYear();
+           title = (EditText) promptsView.findViewById(R.id.id_name);
+           discription_txt = (EditText) promptsView.findViewById(R.id.id_discription);
 
-           // String source = myDatePicker;
+
+
             final SimpleDateFormat dateformat = new SimpleDateFormat("dd-MM-yyyy");//("yyyy-MM-dd");
 
 
@@ -168,27 +161,25 @@ if(list!=null) {
             alertDialogBuilder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
-                    String dateFormat = dateformat.format(new Date(myDatePicker.getYear(),
+                    String dateFormat = dateformat.format(new Date(myDatePicker.getYear()-1900,
                             myDatePicker.getMonth(), myDatePicker.getDayOfMonth()));
 
-                    db.addContact(new Contact(tit.getText().toString(), dis1.getText().toString(), ("" + year + month + day), 1));
-                    contact=db.getAllContacts();
-                    contact = db.getAllContacts();
-                    for (Contact cn : contact) {
-                        String log = "ID-->" + cn.getID() + ",names-->" + cn.getNAME()
-                                + ",dis--->" + cn.getDIS() + ",date-->" + cn.getDATE() + "satus-->" + cn.getStatus();
-                        Log.d("name", log);
+                    if(title.getText().toString().equals("")){
+                        title.setError("title cannot be empty");
+                    }
+                    else if (discription_txt.getText().toString().equals(""))
+                    {
+                        discription_txt.setError("must have a discription");
+                    }
+                    else {
+                        db.addContact(new Contact(title.getText().toString(), discription_txt.getText().toString(), (dateFormat), 1));
+
+
+                        finish();
+                        Intent intent = new Intent(Activity_main.this, Activity_main.class);
+                        startActivity(intent);
 
                     }
-
-
-         //     flag=1;
-                    Toast.makeText(getApplication(),"done",Toast.LENGTH_LONG).show();
-                    finish();
-                    Intent intent = new Intent(Activity_main.this, Activity_main.class);
-                    startActivity(intent);
-
-
                 }
             }).setNegativeButton("Cancel",
                     new DialogInterface.OnClickListener() {
@@ -206,6 +197,15 @@ if(list!=null) {
             //alert_fragment_dialog.show(fm,"hello>>>>>");
         }
 
+        if(id==R.id.tumb)
+        {
+
+        //   contact= db.getAllCompleted();
+
+            Intent intent = new Intent(getApplicationContext(), AllCompleted.class);
+            startActivity(intent);
+        }
         return super.onOptionsItemSelected(item);
     }
+
 }

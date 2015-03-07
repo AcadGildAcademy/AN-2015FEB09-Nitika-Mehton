@@ -8,25 +8,24 @@
         <EditText
 
             android:layout_width="match_parent"
-            android:hint="Enter name"
+            android:hint="Enter Title"
             android:id="@+id/id_name"
             android:layout_height="50dp">
 
             </EditText>
           <EditText
               android:layout_width="match_parent"
-              android:hint="Enter discreption"
+              android:hint="Enter discription"
               android:layout_height="50dp"
-              android:id="@+id/id_dis"/>
-
-
-
-
+              android:id="@+id/id_discription"/>
     <DatePicker
-        android:id="@+id/myDatePicker"
         android:layout_width="match_parent"
-        android:layout_height="200dp" />
+        android:layout_height="wrap_content"
+        android:id="@+id/dialog_date">
 
+        </DatePicker>
 
     <requestFocus></requestFocus>
+
+
 </LinearLayout>

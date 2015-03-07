@@ -17,7 +17,7 @@
               android:layout_width="match_parent"
               android:hint="Enter discription"
               android:layout_height="50dp"
-              android:id="@+id/id_phone_no"/>
+              android:id="@+id/id_discription"/>
     <DatePicker
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
