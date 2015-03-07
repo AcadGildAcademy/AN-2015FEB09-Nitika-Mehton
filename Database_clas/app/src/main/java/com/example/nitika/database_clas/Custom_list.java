@@ -1,6 +1,7 @@
 package com.example.nitika.database_clas;
 
 import android.app.Activity;
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,30 +10,25 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by NITIKA on 23-Feb-15.
  */
-public class Custom_list extends ArrayAdapter<String> {
-    private final Activity context;
-    private ArrayList<String> top;
-    private ArrayList<String> title;
-    private ArrayList<String> dis;
-    private ArrayList<String> date;
-    private ArrayList<Integer> ii;
 
-    public Custom_list(Activity context, ArrayList<String> top, ArrayList<String> title,
-                       ArrayList<String> dis, ArrayList<String> date, ArrayList<Integer> ii)
-    {
-        super(context,R.layout.list_ui,top);
-        this.context=context;
-        this.top=top;
-        this.title=title;
-        this.dis=dis;
-        this.date=date;
-        this.ii = ii;
+public class Custom_list extends ArrayAdapter<Contact> {
 
+    List<Contact> contact;
+    Context context;
+    private final int resource;
+
+    public Custom_list(Context context, int resource, List<Contact> contact) {
+        super(context, resource,contact);
+        this.context = context;
+        this.resource = resource;
+        this.contact = contact;
     }
+
     static class ViewHolder {
         public TextView text1;
         public TextView text2;
@@ -61,11 +57,12 @@ public class Custom_list extends ArrayAdapter<String> {
         View rowView = convertView;
         // reuse views
         if (rowView == null) {
-            LayoutInflater inflater = context.getLayoutInflater();
+            LayoutInflater inflater;
+            inflater = LayoutInflater.from(context);
             rowView = inflater.inflate(R.layout.list_ui, null);
             // configure view holder
             ViewHolder viewHolder = new ViewHolder();
-            viewHolder.text1 = (TextView) rowView.findViewById(R.id.top_id);
+         //   viewHolder.text1 = (TextView) rowView.findViewById(R.id.top_id);
             viewHolder.text2 = (TextView) rowView.findViewById(R.id.title_id);
             viewHolder.text3 = (TextView) rowView.findViewById(R.id.dis_id);
             viewHolder.text4 = (TextView) rowView.findViewById(R.id.date_id);
@@ -74,47 +71,33 @@ public class Custom_list extends ArrayAdapter<String> {
 
             ViewHolder holder = (ViewHolder) rowView.getTag();
 
+            Contact contact_single=contact.get(position);
 
+         //   holder.text1.setText(contact_single.getID());
+            holder.text2.setText(contact_single.getNAME());
+            holder.text3.setText(contact_single.getDIS());
+            holder.text4.setText(contact_single.getDATE());
 
-            holder.text1.setText(top.listIterator(position).next().toString());
-            holder.text2.setText(title.listIterator(position).next().toString());
-            holder.text3.setText(dis.listIterator(position).next().toString());
-            holder.text4.setText(date.listIterator(position).next().toString());
-
-           // holder.text2.setText(top.get(position).toString());
-          //  String tag= holder.img.getTag().toString();
-           /* if(tag.equals("1"))
+           int status= contact_single.getStatus();
+            if(status==1)
             {
-            holder.img.setImageResource(R.drawable.black);
-                holder.img.setTag("1");
+                holder.img.setImageResource(R.drawable.black);
             }
-            else if(tag.equals("2")){
+            else if(status==2){
                 holder.img.setImageResource(R.drawable.images);
-                holder.img.setTag("2");
-
             }
             else{
                 holder.img.setImageResource(R.drawable.black);
-                holder.img.setTag("1");
-
             }
-*/
-
-           holder.img.setImageResource(R.drawable.black);
-            holder.img.setTag("1");
 
         }
             return rowView;
         }
 
-    @Override
-    public String toString() {
-        return "Custom_list{" +
-                "context=" + context +
-                ", top=" + top +
-                ", title=" + title +
-                ", dis=" + dis +
-                ", date=" + date +
-                '}';
+    public void updateList(List<Contact> newList) {
+        contact.clear();
+       contact.addAll(newList);
+        this.notifyDataSetChanged();
     }
+
 }

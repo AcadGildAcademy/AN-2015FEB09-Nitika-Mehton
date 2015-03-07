@@ -21,10 +21,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     //column
             private  static final String KEY_ID ="id";
             private  static final String KEY_NAME ="name";
-            private  static final String KEY_PH ="phone_no";
            private  static final String KEY_DIS = "dis";
            private  static final String KEY_DATE = "date";
-          private  static final String KEY_IMGG ="imgg";
+          private  static final String KEY_STATUS ="status";
 
     //constructor imp
             public DatabaseHandler(Context context)
@@ -37,12 +36,11 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db)
                 {
                     String CREATE_CONTACTS_TABLE = "CREATE TABLE " + TABLE_CONTACTS + "("
-                            + KEY_ID + " INTEGER PRIMARY KEY ,"
+                            + KEY_ID + " INTEGER PRIMARY KEY,"
                             + KEY_NAME + " TEXT,"
-                            + KEY_PH + " TEXT,"
                             + KEY_DIS + " TEXT,"
                             +KEY_DATE + " TEXT ,"
-                            +KEY_IMGG + " INTEGER "
+                            +KEY_STATUS + " INTEGER "
                             + ")";
                     db.execSQL(CREATE_CONTACTS_TABLE);
                  }
@@ -64,10 +62,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
            SQLiteDatabase db = this.getWritableDatabase();//onCreate method will be called
             ContentValues values =new ContentValues();
             values.put(KEY_NAME,contact.getNAME());
-            values.put(KEY_PH,contact.getPHONE());
             values.put(KEY_DIS,contact.getDIS());
             values.put(KEY_DATE,contact.getDATE());
-            values.put(KEY_IMGG,contact.getIMGG());
+            values.put(KEY_STATUS,contact.getStatus());
             db.insert(TABLE_CONTACTS,null,values);
             db.close();
 
@@ -79,8 +76,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         {
             SQLiteDatabase db = this.getWritableDatabase();//onCreate method will be called
             ContentValues values =new ContentValues();
-            values.put(KEY_NAME,contact.getNAME());
-            values.put(KEY_PH,contact.getPHONE());
+            values.put(KEY_STATUS,contact.getStatus());
+
           return db.update(TABLE_CONTACTS,values,KEY_ID+"=?",new String[] { String.valueOf(contact.getID())});
 
 
@@ -90,15 +87,14 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     Contact getContact(int id) {
         SQLiteDatabase db = this.getReadableDatabase();
 
-        Cursor cursor = db.query(TABLE_CONTACTS, new String[] { KEY_ID,
-                        KEY_NAME, KEY_PH }, KEY_ID + "=?",
+        Cursor cursor = db.query(TABLE_CONTACTS, null, KEY_ID + "=?",
                 new String[] { String.valueOf(id) }, null, null, null, null);
         if (cursor != null)
             cursor.moveToFirst();
 
-        Contact contact = new Contact(Integer.parseInt(cursor.getString(0)),
+        Contact contact = new Contact(id,
                 cursor.getString(1), cursor.getString(2),cursor.getString(3),
-                cursor.getString(4),Integer.parseInt(cursor.getString(5)));
+                Integer.parseInt(cursor.getString(4)));
         // return contact
         return contact;
     }
@@ -118,10 +114,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 Contact contact = new Contact();
                 contact.setID(Integer.parseInt(cursor.getString(0)));
                 contact.setNAME(cursor.getString(1));
-                contact.setPHONE(cursor.getString(2));
-                 contact.setDIS(cursor.getString(3));
-                contact.setDATE(cursor.getString(4));
-                contact.setIMGG(Integer.parseInt(cursor.getString(5)));
+                 contact.setDIS(cursor.getString(2));
+                contact.setDATE(cursor.getString(3));
+                contact.setStatus(Integer.parseInt(cursor.getString(4)));
                 // Adding contact to list
                 contactList.add(contact);
             } while (cursor.moveToNext());

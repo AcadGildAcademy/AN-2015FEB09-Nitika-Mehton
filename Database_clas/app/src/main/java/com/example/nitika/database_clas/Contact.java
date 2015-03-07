@@ -6,26 +6,33 @@ package com.example.nitika.database_clas;
 public class Contact {
     private int _id;
     private String _name;
-    private String _phone_no;
     private String _dis;
     private String _date;
-    private int _imgg;
-     public Contact(String name, String Ph_no,String dis,String date,int img)
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
+    private int status;
+
+     public Contact(String name,String dis,String date,int status)
         {
                 this._name=name;
-                this._phone_no=Ph_no;
             this._dis=dis;
             this._date=date;
-            this._imgg=img;
+            this.status=status;
         }
-        public Contact(int id, String name, String ph_no,String dis,String date,int img)
+        public Contact(int id, String name,String dis,String date,int status)
         {
             this._id=id;
             this._name=name;
-            this._phone_no=ph_no;
             this._dis=dis;
             this._date=date;
-            this._imgg=img;
+            this.status=status;
         }
 public Contact()
 {}
@@ -41,11 +48,6 @@ public Contact()
     public  void setNAME(String name)
                 {this._name=name;}
 
-    public  String getPHONE()
-    { return this._phone_no ;}
-
-    public  void setPHONE(String PH)
-    {this._phone_no=PH ;}
 
     public  String getDIS()
     { return this._dis ;}
@@ -59,10 +61,6 @@ public Contact()
     public  void setDATE(String name)
     {this._date=name;}
 
-    public int getIMGG()
-    {     return this._imgg;   }
 
-    public void setIMGG(int id)
-    { this._id=_imgg ;}
 
 }
