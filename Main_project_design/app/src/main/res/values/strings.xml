@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Main_project_design</string>
+    <string name="spinner">Menu</string>
+    <string name="username">USERNAME</string>
+<string name="password">PASSWORD</string>
+    <string name="confirm_password">CONFIRM PASSWORD</string>
+
+</resources>

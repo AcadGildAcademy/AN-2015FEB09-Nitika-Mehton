@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:and="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    >
+
+    <item android:id="@+id/login_id_menu"
+      android:title="menu"
+    android:icon="@drawable/login_icon"
+       
+    and:showAsAction="always"
+    ></item>
+
+    <item android:id="@+id/signup_id_menu"
+        android:title="menu"
+        android:icon="@android:drawable/ic_input_add"
+        and:showAsAction="always"
+        ></item>
+
+
+</menu>
