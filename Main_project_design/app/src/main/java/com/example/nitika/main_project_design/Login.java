@@ -3,12 +3,15 @@ package com.example.nitika.main_project_design;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.provider.ContactsContract;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ListAdapter;
 import android.widget.SimpleAdapter;
@@ -32,7 +35,8 @@ public class Login extends Activity{
 
     EditText name1 ,password1,confirm_password;
     Button sign_in, cancel;
-    private static String url = "http://bishasha.com/json/whdeal_login.php?email=abc@gmail.com&password=def";
+    CheckBox checkBox;
+    private static String url = "http://bishasha.com/json/whdeal_login.php";
 
     // JSON Node names
    // private static final String TAG_PRODUCT = "product";
@@ -51,11 +55,14 @@ public class Login extends Activity{
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.login);
+
         contactList = new ArrayList<HashMap<String, String>>();
 
         name1 =(EditText)findViewById(R.id.id_username);
         password1=(EditText)findViewById(R.id.id_password);
+        checkBox=(CheckBox)findViewById(R.id.id_remember_me);
 
+        loadMySavePreferences();
         sign_in=(Button)findViewById(R.id.signin);
         sign_in.setOnClickListener(new View.OnClickListener() {
 
@@ -70,8 +77,24 @@ public class Login extends Activity{
                 if (user_name_value.equals("") || user_password_value.equals("")) {
                     Toast.makeText(getApplication(), "All fields are mentatory", Toast.LENGTH_SHORT).show();
                 }
-                else
+                else{
                     new GetContacts().execute();
+
+                //code for preferences
+                    savedMySharedPreferences("check", checkBox.isChecked());
+                    if(checkBox.isChecked())
+                    {
+                        String st = name1.getText().toString();
+                        String st2=password1.getText().toString();
+                        savedMySharedPreferences("user", st);
+                        savedMySharedPreferences("password",st2);
+
+
+
+                    }
+
+
+                }
 
             }
 
@@ -113,7 +136,7 @@ public class Login extends Activity{
             String temp_email,temp_password;
             String username = name1.getText().toString();
             String password = password1.getText().toString();
-            try {
+                        try {
                 // Building Parameters
                 List params = new ArrayList();
                 params.add(new BasicNameValuePair("email", username));
@@ -123,7 +146,7 @@ public class Login extends Activity{
                 Log.d("request!", "starting");
                 // getting product details by making HTTP request
                 String jsonStr
-                        = sh.makeServiceCall(url, 2, params);
+                        = sh.makeServiceCall(url, 1, params);
 
                 JSONObject json = new JSONObject(jsonStr);
 
@@ -133,16 +156,18 @@ public class Login extends Activity{
                 // json success tag
                 success = json.getInt(TAG_SUCCESS);
 
-
+                Log.d("success",""+success);
 
                     if (success == 1) {
                         Log.d("Login Successful!", json.toString());
+                        Toast.makeText(getApplicationContext(),"login success",Toast.LENGTH_LONG).show();
                         Intent i = new Intent(Login.this, Index.class);
                         finish();
                         startActivity(i);
                       //  return json.getString(TAG_MESSAGE);
                     } else {
-                        Log.d("Login Failure!", json.getString(TAG_MESSAGE));
+                        Log.d("Login Failure!","login fail");
+                        Toast.makeText(getApplicationContext(),"login fail",Toast.LENGTH_LONG).show();
                        // return json.getString(TAG_MESSAGE);
                     }
 
@@ -168,6 +193,40 @@ public class Login extends Activity{
 
     }
 
+
+
+
+    public  void loadMySavePreferences()
+    {
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
+
+        String str = sp.getString("user","abc@gmail.com");
+        String pass=sp.getString("pass","def");
+        Boolean ck =sp.getBoolean("check", true);
+        name1.setText(str);
+        password1.setText(pass);
+        checkBox.setChecked(ck);
+
+
+    }
+
+
+
+    public void savedMySharedPreferences(String Key,String values)
+    {
+        SharedPreferences sp=PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences.Editor ed =sp.edit();
+        ed.putString(Key,values);
+        ed.commit();
+
+    }
+    public void savedMySharedPreferences(String Key,Boolean values)
+    {
+        SharedPreferences sp =PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences.Editor ed =sp.edit();
+        ed.putBoolean(Key,values);
+        ed.commit();
+    }
 
 
 }
