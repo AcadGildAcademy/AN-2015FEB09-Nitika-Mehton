@@ -7,14 +7,11 @@ import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.provider.ContactsContract;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.ListAdapter;
-import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
 import org.apache.http.message.BasicNameValuePair;
@@ -113,12 +110,11 @@ public class Login extends Activity{
      * Async task class to get json by making HTTP call
      * */
 
-     private class GetContacts extends AsyncTask<Void, Void, Void> {
+     private class GetContacts extends AsyncTask<Void,Integer, Void> {
 
 
         @Override
         protected void onPreExecute() {
-            Toast.makeText(getApplication(),"pre",Toast.LENGTH_SHORT).show();
             super.onPreExecute();
             // Showing progress dialog
            pDialog = new ProgressDialog(Login.this);
@@ -158,18 +154,7 @@ public class Login extends Activity{
 
                 Log.d("success",""+success);
 
-                    if (success == 1) {
-                        Log.d("Login Successful!", json.toString());
-                        Toast.makeText(getApplicationContext(),"login success",Toast.LENGTH_LONG).show();
-                        Intent i = new Intent(Login.this, Index.class);
-                        finish();
-                        startActivity(i);
-                      //  return json.getString(TAG_MESSAGE);
-                    } else {
-                        Log.d("Login Failure!","login fail");
-                        Toast.makeText(getApplicationContext(),"login fail",Toast.LENGTH_LONG).show();
-                       // return json.getString(TAG_MESSAGE);
-                    }
+                    publishProgress(success);
 
                 }catch(JSONException e){
                     e.printStackTrace();
@@ -188,9 +173,27 @@ public class Login extends Activity{
 
 
 
-
         }
 
+
+        //Handling updation to your UI
+        @Override
+        protected void onProgressUpdate(Integer... values) {
+            super.onProgressUpdate(values);
+             int  success=values[0];
+            if (success == 1) {
+                Log.d("Login Successful!", "Login Success");
+                Toast.makeText(getApplicationContext(),"login success",Toast.LENGTH_LONG).show();
+                Intent i = new Intent(Login.this, Index.class);
+                finish();
+                startActivity(i);
+                //  return json.getString(TAG_MESSAGE);
+            } else {
+                Log.d("Login Failure!","login fail");
+                Toast.makeText(Login.this,"login fail",Toast.LENGTH_LONG).show();
+                // return json.getString(TAG_MESSAGE);
+            }
+        }
     }
 
 
