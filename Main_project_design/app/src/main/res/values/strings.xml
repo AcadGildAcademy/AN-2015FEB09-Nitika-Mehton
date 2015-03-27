@@ -1,8 +1,16 @@
 <resources>
     <string name="app_name">Main_project_design</string>
     <string name="spinner">Menu</string>
-    <string name="username">USERNAME</string>
-<string name="password">PASSWORD</string>
-    <string name="confirm_password">CONFIRM PASSWORD</string>
+    <string name="username">ENTER EMAIL</string>
+<string name="password">ENTER PASSWORD</string>
+    <string name="name">"Name : "</string>
+    <string name="cost_price">"Cost Price : "</string>
+    <string name="selling_price">"Selling Price : "</string>
+    <string name="category">"Category : "</string>
+    <string name="brand">"Brand : "</string>
+    <string name="status">"Status : "</string>
+    <string name="discription">"Discription " </string>
+    <string name="add_to_cart">"Add To Cart " </string>
+    <string name="buy_now">"BUY NOW " </string>
 
 </resources>

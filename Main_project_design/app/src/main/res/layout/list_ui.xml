@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:background="#000000"
+        android:padding="1dp" />
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/name"
+        android:layout_toRightOf="@+id/image"/>
+
+    <TextView
+        android:id="@+id/id_name_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/name" />
+
+    <TextView
+        android:id="@+id/id_cost_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/name"
+        android:text="@string/cost_price"
+        android:layout_toRightOf="@+id/image"/>
+
+    <TextView
+        android:id="@+id/id_cost_price_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/id_name_value"
+        android:layout_toRightOf="@+id/id_cost_price" />
+
+    <TextView
+        android:id="@+id/Selling_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/id_cost_price"
+        android:text="@string/selling_price"
+        android:layout_toRightOf="@+id/image"/>
+
+    <TextView
+        android:id="@+id/id_selling_price_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/id_cost_price_value"
+        android:layout_toRightOf="@+id/Selling_price" />
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Click To See Detail"
+        android:layout_below="@+id/id_selling_price_value"
+        android:layout_toRightOf="@+id/image"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+
+        android:layout_below="@+id/image"
+
+        android:background="@color/orange"
+        />
+
+
+
+</RelativeLayout>

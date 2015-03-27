@@ -18,5 +18,31 @@
         and:showAsAction="always"
         ></item>
 
-
+   <item android:id="@+id/mobile"
+    android:title="Mobile"
+    ></item>
+    <item android:id="@+id/fire_table"
+        android:title="Fire Table"
+        ></item>
+    <item android:id="@+id/laptop_computer"
+        android:title="Laptops/Computers"
+        ></item>
+    <item android:id="@+id/camera"
+        android:title="Camera"
+        ></item>
+    <item android:id="@+id/tablets"
+        android:title="Tablets"
+        ></item>
+    <item android:id="@+id/video_games"
+        android:title="Video Games"
+        ></item>
+    <item android:id="@+id/gadgets"
+        android:title="TV/gadgets"
+        ></item>
+    <item android:id="@+id/car"
+        android:title="TV/Car Electronics"
+        ></item>
+    <item android:id="@+id/accessories"
+        android:title="TV/Accessories"
+        ></item>
 </menu>
