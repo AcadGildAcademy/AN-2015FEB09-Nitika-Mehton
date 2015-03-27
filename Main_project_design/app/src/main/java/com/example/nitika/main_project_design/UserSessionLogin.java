@@ -84,9 +84,9 @@ public class UserSessionLogin {
         //Use hashmap to store user credentials
         HashMap<String, String> user = new HashMap<String, String>();
         // user name
-        user.put(KEY_PASSWORD_SESSION, pref.getString(KEY_PASSWORD_SESSION, null));
+        user.put(KEY_PASSWORD_SESSION, pref.getString(KEY_PASSWORD_SESSION, ""));
         // user email id
-        user.put(KEY_EMAIL_SESSION, pref.getString(KEY_EMAIL_SESSION, null));
+        user.put(KEY_EMAIL_SESSION, pref.getString(KEY_EMAIL_SESSION, ""));
         // return user
         return user;
     }

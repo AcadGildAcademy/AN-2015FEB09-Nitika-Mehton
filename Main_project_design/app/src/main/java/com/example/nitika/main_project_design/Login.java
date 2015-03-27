@@ -1,5 +1,6 @@
 package com.example.nitika.main_project_design;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -7,7 +8,12 @@ import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.v7.app.ActionBarActivity;
+import android.text.Html;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -28,7 +34,7 @@ import java.util.regex.Pattern;
 /**
  * Created by NITIKA on 05-Feb-15.
  */
-public class Login extends Activity{
+public class Login extends ActionBarActivity{
 
     private ProgressDialog pDialog;
 
@@ -49,38 +55,46 @@ public class Login extends Activity{
     ArrayList<HashMap<String, String>> contactList;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
-//        if(session.checkLogin())
-  //          finish();
+        sign_in=(Button)findViewById(R.id.signin);
         email =(EditText)findViewById(R.id.id_username);
         password =(EditText)findViewById(R.id.id_password);
         checkBox=(CheckBox)findViewById(R.id.id_remember_me);
         logout=(Button)findViewById(R.id.logout);
         session = new UserSessionLogin(getApplicationContext());
-        HashMap<String, String> user = session.getUserDetails();
+       loadMySavePreferences();//for email and password
+        getActionBar();
+        if(session.isUserLoggedIn())
+        {
+          sign_in.setEnabled(false);
+        }
 
-        // get name
-        String password_str = user.get(UserSessionLogin.KEY_PASSWORD_SESSION);
+       /* {
+            Toast.makeText(getApplicationContext(), ""+checkBox.isChecked(),Toast.LENGTH_LONG).show();
+            HashMap<String, String> user = session.getUserDetails();
 
-        // get email
-        String email_str = user.get(UserSessionLogin.KEY_EMAIL_SESSION);
+            // get name
+            String password_str = user.get(session.KEY_PASSWORD_SESSION);
 
+            // get email
+            String email_str = user.get(session.KEY_EMAIL_SESSION);
 
-        // Show user data on activity
-        email.setText(email_str);
-        password.setText(password_str);
-        contactList = new ArrayList<HashMap<String, String>>();
-
-
-      loadMySavePreferences();//for email and password
-
-        Toast.makeText(getApplicationContext(),
-                "User Login Status: " + session.isUserLoggedIn(),Toast.LENGTH_LONG).show();
+            // Show user data on activity
+            password.setText(Html.fromHtml(password_str + "</b>"));
+            email.setText(Html.fromHtml(email_str + "</b>"));
+            contactList = new ArrayList<HashMap<String, String>>();
 
 
-        sign_in=(Button)findViewById(R.id.signin);
+
+
+        }*/
+
+        //Toast.makeText(getApplicationContext(),"User Login Status: " + session.isUserLoggedIn(),Toast.LENGTH_LONG).show();
+
+
+
         sign_in.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -98,14 +112,31 @@ public class Login extends Activity{
                     new GetContacts().execute();
                     String st = email.getText().toString();
                     String st2 = password.getText().toString();
-                    session.createUserLoginSession(st,st2);
-                    //code for preferences
+
+                    // Starting MainActivity
                     savedMySharedPreferences("check", checkBox.isChecked());
                     if (checkBox.isChecked()) {
 
                         savedMySharedPreferences("user", st);
-                        savedMySharedPreferences("password", st2);
+                       savedMySharedPreferences("password", st2);
                     }
+                    else if (!checkBox.isChecked())
+                    {
+                        savedMySharedPreferences("user","");
+                        savedMySharedPreferences("password","");
+
+                    }
+
+                    Intent i = new Intent(getApplicationContext(), Index.class);
+                   i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+
+                    // Add new Flag to start new Activity
+                    i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(i);
+
+                    finish();
+                    //code for preferences
+
 
                 }
             }
@@ -114,6 +145,7 @@ public class Login extends Activity{
            @Override
            public void onClick(View v) {
                session.logoutUser();
+
            }
        });
 
@@ -188,16 +220,18 @@ public class Login extends Activity{
                 Log.d("Login Successful!", "Login Success");
 
                 Toast.makeText(getApplicationContext(),"login success",Toast.LENGTH_LONG).show();
-               // session.createUserLoginSession(st,st2);
-
+                session.createUserLoginSession(st,st2);
                 Intent i = new Intent(Login.this, Index.class);
+            //    i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                // Add new Flag to start new Activity
+              // i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                finish();
                 startActivity(i);
-                //  return json.getString(TAG_MESSAGE);
+
             } else {
                 Log.d("Login Failure!","login fail");
                 Toast.makeText(Login.this,"login fail",Toast.LENGTH_LONG).show();
-                // return json.getString(TAG_MESSAGE);
+
             }
         }
     }
@@ -209,8 +243,8 @@ public class Login extends Activity{
     {
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
 
-        String str = sp.getString("user","abc@gmail.com");
-        String pass=sp.getString("pass","def");
+        String str = sp.getString("user","");
+        String pass=sp.getString("password","");
         Boolean ck =sp.getBoolean("check", true);
         email.setText(str);
         password.setText(pass);
@@ -253,6 +287,77 @@ public class Login extends Activity{
             return true;
         }
         return false;
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.menu, menu);
+
+        return super.onCreateOptionsMenu(menu);
+
+
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.login_id_menu) {
+            Intent intent = new Intent(Login.this, Login.class);
+            startActivity(intent);
+        }
+        if (id == R.id.signup_id_menu) {
+            Intent intent = new Intent(Login.this, SignUp.class);
+            startActivity(intent);
+        }
+        if(id==R.id.mobile)
+        {
+            Intent intent =new Intent(Login.this,Activity_main.class);
+            startActivity(intent);
+        }
+        if(id==R.id.camera)
+        {
+            Intent intent =new Intent(Login.this,Activity_main.class);
+            startActivity(intent);
+        }
+        if(id==R.id.fire_table)
+        {
+            Intent intent =new Intent(Login.this,Activity_main.class);
+            startActivity(intent);
+        }
+        if(id==R.id.accessories)
+        {
+            Intent intent =new Intent(Login.this,Activity_main.class);
+            startActivity(intent);
+        }
+        if(id==R.id.car)
+        {
+            Intent intent =new Intent(Login.this,Activity_main.class);
+            startActivity(intent);
+        }
+        if(id==R.id.laptop_computer)
+        {
+            Intent intent =new Intent(Login.this,Activity_main.class);
+            startActivity(intent);
+        }
+        if(id==R.id.tablets)
+        {
+            Intent intent =new Intent(Login.this,Activity_main.class);
+            startActivity(intent);
+        }
+        if(id==R.id.video_games)
+        {
+            Intent intent =new Intent(Login.this,Activity_main.class);
+            startActivity(intent);
+        }
+        if(id==R.id.gadgets)
+        {
+            Intent intent =new Intent(Login.this,Activity_main.class);
+            startActivity(intent);
+        }
+
+
+        return super.onOptionsItemSelected(item);
     }
 
 

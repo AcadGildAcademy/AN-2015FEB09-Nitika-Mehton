@@ -19,6 +19,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -27,17 +28,24 @@ import java.util.List;
 public class Index extends ActionBarActivity {
 
     TextView tv;
-
+    UserSessionLogin session;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.index_ui);
         tv = (TextView) findViewById(R.id.textView2);
+        session = new UserSessionLogin(getApplicationContext());
+        HashMap<String, String> user = session.getUserDetails();
+        // get name
+        if( session.isUserLoggedIn()) {
+            String user_str = user.get(UserSessionLogin.KEY_EMAIL_SESSION);
+            tv.setText(user_str);
+        }
         tv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplication(), "hai", Toast.LENGTH_LONG).show();
+
             }
         });
 
@@ -50,6 +58,7 @@ public class Index extends ActionBarActivity {
         menuInflater.inflate(R.menu.menu, menu);
 
         return super.onCreateOptionsMenu(menu);
+
 
     }
 

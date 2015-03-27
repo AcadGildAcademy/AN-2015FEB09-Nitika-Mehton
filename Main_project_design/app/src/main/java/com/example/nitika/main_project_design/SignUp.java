@@ -7,7 +7,11 @@ import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -27,7 +31,7 @@ import java.util.regex.Pattern;
 /**
  * Created by NITIKA on 05-Feb-15.
  */
-public class SignUp extends Activity{
+public class SignUp extends ActionBarActivity{
 
     private ProgressDialog pDialog;
 
@@ -53,7 +57,7 @@ public class SignUp extends Activity{
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.signup);
-
+        getActionBar();
         contactList = new ArrayList<HashMap<String, String>>();
 
         name=(EditText)findViewById(R.id.id_name);
@@ -182,5 +186,77 @@ public class SignUp extends Activity{
         }
         return false;
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.menu, menu);
+
+        return super.onCreateOptionsMenu(menu);
+
+
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.login_id_menu) {
+            Intent intent = new Intent(SignUp.this, Login.class);
+            startActivity(intent);
+        }
+        if (id == R.id.signup_id_menu) {
+            Intent intent = new Intent(SignUp.this, SignUp.class);
+            startActivity(intent);
+        }
+        if(id==R.id.mobile)
+        {
+            Intent intent =new Intent(SignUp.this,Activity_main.class);
+            startActivity(intent);
+        }
+        if(id==R.id.camera)
+        {
+            Intent intent =new Intent(SignUp.this,Activity_main.class);
+            startActivity(intent);
+        }
+        if(id==R.id.fire_table)
+        {
+            Intent intent =new Intent(SignUp.this,Activity_main.class);
+            startActivity(intent);
+        }
+        if(id==R.id.accessories)
+        {
+            Intent intent =new Intent(SignUp.this,Activity_main.class);
+            startActivity(intent);
+        }
+        if(id==R.id.car)
+        {
+            Intent intent =new Intent(SignUp.this,Activity_main.class);
+            startActivity(intent);
+        }
+        if(id==R.id.laptop_computer)
+        {
+            Intent intent =new Intent(SignUp.this,Activity_main.class);
+            startActivity(intent);
+        }
+        if(id==R.id.tablets)
+        {
+            Intent intent =new Intent(SignUp.this,Activity_main.class);
+            startActivity(intent);
+        }
+        if(id==R.id.video_games)
+        {
+            Intent intent =new Intent(SignUp.this,Activity_main.class);
+            startActivity(intent);
+        }
+        if(id==R.id.gadgets)
+        {
+            Intent intent =new Intent(SignUp.this,Activity_main.class);
+            startActivity(intent);
+        }
+
+
+        return super.onOptionsItemSelected(item);
+    }
+
 
 }
