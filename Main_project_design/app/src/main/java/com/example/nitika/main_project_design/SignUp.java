@@ -161,7 +161,7 @@ public class SignUp extends ActionBarActivity{
                 //  return json.getString(TAG_MESSAGE);
             } else {
                 Log.d("Sign-Up Failure!","Sign-Up fail");
-                Toast.makeText(SignUp.this,"Sign up fail",Toast.LENGTH_LONG).show();
+                Toast.makeText(SignUp.this,"Sign-Up fail",Toast.LENGTH_LONG).show();
                 // return json.getString(TAG_MESSAGE);
             }
         }

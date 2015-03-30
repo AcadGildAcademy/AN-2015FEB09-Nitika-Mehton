@@ -62,14 +62,8 @@
         android:layout_below="@+id/id_selling_price_value"
         android:layout_toRightOf="@+id/image"
         />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="5dp"
 
-        android:layout_below="@+id/image"
 
-        android:background="@color/orange"
-        />
 
 
 

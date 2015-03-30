@@ -59,7 +59,9 @@ public class ListViewAdapter extends BaseAdapter{
         TextView cost_price;
         TextView selling_price;
         TextView brand;
+
         ImageView image_path;
+
 
         Log.d("done","<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
         inflater = (LayoutInflater) context
@@ -97,7 +99,8 @@ public class ListViewAdapter extends BaseAdapter{
 
                 resultp = data.get(position);
                 Intent intent = new Intent(context, SingleItemView.class);
-                // Pass all data rank
+                // Pass all data
+                intent.putExtra("id", resultp.get(Activity_main.TAG_ID));
                 intent.putExtra("name", resultp.get(Activity_main.TAG_NAME));
                 intent.putExtra("description",resultp.get(Activity_main.TAG_DESCRIPTION));
                 intent.putExtra("image_path", resultp.get(Activity_main.TAG_IMAGE_PATH));

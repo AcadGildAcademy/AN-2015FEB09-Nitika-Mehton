@@ -67,6 +67,7 @@ public class Index extends ActionBarActivity {
         int id = item.getItemId();
         if (id == R.id.login_id_menu) {
             Intent intent = new Intent(Index.this, Login.class);
+
             startActivity(intent);
         }
         if (id == R.id.signup_id_menu) {
@@ -76,46 +77,55 @@ public class Index extends ActionBarActivity {
         if(id==R.id.mobile)
         {
             Intent intent =new Intent(Index.this,Activity_main.class);
+            intent.putExtra("category","mobile");
             startActivity(intent);
         }
         if(id==R.id.camera)
         {
             Intent intent =new Intent(Index.this,Activity_main.class);
+            intent.putExtra("category","camera");
             startActivity(intent);
         }
         if(id==R.id.fire_table)
         {
             Intent intent =new Intent(Index.this,Activity_main.class);
+            intent.putExtra("category","fire table");
             startActivity(intent);
         }
         if(id==R.id.accessories)
         {
             Intent intent =new Intent(Index.this,Activity_main.class);
+            intent.putExtra("category","accessories");
             startActivity(intent);
         }
         if(id==R.id.car)
         {
             Intent intent =new Intent(Index.this,Activity_main.class);
+            intent.putExtra("category","Car");
             startActivity(intent);
         }
         if(id==R.id.laptop_computer)
         {
             Intent intent =new Intent(Index.this,Activity_main.class);
+            intent.putExtra("category","computer");
             startActivity(intent);
         }
         if(id==R.id.tablets)
         {
             Intent intent =new Intent(Index.this,Activity_main.class);
+            intent.putExtra("category","tablets");
             startActivity(intent);
         }
         if(id==R.id.video_games)
         {
             Intent intent =new Intent(Index.this,Activity_main.class);
+            intent.putExtra("category","video games");
             startActivity(intent);
         }
         if(id==R.id.gadgets)
         {
             Intent intent =new Intent(Index.this,Activity_main.class);
+            intent.putExtra("category","gadgets");
             startActivity(intent);
         }
 

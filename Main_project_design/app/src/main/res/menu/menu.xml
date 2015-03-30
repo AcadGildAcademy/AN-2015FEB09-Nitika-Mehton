@@ -5,10 +5,11 @@
 
     >
 
+
     <item android:id="@+id/login_id_menu"
       android:title="menu"
     android:icon="@drawable/login_icon"
-       
+
     and:showAsAction="always"
     ></item>
 
@@ -19,6 +20,7 @@
         ></item>
 
    <item android:id="@+id/mobile"
+       android:icon="@drawable/item_selector"
     android:title="Mobile"
     ></item>
     <item android:id="@+id/fire_table"
@@ -26,6 +28,7 @@
         ></item>
     <item android:id="@+id/laptop_computer"
         android:title="Laptops/Computers"
+        android:icon="@drawable/item_selector"
         ></item>
     <item android:id="@+id/camera"
         android:title="Camera"
@@ -40,7 +43,8 @@
         android:title="TV/gadgets"
         ></item>
     <item android:id="@+id/car"
-        android:title="TV/Car Electronics"
+        android:title="Car"
+        android:icon="@drawable/item_selector"
         ></item>
     <item android:id="@+id/accessories"
         android:title="TV/Accessories"

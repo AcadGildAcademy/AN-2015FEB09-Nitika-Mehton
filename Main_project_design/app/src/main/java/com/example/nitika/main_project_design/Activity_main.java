@@ -14,12 +14,14 @@ import android.view.MenuItem;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 
 /**
@@ -43,13 +45,19 @@ public class Activity_main extends ActionBarActivity {
     static String TAG_STATUS = "status";
     static String TAG_BRAND = "brand";
     static String TAG_CATEGORY = "category";
-    private static String url = "http://bishasha.com/json/product_demo.php";
+    private static String url ="http://bishasha.com/json/products.php";
+    // "http://bishasha.com/json/product_demo.php";
+    String category;
     JSONArray contacts = null;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // Get the view from listview_main.xml
         setContentView(R.layout.activity_main_ui);
+        Intent i = getIntent();
+        // Get the result of name
+        category = i.getStringExtra("category");               // selected from menu
+        Toast.makeText(getApplicationContext(),category,Toast.LENGTH_LONG).show();
         // Execute DownloadJSON AsyncTask
         getActionBar();
         new DownloadJSON().execute();
@@ -73,15 +81,19 @@ public class Activity_main extends ActionBarActivity {
         }
 
         @Override
-        protected Void doInBackground(Void... params) {
+        protected Void doInBackground(Void... arg0)//params)
+        {
             // Create an array
             arraylist = new ArrayList<HashMap<String, String>>();
-            // Retrieve JSON Objects from the given URL address
-          //  jsonobject = JSONfunctions.getJSONfromURL("http://bishasha.com/json/products.php");//"http://www.androidbegin.com/tutorial/jsonparsetutorial.txt");
 
+//code for menu
+
+            List params = new ArrayList();
+            params.add(new BasicNameValuePair("category",category));
+            //
             ServiceHandler sh = new ServiceHandler();
             // Making a request to url and getting response
-            String jsonStr = sh.makeServiceCall(url, ServiceHandler.GET);
+            String jsonStr = sh.makeServiceCall(url, ServiceHandler.GET,params);
 
             Log.d("Response: ", "> " + jsonStr);
 
@@ -90,7 +102,11 @@ public class Activity_main extends ActionBarActivity {
 
                     JSONObject jsonObj = new JSONObject(jsonStr);
                     int success = jsonObj.getInt(TAG_SUCCESS);
-                    if (success == 1)
+                    //
+
+
+                    //
+                  if (success == 1)
                     {
                         // Getting JSON Array node
                         contacts = jsonObj.getJSONArray("whdeal_products");
@@ -99,29 +115,30 @@ public class Activity_main extends ActionBarActivity {
                     for (int i = 0; i < contacts.length(); i++) {
                         JSONObject c = contacts.getJSONObject(i);
 
-                   //     String id = c.getString(TAG_ID);
+                        String id = c.getString(TAG_ID);
                         String name = c.getString(TAG_NAME);
-                     //   String description = c.getString(TAG_DESCRIPTION);
+                       String description = c.getString(TAG_DESCRIPTION);
                         String image_path = c.getString(TAG_IMAGE_PATH);
                         String cost_price = c.getString(TAG_COST_PRICE);
                         String selling_price = c.getString(TAG_SELL_COST);
-                      //  String brand= c.getString(TAG_BRAND);
+                       String brand= c.getString(TAG_BRAND);
 
                         HashMap<String, String> contact = new HashMap<String, String>();
                         // adding each child node to HashMap key => value
-                        //contact.put(TAG_ID, id);
+                        contact.put(TAG_ID, id);
                         contact.put(TAG_NAME, name);
-                       // contact.put(TAG_DESCRIPTION, description);
+                        contact.put(TAG_DESCRIPTION, description);
                         contact.put(TAG_IMAGE_PATH, image_path);
                         contact.put(TAG_COST_PRICE,cost_price);
                         contact.put(TAG_SELL_COST,selling_price);
-                       // contact.put(TAG_BRAND,brand);
+                        contact.put(TAG_BRAND,brand);
 
 
 
                         arraylist.add(contact);
                     }
-                } else
+                }
+                    else
                     {
                         Log.d("no product","");
                     }
@@ -173,46 +190,55 @@ public class Activity_main extends ActionBarActivity {
         if(id==R.id.mobile)
         {
             Intent intent =new Intent(Activity_main.this,Activity_main.class);
+            intent.putExtra("category","mobile");
             startActivity(intent);
         }
         if(id==R.id.camera)
         {
             Intent intent =new Intent(Activity_main.this,Activity_main.class);
+            intent.putExtra("category","camera");
             startActivity(intent);
         }
         if(id==R.id.fire_table)
         {
             Intent intent =new Intent(Activity_main.this,Activity_main.class);
+            intent.putExtra("category","fire table");
             startActivity(intent);
         }
         if(id==R.id.accessories)
         {
             Intent intent =new Intent(Activity_main.this,Activity_main.class);
+            intent.putExtra("category","accessories");
             startActivity(intent);
         }
         if(id==R.id.car)
         {
             Intent intent =new Intent(Activity_main.this,Activity_main.class);
+            intent.putExtra("category","Car");
             startActivity(intent);
         }
         if(id==R.id.laptop_computer)
         {
             Intent intent =new Intent(Activity_main.this,Activity_main.class);
+            intent.putExtra("category","computer");
             startActivity(intent);
         }
         if(id==R.id.tablets)
         {
             Intent intent =new Intent(Activity_main.this,Activity_main.class);
+            intent.putExtra("category","tablets");
             startActivity(intent);
         }
         if(id==R.id.video_games)
         {
             Intent intent =new Intent(Activity_main.this,Activity_main.class);
+            intent.putExtra("category","video games ");
             startActivity(intent);
         }
         if(id==R.id.gadgets)
         {
             Intent intent =new Intent(Activity_main.this,Activity_main.class);
+            intent.putExtra("category","gadgets");
             startActivity(intent);
         }
 

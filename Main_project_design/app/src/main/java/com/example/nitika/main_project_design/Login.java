@@ -184,7 +184,7 @@ public class Login extends ActionBarActivity{
                 ServiceHandler sh = new ServiceHandler();
                 Log.d("request!", "starting");
               // getting product details by making HTTP request
-                String jsonStr = sh.makeServiceCall(url, 1, params);
+                String jsonStr = sh.makeServiceCall(url, 1, params);// 1 for get
                 JSONObject json = new JSONObject(jsonStr);
                 // check your log for json response
                 Log.d("Login attempt", json.toString());
@@ -230,7 +230,7 @@ public class Login extends ActionBarActivity{
 
             } else {
                 Log.d("Login Failure!","login fail");
-                Toast.makeText(Login.this,"login fail",Toast.LENGTH_LONG).show();
+                Toast.makeText(Login.this,"Login fail",Toast.LENGTH_LONG).show();
 
             }
         }
@@ -304,6 +304,7 @@ public class Login extends ActionBarActivity{
         int id = item.getItemId();
         if (id == R.id.login_id_menu) {
             Intent intent = new Intent(Login.this, Login.class);
+
             startActivity(intent);
         }
         if (id == R.id.signup_id_menu) {
