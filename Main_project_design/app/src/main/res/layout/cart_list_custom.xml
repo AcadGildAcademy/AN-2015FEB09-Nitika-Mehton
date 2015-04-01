@@ -4,7 +4,7 @@
     android:layout_height="fill_parent" >
 
     <ImageView
-        android:id="@+id/image"
+        android:id="@+id/cart_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -12,69 +12,69 @@
         android:padding="1dp" />
 
     <TextView
-        android:id="@+id/name"
+        android:id="@+id/cart_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/name"
         android:textColor="@color/black"
         android:textSize="@dimen/text_size"
-        android:layout_toRightOf="@+id/image"/>
+        android:layout_toRightOf="@+id/cart_image"/>
 
     <TextView
-        android:id="@+id/id_name_value"
+        android:id="@+id/cart_id_name_value"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/black"
         android:textSize="@dimen/text_size"
-        android:layout_toRightOf="@+id/name" />
+        android:layout_toRightOf="@+id/cart_name" />
 
     <TextView
-        android:id="@+id/id_cost_price"
+        android:id="@+id/cart_id_cost_price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/name"
+        android:layout_below="@+id/cart_name"
         android:text="@string/cost_price"
         android:textColor="@color/black"
         android:textSize="@dimen/text_size"
-        android:layout_toRightOf="@+id/image"/>
+        android:layout_toRightOf="@+id/cart_image"/>
 
     <TextView
-        android:id="@+id/id_cost_price_value"
+        android:id="@+id/cart_id_cost_price_value"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/id_name_value"
+        android:layout_below="@+id/cart_id_name_value"
         android:textColor="@color/black"
         android:textSize="@dimen/text_size"
-        android:layout_toRightOf="@+id/id_cost_price" />
+        android:layout_toRightOf="@+id/cart_id_cost_price" />
 
     <TextView
-        android:id="@+id/Selling_price"
+        android:id="@+id/cart_Selling_price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/id_cost_price"
+        android:layout_below="@+id/cart_id_cost_price"
         android:text="@string/selling_price"
         android:textColor="@color/black"
         android:textSize="@dimen/text_size"
-        android:layout_toRightOf="@+id/image"/>
+        android:layout_toRightOf="@+id/cart_image"/>
 
     <TextView
-        android:id="@+id/id_selling_price_value"
+        android:id="@+id/cart_id_selling_price_value"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/id_cost_price_value"
         android:textColor="@color/black"
         android:textSize="@dimen/text_size"
-        android:layout_toRightOf="@+id/Selling_price" />
+        android:layout_below="@+id/cart_id_cost_price_value"
+        android:layout_toRightOf="@+id/cart_Selling_price" />
 
     <TextView
-        android:id="@+id/text"
+        android:id="@+id/cart_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Click To See Detail"
         android:textColor="@color/black"
         android:textSize="@dimen/text_size"
-        android:layout_below="@+id/id_selling_price_value"
-        android:layout_toRightOf="@+id/image"
+        android:layout_below="@+id/cart_id_selling_price_value"
+        android:layout_toRightOf="@+id/cart_image"
         />
 
 

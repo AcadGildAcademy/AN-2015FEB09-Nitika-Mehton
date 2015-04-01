@@ -6,6 +6,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Menu;
@@ -27,7 +28,8 @@ import java.util.List;
 /**
  * Created by NITIKA on 23-Feb-15.
  */
-public class Activity_main extends ActionBarActivity {
+public class Activity_main extends FragmentActivity //ActionBarActivity
+ {
     // Declare Variables
     JSONObject jsonobject;
     JSONArray jsonarray;

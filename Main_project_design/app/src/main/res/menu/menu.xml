@@ -7,15 +7,19 @@
 
 
     <item android:id="@+id/login_id_menu"
-      android:title="menu"
+      android:title="Login"
     android:icon="@drawable/login_icon"
-
     and:showAsAction="always"
     ></item>
 
     <item android:id="@+id/signup_id_menu"
-        android:title="menu"
+        android:title="SignUp"
         android:icon="@android:drawable/ic_input_add"
+        and:showAsAction="always"
+        ></item>
+    <item android:id="@+id/cart_menu"
+        android:title="Cart"
+        android:icon="@drawable/shopping_cart"
         and:showAsAction="always"
         ></item>
 
@@ -24,23 +28,29 @@
     android:title="Mobile"
     ></item>
     <item android:id="@+id/fire_table"
+        android:icon="@drawable/item_selector"
         android:title="Fire Table"
         ></item>
     <item android:id="@+id/laptop_computer"
         android:title="Laptops/Computers"
         android:icon="@drawable/item_selector"
+        
         ></item>
     <item android:id="@+id/camera"
         android:title="Camera"
+        android:icon="@drawable/item_selector"
         ></item>
     <item android:id="@+id/tablets"
         android:title="Tablets"
+        android:icon="@drawable/item_selector"
         ></item>
     <item android:id="@+id/video_games"
         android:title="Video Games"
+        android:icon="@drawable/item_selector"
         ></item>
     <item android:id="@+id/gadgets"
         android:title="TV/gadgets"
+        android:icon="@drawable/item_selector"
         ></item>
     <item android:id="@+id/car"
         android:title="Car"
@@ -48,5 +58,6 @@
         ></item>
     <item android:id="@+id/accessories"
         android:title="TV/Accessories"
+        android:icon="@drawable/item_selector"
         ></item>
 </menu>

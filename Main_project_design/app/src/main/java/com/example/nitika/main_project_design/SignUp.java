@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Menu;
@@ -31,7 +32,8 @@ import java.util.regex.Pattern;
 /**
  * Created by NITIKA on 05-Feb-15.
  */
-public class SignUp extends ActionBarActivity{
+public class SignUp extends FragmentActivity// ActionBarActivity
+{
 
     private ProgressDialog pDialog;
 

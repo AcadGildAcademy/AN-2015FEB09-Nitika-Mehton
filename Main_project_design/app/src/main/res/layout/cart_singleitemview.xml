@@ -3,11 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@color/white"
     >
 
     <ImageView
-        android:id="@+id/image"
+        android:id="@+id/cart_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -16,86 +15,86 @@
         />
 
     <TextView
-        android:id="@+id/name"
+        android:id="@+id/cart_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/name"
         android:textColor="@color/black"
         android:textSize="@dimen/text_size"
-        android:layout_below="@+id/image"
+        android:layout_below="@+id/cart_image"
         />
 
           <TextView
-                android:id="@+id/id_name_value"
+                android:id="@+id/cart_id_name_value"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
               android:textColor="@color/black"
               android:textSize="@dimen/text_size"
-                android:layout_toRightOf="@+id/name"
-                android:layout_below="@+id/image"/>
+                android:layout_toRightOf="@+id/cart_name"
+                android:layout_below="@+id/cart_image"/>
 
     <TextView
-        android:id="@+id/description"
+        android:id="@+id/cart_description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="@string/discription"
         android:textColor="@color/black"
         android:textSize="@dimen/text_size"
-        android:text="@string/discription"
-        android:layout_below="@+id/name"
+        android:layout_below="@+id/cart_name"
         />
 
             <TextView
-                android:id="@+id/id_description_value"
+                android:id="@+id/cart_id_description_value"
                  android:layout_width="wrap_content"
                  android:layout_height="wrap_content"
                 android:textColor="@color/black"
                 android:textSize="@dimen/text_size"
-                 android:layout_toRightOf="@+id/description"
-                android:layout_below="@+id/id_name_value"/>
+                 android:layout_toRightOf="@+id/cart_description"
+                android:layout_below="@+id/cart_id_name_value"/>
 
     <TextView
-        android:id="@+id/id_cost_price"
+        android:id="@+id/cart_id_cost_price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/black"
         android:textSize="@dimen/text_size"
-        android:layout_below="@+id/description"
+        android:layout_below="@+id/cart_description"
         android:text="@string/cost_price" />
 
             <TextView
-                android:id="@+id/id_cost_price_value"
+                android:id="@+id/cart_id_cost_price_value"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
                 android:textSize="@dimen/text_size"
-                android:layout_below="@+id/id_description_value"
-                android:layout_toRightOf="@+id/id_cost_price"
+                android:layout_below="@+id/cart_id_description_value"
+                android:layout_toRightOf="@+id/cart_id_cost_price"
 
         />
 
     <TextView
-        android:id="@+id/Selling_price"
+        android:id="@+id/cart_Selling_price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/black"
         android:textSize="@dimen/text_size"
-        android:layout_below="@+id/id_cost_price"
+        android:layout_below="@+id/cart_id_cost_price"
         android:text="@string/selling_price" />
 
          <TextView
-                android:id="@+id/id_selling_price_value"
+                android:id="@+id/cart_id_selling_price_value"
                 android:layout_width="wrap_content"
                  android:layout_height="wrap_content"
              android:textColor="@color/black"
              android:textSize="@dimen/text_size"
-                android:layout_below="@+id/id_cost_price_value"
-                 android:layout_toRightOf="@+id/Selling_price" />
+                android:layout_below="@+id/cart_id_cost_price_value"
+                 android:layout_toRightOf="@+id/cart_Selling_price" />
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="fill_parent"
         android:layout_height="50dp"
-        android:layout_below="@+id/Selling_price"
+        android:layout_below="@+id/cart_Selling_price"
         android:layout_marginTop="43dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
@@ -104,19 +103,17 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/add_to_cart"
-            android:id="@+id/id_button_add_cart"
-            android:textColor="@color/black"
-            android:textSize="@dimen/text_size"
+            android:text="@string/cart_remove"
+            android:textColor="@color/orange"
+            android:id="@+id/cart_id_button_add_cart"
             android:layout_weight="1"/>
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/buy_now"
-            android:textColor="@color/black"
-            android:textSize="@dimen/text_size"
-            android:id="@+id/id_button_buy_now"
+            android:id="@+id/cart_id_button_buy_now"
+            android:textColor="@color/orange"
             android:layout_weight="1"/>
     </LinearLayout>
 
@@ -124,17 +121,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/brand"
-        android:id="@+id/id_brand"
-        android:layout_below="@+id/linearLayout2"
+        android:id="@+id/cart_id_brand"
         android:textColor="@color/black"
-        android:textSize="@dimen/text_size"/>
+        android:textSize="@dimen/text_size"
+        android:layout_below="@+id/linearLayout2" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/black"
         android:textSize="@dimen/text_size"
-        android:id="@+id/id_brand_value"
-        android:layout_toRightOf="@+id/id_brand"
+        android:id="@+id/cart_id_brand_value"
+        android:layout_toRightOf="@+id/cart_id_brand"
         android:layout_below="@+id/linearLayout2" />
 
 

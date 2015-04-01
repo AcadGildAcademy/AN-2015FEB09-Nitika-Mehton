@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.ActionBarActivity;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
@@ -25,7 +26,8 @@ import java.util.List;
 /**
  * Created by NITIKA on 05-Mar-15.
  */
-public class Index extends ActionBarActivity {
+public class Index extends FragmentActivity//ActionBarActivity
+{
 
     TextView tv;
     UserSessionLogin session;
@@ -73,6 +75,21 @@ public class Index extends ActionBarActivity {
         if (id == R.id.signup_id_menu) {
             Intent intent = new Intent(Index.this, SignUp.class);
             startActivity(intent);
+        }
+        if(id == R.id.cart_menu)
+        {
+            session = new UserSessionLogin(getApplicationContext());
+            HashMap<String, String> user = session.getUserDetails();
+            // get name
+            if( session.isUserLoggedIn()) {
+                String user_str = user.get(UserSessionLogin.KEY_EMAIL_SESSION);
+                Intent intent = new Intent(Index.this, Cart_item.class);
+                startActivity(intent);
+
+            }
+            else{
+                Toast.makeText(getApplicationContext(),"Login First",Toast.LENGTH_SHORT).show();
+            }
         }
         if(id==R.id.mobile)
         {

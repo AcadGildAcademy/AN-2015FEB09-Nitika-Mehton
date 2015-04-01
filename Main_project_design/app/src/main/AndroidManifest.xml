@@ -19,6 +19,8 @@
         <activity android:name=".SignUp"></activity>
         <activity android:name=".Activity_main"></activity>
         <activity android:name=".SingleItemView"></activity>
+        <activity android:name=".Cart_item"></activity>
+        <activity android:name=".Cart_SingleItemView"></activity>
     </application>
 
 </manifest>

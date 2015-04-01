@@ -24,8 +24,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class SingleItemView extends FragmentActivity//Activity
-{
+public class Cart_SingleItemView extends FragmentActivity{
     // Declare Variables
     private ProgressDialog pDialog;
 
@@ -39,7 +38,7 @@ public class SingleItemView extends FragmentActivity//Activity
     String status;
     Button add_to_cart;
     String position;
-    private static String url = "http://bishasha.com/json/whdeal_AddToCart.php";
+    private static String url = "http://bishasha.com/json/whdeal_RemoveFromCart.php";
     ImageLoader imageLoader = new ImageLoader(this);
     private static final String TAG_SUCCESS = "success";
 
@@ -47,8 +46,8 @@ public class SingleItemView extends FragmentActivity//Activity
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // Get the view from singleitemview.xml
-        setContentView(R.layout.singleitemview);
-        add_to_cart =(Button)findViewById(R.id.id_button_add_cart);
+        setContentView(R.layout.cart_singleitemview);
+        add_to_cart =(Button)findViewById(R.id.cart_id_button_add_cart);
                 Intent i = getIntent();
         // Get the result of name
         name = i.getStringExtra("name");
@@ -66,13 +65,13 @@ public class SingleItemView extends FragmentActivity//Activity
         brand =i.getStringExtra("brand");
 
         // Locate the TextViews in singleitemview.xml
-        TextView txtname = (TextView) findViewById(R.id.id_name_value);
-        TextView txtcost_price = (TextView) findViewById(R.id.id_cost_price_value);
-        TextView txtselling_price = (TextView) findViewById(R.id.id_selling_price_value);
-        TextView txtbrand=(TextView)findViewById(R.id.id_brand_value);
-        TextView txtdescription=(TextView)findViewById(R.id.id_description_value);
+        TextView txtname = (TextView) findViewById(R.id.cart_id_name_value);
+        TextView txtcost_price = (TextView) findViewById(R.id.cart_id_cost_price_value);
+        TextView txtselling_price = (TextView) findViewById(R.id.cart_id_selling_price_value);
+        TextView txtbrand=(TextView)findViewById(R.id.cart_id_brand_value);
+        TextView txtdescription=(TextView)findViewById(R.id.cart_id_description_value);
         // Locate the ImageView in singleitemview.xml
-        ImageView imgflag = (ImageView) findViewById(R.id.image);
+        ImageView imgflag = (ImageView) findViewById(R.id.cart_image);
       Toast.makeText(getApplication(),id,Toast.LENGTH_LONG).show();
         // Set results to the TextViews
         txtname.setText(name);
@@ -95,17 +94,11 @@ public class SingleItemView extends FragmentActivity//Activity
                 session = new UserSessionLogin(getApplicationContext());
                 HashMap<String, String> user = session.getUserDetails();
                 // get name
-                if( session.isUserLoggedIn()) {
-                    String user_str = user.get(UserSessionLogin.KEY_EMAIL_SESSION);
-                    Toast.makeText(getApplicationContext(),user_str,Toast.LENGTH_LONG).show();
+
 
                     new GetContacts().execute();
 
-                }
-               else
-                {
-                    Toast.makeText(getApplicationContext(),"Please Login First",Toast.LENGTH_LONG).show();
-                }
+
 
                 }
             });
@@ -124,7 +117,7 @@ public class SingleItemView extends FragmentActivity//Activity
         protected void onPreExecute() {
             super.onPreExecute();
             // Showing progress dialog
-            pDialog = new ProgressDialog(SingleItemView.this);
+            pDialog = new ProgressDialog(Cart_SingleItemView.this);
             pDialog.setMessage("Please wait...");
             pDialog.setCancelable(false);
             pDialog.show();
@@ -148,7 +141,7 @@ public class SingleItemView extends FragmentActivity//Activity
                 ServiceHandler sh = new ServiceHandler();
                 Log.d("request!", "starting");
                 // getting product details by making HTTP request
-                String jsonStr = sh.makeServiceCall(url, 2, params);//2 for POST
+                String jsonStr = sh.makeServiceCall(url, 1, params);//1 for GET
                 JSONObject json = new JSONObject(jsonStr);
                 // check your log for json response
                 Log.d("store to cart attempt", json.toString());
@@ -178,15 +171,15 @@ public class SingleItemView extends FragmentActivity//Activity
             super.onProgressUpdate(values);
             int  success=values[0];
             if (success == 1) {
-                Log.d("add to cart !", " Success");
-                Toast.makeText(getApplicationContext(),"Product is added to cart",Toast.LENGTH_LONG).show();
-                Intent i = new Intent(SingleItemView.this,SingleItemView.class);//temp
+                Log.d("remove from cart !", " Success");
+                Toast.makeText(getApplicationContext(),"Product is removed to cart",Toast.LENGTH_LONG).show();
+                Intent i = new Intent(Cart_SingleItemView.this,Cart_SingleItemView.class);//temp
                 finish();
                 startActivity(i);
                 //  return json.getString(TAG_MESSAGE);
             } else {
-                Log.d("add to Failure!"," fail");
-                Toast.makeText(getApplicationContext(),"Already in Cart",Toast.LENGTH_LONG).show();
+                Log.d("Remove from cart  Failure!"," fail");
+                Toast.makeText(getApplicationContext(),"fail",Toast.LENGTH_LONG).show();
                 // return json.getString(TAG_MESSAGE);
             }
         }
