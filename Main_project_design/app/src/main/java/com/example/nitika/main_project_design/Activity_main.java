@@ -47,6 +47,8 @@ public class Activity_main extends ActionBarActivity
     static String TAG_STATUS = "status";
     static String TAG_BRAND = "brand";
     static String TAG_CATEGORY = "category";
+     static String TAG_QUANTITY="quantity";
+     static String TAG_TOTAL="total";
     private static String url ="http://bishasha.com/json/products.php";
     // "http://bishasha.com/json/product_demo.php";
     String category;

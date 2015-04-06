@@ -1,6 +1,7 @@
 package com.example.nitika.main_project_design;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
@@ -9,6 +10,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -27,7 +29,7 @@ import java.util.List;
  * Created by NITIKA on 31-Mar-15.
  */
 public class Cart_item extends ActionBarActivity {
-
+    private ProgressDialog pDialog;
     ListView listview;
     ListViewAdapter adapter;
     Cart_Adapter cart_adapter;
@@ -43,12 +45,14 @@ public class Cart_item extends ActionBarActivity {
     static String TAG_STATUS = "status";
     static String TAG_BRAND = "brand";
     static String TAG_CATEGORY = "category";
+    static String TAG_QUANTITY ="quantity";
+    static String TAG_TOTAL="total";
     private static String url ="http://bishasha.com/json/whdeal_SeeCartItem.php";
-    // "http://bishasha.com/json/product_demo.php";
+
     TextView total_tv;
     int total_int;
     String t_string;
-EditText total_edit_txt;
+TextView total_edit_txt;
 
     JSONArray contacts = null;
     UserSessionLogin session;
@@ -61,7 +65,7 @@ EditText total_edit_txt;
         session = new UserSessionLogin(getApplicationContext());
         HashMap<String, String> user = session.getUserDetails();
         total_tv=(TextView)findViewById(R.id.total_value);
-        total_edit_txt=(EditText)findViewById(R.id.total_btn);
+        total_edit_txt=(TextView)findViewById(R.id.total_btn);
         // get name
         if( session.isUserLoggedIn()) {
             String user_str = user.get(UserSessionLogin.KEY_EMAIL_SESSION);
@@ -73,7 +77,7 @@ EditText total_edit_txt;
      total_edit_txt.setOnClickListener(new View.OnClickListener() {
          @Override
          public void onClick(View v) {
-        //     new DownloadJSON().execute();
+           //  new UpdateJSON().execute();
          }
      });
     }
@@ -102,7 +106,7 @@ EditText total_edit_txt;
             HashMap<String, String> user = session.getUserDetails();
             String user1 = (user.get(UserSessionLogin.KEY_EMAIL_SESSION));
             String user_email= user1.toString();
-            Log.d("ekuuuuuu",""+user_email);
+
             List params = new ArrayList();
             params.add(new BasicNameValuePair("user_email",user_email));
             //
@@ -137,6 +141,8 @@ EditText total_edit_txt;
                             String cost_price = c.getString(TAG_COST_PRICE);
                             String selling_price = c.getString(TAG_SELL_COST);
                             String brand= c.getString(TAG_BRAND);
+                            String quantity=c.getString(TAG_QUANTITY);
+                            String total=c.getString(TAG_TOTAL);
 
                             HashMap<String, String> contact = new HashMap<String, String>();
                             // adding each child node to HashMap key => value
@@ -147,10 +153,22 @@ EditText total_edit_txt;
                             contact.put(TAG_COST_PRICE,cost_price);
                             contact.put(TAG_SELL_COST,selling_price);
                             contact.put(TAG_BRAND,brand);
-        //  t_string=  selling_price.toString();
-          //                   total_int=Integer.parseInt(t_string);
-          total_int=total_int+Integer.parseInt(selling_price);
-             Log.d("total-->",""+total_int);
+                            contact.put(TAG_QUANTITY,quantity);
+                            contact.put(TAG_TOTAL,total);
+
+                            if(total.matches("\\d+")) //check if only digits. Could also be text.matches("[0-9]+")
+                            {
+                                String ss=total.toString();
+                                total_int += Integer.parseInt(ss);
+
+                                Log.d("$$$$", "" +total_tv );
+                            }
+                            else
+                            {
+                                Log.d("not a valid number","");
+                            }
+
+
                             arraylist.add(contact);
                         }
                     }
@@ -186,6 +204,8 @@ EditText total_edit_txt;
             mProgressDialog.dismiss();
         }
     }
+
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater = getMenuInflater();

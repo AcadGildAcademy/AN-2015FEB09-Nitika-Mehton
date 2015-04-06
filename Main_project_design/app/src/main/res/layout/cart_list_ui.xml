@@ -6,7 +6,7 @@
     <ListView
         android:id="@+id/cart_listview"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="459dp"
         android:background="@color/white"
         android:divider="@color/orange"
         android:dividerHeight="1dp"/>
@@ -17,7 +17,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="110dp"
+        android:layout_height="100dp"
         android:orientation="vertical"
         android:layout_below="@+id/cart_listview"
         android:id="@+id/linearLayout4"
@@ -26,20 +26,24 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:paddingTop="5dp"
+        android:paddingBottom="10dp"
      >
 
-        <EditText
+        <TextView
             android:layout_width="wrap_content"
-            android:layout_height="30dp"
+            android:layout_height="wrap_content"
             android:text="Total"
-            android:textSize="30dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:textSize="25dp"
             android:textColor="@color/black"
             android:id="@+id/total_btn"/>
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="30dp"
+            android:layout_height="wrap_content"
             android:textSize="30dp"
 
             android:textColor="@color/orange"
@@ -52,6 +56,7 @@
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
        android:orientation="horizontal"
+       android:paddingTop="5dp"
       android:id="@+id/linearLayout3">
     <Button
         android:layout_width="wrap_content"

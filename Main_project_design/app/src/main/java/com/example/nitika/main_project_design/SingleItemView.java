@@ -139,12 +139,15 @@ public class SingleItemView extends ActionBarActivity
             HashMap<String, String> user = session.getUserDetails();
             String user_email= (user.get(UserSessionLogin.KEY_EMAIL_SESSION)).toString();
             String product_id = id.toString();
-
+             String total=selling_price.toString();
+            String quantity="1";
                  try {
                 // Building Parameters
                 List params = new ArrayList();
                 params.add(new BasicNameValuePair("user_email", user_email));
                 params.add(new BasicNameValuePair("product_id",product_id));
+                params.add(new BasicNameValuePair("quantity",quantity));
+                params.add(new BasicNameValuePair("total",total));
 
                 ServiceHandler sh = new ServiceHandler();
                 Log.d("request!", "starting");
@@ -181,7 +184,7 @@ public class SingleItemView extends ActionBarActivity
             if (success == 1) {
                 Log.d("add to cart !", " Success");
                 Toast.makeText(getApplicationContext(),"Product is added to cart",Toast.LENGTH_LONG).show();
-                Intent i = new Intent(SingleItemView.this,SingleItemView.class);//temp
+                Intent i = new Intent(SingleItemView.this,Activity_main.class);//temp
                 finish();
                 startActivity(i);
                 //  return json.getString(TAG_MESSAGE);

@@ -60,7 +60,7 @@ public class Cart_Adapter  extends BaseAdapter{
         TextView selling_price;
         TextView brand;
       TextView total_custom_ui;
-       final EditText cart_quantity;
+        TextView cart_quantity;
         ImageView image_path;
 
         int mul;
@@ -78,7 +78,7 @@ public class Cart_Adapter  extends BaseAdapter{
         selling_price = (TextView) itemView.findViewById(R.id.cart_id_selling_price_value);
 
         total_custom_ui=(TextView)itemView.findViewById(R.id.cart_total_id_value);//to show total
-        cart_quantity=(EditText)itemView.findViewById(R.id.cart_quantity_value);//quantity
+        cart_quantity=(TextView)itemView.findViewById(R.id.cart_quantity_value);//quantity
         // Locate the ImageView in listview_item.xml
         image_path = (ImageView) itemView.findViewById(R.id.cart_image);
 
@@ -88,42 +88,8 @@ public class Cart_Adapter  extends BaseAdapter{
         name.setText(resultp.get(Activity_main.TAG_NAME));
         cost_price.setText(resultp.get(Activity_main.TAG_COST_PRICE));
         selling_price.setText(resultp.get(Activity_main.TAG_SELL_COST));
-
-        // multiple selling price with quantity
-
-       // String ss=selling_price.toString();
-        //mul=Integer.parseInt(ss)*quantity;
-          //total_custom_ui.setText(mul);
-        quantity=Integer.parseInt(cart_quantity.getText().toString()) ;
-
-        String text = selling_price.getText().toString();
-        cart_quantity.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (!hasFocus) {
-                    final int position = v.getId();
-                    final EditText Caption = (EditText) v;
-                    Log.d("lllllllllllll",""+cart_quantity.getText().toString());
-                    quantity=Integer.parseInt(cart_quantity.getText().toString()) ;
-
-                }
-                }
-        });
-
-
-
-        if(text.matches("\\d+")) //check if only digits. Could also be text.matches("[0-9]+")
-        {
-
-            mul = Integer.parseInt(text)*quantity;
-            total_custom_ui.setText(Integer.toString(mul));
-            Log.d("$$$$", "" + mul + "q-->" + cart_quantity.getText().toString());
-        }
-        else
-        {
-            //System.out.println("not a valid number");
-        }
-
+        cart_quantity.setText(resultp.get(Activity_main.TAG_QUANTITY));
+        total_custom_ui.setText(resultp.get(Activity_main.TAG_TOTAL));
         // Capture position and set results to the ImageView
         // Passes flag images URL into ImageLoader.class
         imageLoader.DisplayImage(resultp.get(Activity_main.TAG_IMAGE_PATH), image_path);
@@ -145,8 +111,8 @@ public class Cart_Adapter  extends BaseAdapter{
                 intent.putExtra("cost_price", resultp.get(Activity_main.TAG_COST_PRICE));
                 intent.putExtra("selling_price",resultp.get(Activity_main.TAG_SELL_COST));
                 intent.putExtra("brand",resultp.get(Activity_main.TAG_BRAND));
-
-
+                 intent.putExtra("quantity",resultp.get(Activity_main.TAG_QUANTITY));
+                    intent.putExtra("total",resultp.get(Activity_main.TAG_TOTAL));
                 // Start SingleItemView Class
                 context.startActivity(intent);
 
