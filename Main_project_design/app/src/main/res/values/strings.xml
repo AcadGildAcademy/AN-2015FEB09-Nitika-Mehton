@@ -14,4 +14,164 @@
     <string name="buy_now">"Buy Now " </string>
     <string name="cart_remove">"Remove From Cart " </string>
 
+
+    <string-array name="state_list">
+       <item> Andhra Pradesh </item>
+        <item>  Arunachal Pradesh </item>
+        <item>  Assam </item>
+        <item>  Bihar </item>
+        <item> Goa </item>
+        <item>   Gujarat </item>
+        <item>   Haryana </item>
+      <item>  Madhya Pradesh </item>
+        <item>    Maharashtra </item>
+        <item>  Punjab </item>
+        <item>  Uttarakhand </item>
+        <item>  Uttar Pradesh </item>
+        <item> Chandigarh </item>
+        <item> Delhi </item>
+
+    </string-array>
+
+    <string-array name="chandigarah">
+       <item> Chandigarh</item>
+    </string-array>
+
+    <string-array name="delhi">
+        <item>  Central Delhi</item>
+        <item> East Delhi</item>
+        <item> New Delhi</item>
+        <item> North Delhi</item>
+        <item> North East Delhi</item>
+        <item> North West Delhi</item>
+        <item> Shahdara</item>
+        <item> South Delhi</item>
+        <item> South East Delhi</item>
+        <item> South West Delhi</item>
+        <item> West Delhi</item>
+        </string-array>
+    <string-array name="AndhraPradesht">
+        <item>  Anantapur</item>
+        <item>  Expand Chittoor</item>
+        <item> Expand East Godavari</item>
+        <item> Expand Guntur</item>
+    </string-array>
+
+    <string-array name="ArunachalPradesh">
+        <item>  Collapse Anjaw</item>
+        <item>  Expand Changlang</item>
+        <item>  Collapse Dibang Valley</item>
+        <item>   Expand East Kameng</item>
+        <item>  Expand East Siang</item>
+        <item>  Expand Kurung Kumey</item>
+        <item>  Expand Lohit</item>
+        <item>  Collapse Longding</item>
+    </string-array>
+    <string-array name="assam">
+
+        <item> Baksa</item>
+        <item>  Expand Barpeta</item>
+        <item>   Expand  Bongaigaon</item>
+        <item>    Expand Cachar</item>
+        </string-array>
+
+    <string-array name="bihar">
+        <item>    Araria</item>
+        <item>         Expand Arwal</item>
+        <item>  Collapse Aurangabad</item>
+        <item>   Collapse Banka</item>
+        </string-array>
+    <string-array name="goa">
+        <item> North Goa</item>
+        <item> Expand South Goa</item>
+        </string-array>
+    <string-array name="gujrat">
+        <item>  Rajkot</item>
+        <item>  Sabarkantha (Himmatnagar)</item>
+        <item>  Surat</item>
+        <item>  Surendranagar</item>
+        <item>  Tapi (Vyara)</item>
+        <item>  Vadodara</item>
+        <item>  Valsad</item>
+    </string-array>
+
+    <string-array name="punjab_list">
+        <item>  Amritsar</item>
+        <item>Barnala</item>
+        <item>Bathinda</item>
+        <item>Faridkot</item>
+        <item>Fatehgarh Sahib</item>
+        <item>Fazilka</item>
+        <item> Ferozepur</item>
+        <item>Gurdaspur</item>
+        <item>Hoshiarpur</item>
+        <item>Jalandhar</item>
+        <item>Kapurthala</item>
+        <item>Ludhiana</item>
+        <item>Mansa	 Moga</item>
+        <item>Muktsar</item>
+        <item> Nawanshahr</item>
+        <item>Pathankot</item>
+        <item>Patiala</item>
+        <item>   Rupnagar</item>
+        <item>Sangrur</item>
+        <item>SAS Nagar</item>
+        </string-array>
+    <string-array name="Haryana_list">
+    <item> Ambala</item>
+    <item> Bhiwani</item>
+    <item>Faridabad</item>
+    <item>Jhajjar</item>
+    <item>Jind</item>
+    <item>Kaithal</item>
+    <item>Karnal</item>
+    <item>Kurukshetra</item>
+    <item>Mahendragarh</item>
+    <item>Mewat</item>
+    <item>Palwal</item>
+    <item>Panchkula</item>
+    <item> Panipatv</item>
+    <item>Rewari</item>
+    <item>Rohtak</item>
+    <item> Sirsa</item>
+    <item>Sonipat</item>
+    <item>Yamunanagar</item>
+    </string-array>
+    <string-array name="Mplist">
+        <item> Raisen</item>
+        <item> Rajgarh</item>
+        <item> Ratlam</item>
+        <item> Rewa</item>
+        <item> Sagar</item>
+        <item> Satna</item>
+        <item> Sehore</item>
+    </string-array>
+    <string-array name="Maharastra_list">
+
+        <item> Hingoli</item>
+        <item>Jalgaon</item>
+        <item> Jalna</item>
+        <item> Kolhapur</item>
+        <item> Latur</item>
+        <item> Mumbai City</item>
+        <item> Mumbai Suburban</item>
+        </string-array>
+    <string-array name="uttarakhand_list">
+        <item> Almora</item>
+        <item> Bageshwar</item>
+        <item> Chamoli</item>
+        <item> Champawat</item>
+        <item> Dehradun</item>
+        <item> Haridwar</item>
+        <item> Nainital</item>
+    </string-array>
+    <string-array name="up_list">
+        <item>  Fatehpur</item>
+        <item> Firozabad</item>
+        <item> Gautam Buddha Nagar</item>
+        <item> Ghaziabad</item>
+        <item> Ghazipur</item>
+        <item> Gonda</item>
+        <item> Gorakhpur</item>
+        </string-array>
 </resources>

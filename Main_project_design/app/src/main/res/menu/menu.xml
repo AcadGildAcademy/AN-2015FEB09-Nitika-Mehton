@@ -24,16 +24,17 @@
         ></item>
 
    <item android:id="@+id/mobile"
-       android:icon="@drawable/item_selector"
+android:icon="@drawable/abc_ic_search_api_mtrl_alpha"
     android:title="Mobile"
+
     ></item>
     <item android:id="@+id/fire_table"
-        android:icon="@drawable/item_selector"
+        android:icon="@drawable/abc_ic_search_api_mtrl_alpha"
         android:title="Fire Table"
         ></item>
     <item android:id="@+id/laptop_computer"
         android:title="Laptops/Computers"
-        android:icon="@drawable/item_selector"
+
         
         ></item>
     <item android:id="@+id/camera"

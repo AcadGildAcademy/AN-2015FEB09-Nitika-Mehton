@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -24,7 +25,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class Cart_SingleItemView extends FragmentActivity{
+public class Cart_SingleItemView extends ActionBarActivity{
     // Declare Variables
     private ProgressDialog pDialog;
 
@@ -173,7 +174,7 @@ public class Cart_SingleItemView extends FragmentActivity{
             if (success == 1) {
                 Log.d("remove from cart !", " Success");
                 Toast.makeText(getApplicationContext(),"Product is removed to cart",Toast.LENGTH_LONG).show();
-                Intent i = new Intent(Cart_SingleItemView.this,Cart_SingleItemView.class);//temp
+                Intent i = new Intent(Cart_SingleItemView.this,Cart_item.class);//temp
                 finish();
                 startActivity(i);
                 //  return json.getString(TAG_MESSAGE);

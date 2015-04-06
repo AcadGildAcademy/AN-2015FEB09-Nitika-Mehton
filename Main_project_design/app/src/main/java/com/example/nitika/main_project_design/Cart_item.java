@@ -8,7 +8,10 @@ import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.View;
+import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.apache.http.message.BasicNameValuePair;
@@ -23,7 +26,7 @@ import java.util.List;
 /**
  * Created by NITIKA on 31-Mar-15.
  */
-public class Cart_item extends FragmentActivity {
+public class Cart_item extends ActionBarActivity {
 
     ListView listview;
     ListViewAdapter adapter;
@@ -42,7 +45,11 @@ public class Cart_item extends FragmentActivity {
     static String TAG_CATEGORY = "category";
     private static String url ="http://bishasha.com/json/whdeal_SeeCartItem.php";
     // "http://bishasha.com/json/product_demo.php";
-    String category;
+    TextView total_tv;
+    int total_int;
+    String t_string;
+EditText total_edit_txt;
+
     JSONArray contacts = null;
     UserSessionLogin session;
 
@@ -50,8 +57,11 @@ public class Cart_item extends FragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.cart_list_ui);
+
         session = new UserSessionLogin(getApplicationContext());
         HashMap<String, String> user = session.getUserDetails();
+        total_tv=(TextView)findViewById(R.id.total_value);
+        total_edit_txt=(EditText)findViewById(R.id.total_btn);
         // get name
         if( session.isUserLoggedIn()) {
             String user_str = user.get(UserSessionLogin.KEY_EMAIL_SESSION);
@@ -60,7 +70,12 @@ public class Cart_item extends FragmentActivity {
         }
         getActionBar();
 
-
+     total_edit_txt.setOnClickListener(new View.OnClickListener() {
+         @Override
+         public void onClick(View v) {
+        //     new DownloadJSON().execute();
+         }
+     });
     }
     private class DownloadJSON extends AsyncTask<Void, Void, Void> {
 
@@ -110,7 +125,7 @@ public class Cart_item extends FragmentActivity {
                     {
                         // Getting JSON Array node
                         contacts = jsonObj.getJSONArray("whdeal_products");
-                        Log.d("pagal",""+contacts);
+                        Log.d("contacts-->",""+contacts);
                         // looping through All Contacts
                         for (int i = 0; i < contacts.length(); i++) {
                             JSONObject c = contacts.getJSONObject(i);
@@ -132,9 +147,10 @@ public class Cart_item extends FragmentActivity {
                             contact.put(TAG_COST_PRICE,cost_price);
                             contact.put(TAG_SELL_COST,selling_price);
                             contact.put(TAG_BRAND,brand);
-
-
-
+        //  t_string=  selling_price.toString();
+          //                   total_int=Integer.parseInt(t_string);
+          total_int=total_int+Integer.parseInt(selling_price);
+             Log.d("total-->",""+total_int);
                             arraylist.add(contact);
                         }
                     }
@@ -157,6 +173,10 @@ public class Cart_item extends FragmentActivity {
         @Override
         protected void onPostExecute(Void args) {
             // Locate the listview in listview_main.xml
+
+            String ss=Integer.toString(total_int);
+            Log.d("<<>>>",""+ss);
+            total_tv.setText(ss);
             listview = (ListView) findViewById(R.id.cart_listview);
             // Pass the results into ListViewAdapter.java
            cart_adapter = new Cart_Adapter(Cart_item.this, arraylist);

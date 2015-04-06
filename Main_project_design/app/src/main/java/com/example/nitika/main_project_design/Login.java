@@ -19,6 +19,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.apache.http.message.BasicNameValuePair;
@@ -35,7 +36,7 @@ import java.util.regex.Pattern;
 /**
  * Created by NITIKA on 05-Feb-15.
  */
-public class Login extends FragmentActivity// ActionBarActivity
+public class Login extends  ActionBarActivity
  {
 
     private ProgressDialog pDialog;
@@ -43,6 +44,7 @@ public class Login extends FragmentActivity// ActionBarActivity
     EditText email, password,confirm_password;
     Button sign_in, logout;
     CheckBox checkBox;
+    TextView profile;
     Boolean status;
     private static String url = "http://bishasha.com/json/whdeal_login.php";
     UserSessionLogin session;
@@ -65,6 +67,7 @@ public class Login extends FragmentActivity// ActionBarActivity
         password =(EditText)findViewById(R.id.id_password);
         checkBox=(CheckBox)findViewById(R.id.id_remember_me);
         logout=(Button)findViewById(R.id.logout);
+
         session = new UserSessionLogin(getApplicationContext());
        loadMySavePreferences();//for email and password
         getActionBar();
@@ -72,6 +75,8 @@ public class Login extends FragmentActivity// ActionBarActivity
         {
           sign_in.setEnabled(false);
         }
+
+
 
        /* {
             Toast.makeText(getApplicationContext(), ""+checkBox.isChecked(),Toast.LENGTH_LONG).show();

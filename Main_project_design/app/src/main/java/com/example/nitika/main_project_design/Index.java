@@ -26,7 +26,7 @@ import java.util.List;
 /**
  * Created by NITIKA on 05-Mar-15.
  */
-public class Index extends FragmentActivity//ActionBarActivity
+public class Index extends ActionBarActivity
 {
 
     TextView tv;
@@ -50,8 +50,8 @@ public class Index extends FragmentActivity//ActionBarActivity
 
             }
         });
-
-        getActionBar();
+    getSupportActionBar();
+       // getActionBar();
     }
 
     @Override

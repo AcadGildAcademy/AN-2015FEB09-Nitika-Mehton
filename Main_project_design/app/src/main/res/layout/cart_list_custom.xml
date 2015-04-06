@@ -54,7 +54,7 @@
         android:layout_below="@+id/cart_id_cost_price"
         android:text="@string/selling_price"
         android:textColor="@color/black"
-        android:textSize="@dimen/text_size"
+        android:textSize="20dp"
         android:layout_toRightOf="@+id/cart_image"/>
 
     <TextView
@@ -62,9 +62,56 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/black"
-        android:textSize="@dimen/text_size"
+        android:textSize="25dp"
+android:text="1000"
+        android:layout_marginLeft="5dp"
         android:layout_below="@+id/cart_id_cost_price_value"
         android:layout_toRightOf="@+id/cart_Selling_price" />
+
+    <TextView
+        android:id="@+id/cart_multiple"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="25dp"
+        android:text="X"
+        android:layout_marginLeft="5dp"
+        android:layout_below="@+id/cart_id_cost_price_value"
+        android:layout_toRightOf="@+id/cart_id_selling_price_value" />
+
+    <EditText
+        android:id="@+id/cart_quantity_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="25dp"
+        android:text="1"
+        android:layout_marginLeft="5dp"
+        android:layout_below="@+id/cart_id_cost_price_value"
+        android:layout_toRightOf="@+id/cart_multiple" />
+
+    <TextView
+        android:id="@+id/cart_total_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cart_Selling_price"
+        android:text="Total"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:layout_toRightOf="@+id/cart_image"/>
+
+    <TextView
+        android:id="@+id/cart_total_id_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/orange"
+        android:textSize="20dp"
+
+        android:layout_marginLeft="5dp"
+
+        android:layout_below="@+id/cart_id_selling_price_value"
+        android:layout_toRightOf="@+id/cart_total_id" />
+
 
     <TextView
         android:id="@+id/cart_text"
@@ -73,7 +120,8 @@
         android:text="Click To See Detail"
         android:textColor="@color/black"
         android:textSize="@dimen/text_size"
-        android:layout_below="@+id/cart_id_selling_price_value"
+        android:layout_below="@+id/cart_total_id"
+        android:paddingTop="5dp"
         android:layout_toRightOf="@+id/cart_image"
         />
 

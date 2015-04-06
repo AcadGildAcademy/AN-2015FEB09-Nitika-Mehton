@@ -6,32 +6,70 @@
     <ListView
         android:id="@+id/cart_listview"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_height="wrap_content"
         android:background="@color/white"
         android:divider="@color/orange"
         android:dividerHeight="1dp"/>
 
+
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="110dp"
+        android:orientation="vertical"
+        android:layout_below="@+id/cart_listview"
+        android:id="@+id/linearLayout4"
+        >
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+     >
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:text="Total"
+            android:textSize="30dp"
+            android:textColor="@color/black"
+            android:id="@+id/total_btn"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:textSize="30dp"
+
+            android:textColor="@color/orange"
+            android:id="@+id/total_value"/>
+
+        </LinearLayout>
+
+
    <LinearLayout
        android:layout_width="match_parent"
-       android:layout_height="50dp"
+       android:layout_height="wrap_content"
        android:orientation="horizontal"
-      android:layout_alignBottom="@+id/cart_listview"
-      >
+      android:id="@+id/linearLayout3">
     <Button
         android:layout_width="wrap_content"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:id="@+id/cart_pay"
         android:textColor="@color/black"
         android:textSize="@dimen/text_size"
         android:text="Buy All"/>
        <Button
            android:layout_width="wrap_content"
-           android:layout_height="50dp"
+           android:layout_height="wrap_content"
            android:id="@+id/id_remove_all_cart"
            android:textColor="@color/black"
            android:textSize="@dimen/text_size"
            android:text="Remove All"/>
 
    </LinearLayout>
+
+</LinearLayout>
 
 </RelativeLayout>

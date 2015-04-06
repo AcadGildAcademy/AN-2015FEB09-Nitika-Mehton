@@ -73,14 +73,7 @@
 
            />
 
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/id_forget_password"
-            android:text="FORGET PASSWORD?"
-            android:ems="10"
-            android:textSize="12dp"
-            />
+
     </LinearLayout>
     <LinearLayout
         android:orientation="horizontal"

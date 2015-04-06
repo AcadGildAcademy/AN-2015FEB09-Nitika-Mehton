@@ -28,7 +28,7 @@ import java.util.List;
 /**
  * Created by NITIKA on 23-Feb-15.
  */
-public class Activity_main extends FragmentActivity //ActionBarActivity
+public class Activity_main extends ActionBarActivity
  {
     // Declare Variables
     JSONObject jsonobject;

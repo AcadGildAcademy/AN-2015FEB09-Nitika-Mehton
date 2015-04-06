@@ -16,6 +16,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.apache.http.message.BasicNameValuePair;
@@ -32,14 +33,14 @@ import java.util.regex.Pattern;
 /**
  * Created by NITIKA on 05-Feb-15.
  */
-public class SignUp extends FragmentActivity// ActionBarActivity
+public class SignUp extends ActionBarActivity
 {
 
     private ProgressDialog pDialog;
 
     EditText email,password1,name;
     Button sign_up, cancel;
-
+        //TextView profile;
     private static String url = "http://bishasha.com/json/whdeal_signup.php";
 
     // JSON Node names
@@ -61,13 +62,25 @@ public class SignUp extends FragmentActivity// ActionBarActivity
         setContentView(R.layout.signup);
         getActionBar();
         contactList = new ArrayList<HashMap<String, String>>();
-
+      //  profile =(TextView)findViewById(R.id.id_profile);
         name=(EditText)findViewById(R.id.id_name);
         email =(EditText)findViewById(R.id.id_username);
         password1=(EditText)findViewById(R.id.id_password);
 
+        /*profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String user_email = "nitika@gmail.com";
+                String user_name="nitika";
+                Intent i = new Intent(SignUp.this, User_Profile_india.class) ;
+                i.putExtra("user_email",user_email);
+                i.putExtra("user_name",user_name);
+                finish();
+                startActivity(i);
 
-
+            }
+        });
+*/
         sign_up =(Button)findViewById(R.id.id_sign_up);
         sign_up.setOnClickListener(new View.OnClickListener() {
 
@@ -157,7 +170,11 @@ public class SignUp extends FragmentActivity// ActionBarActivity
             if (success == 1) {
                 Log.d("sign-up Successful!", "sign-up Success");
                 Toast.makeText(getApplicationContext(),"sign up success",Toast.LENGTH_LONG).show();
-                Intent i = new Intent(SignUp.this, Login.class);
+                String user_email = email.getText().toString();
+                String user_name=name.getText().toString();
+                Intent i = new Intent(SignUp.this, User_Profile_india.class) ;
+                i.putExtra("user_email",user_email);
+                i.putExtra("user_name",user_name);
                finish();
                 startActivity(i);
                 //  return json.getString(TAG_MESSAGE);
