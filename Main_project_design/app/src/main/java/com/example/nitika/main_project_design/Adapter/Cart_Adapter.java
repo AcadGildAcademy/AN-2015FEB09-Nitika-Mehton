@@ -1,4 +1,4 @@
-package com.example.nitika.main_project_design;
+package com.example.nitika.main_project_design.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
@@ -7,9 +7,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.nitika.main_project_design.Activity.Activity_main;
+import com.example.nitika.main_project_design.Activity.Cart_SingleItemView;
+import com.example.nitika.main_project_design.Utiles.ImageLoader;
+import com.example.nitika.main_project_design.R;
 
 import java.util.ArrayList;
 import java.util.HashMap;

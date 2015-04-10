@@ -1,14 +1,12 @@
-package com.example.nitika.main_project_design;
+package com.example.nitika.main_project_design.Activity;
 
 /**
  * Created by NITIKA on 19-Mar-15.
  */
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.View;
@@ -16,6 +14,11 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.nitika.main_project_design.R;
+import com.example.nitika.main_project_design.Utiles.UserSessionLogin;
+import com.example.nitika.main_project_design.Utiles.ImageLoader;
+import com.example.nitika.main_project_design.Utiles.ServiceHandler;
 
 import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONException;
@@ -74,7 +77,7 @@ public class SingleItemView extends ActionBarActivity
         TextView txtdescription=(TextView)findViewById(R.id.id_description_value);
         // Locate the ImageView in singleitemview.xml
         ImageView imgflag = (ImageView) findViewById(R.id.image);
-      Toast.makeText(getApplication(),id,Toast.LENGTH_LONG).show();
+     // Toast.makeText(getApplication(),id,Toast.LENGTH_LONG).show();
         // Set results to the TextViews
         txtname.setText(name);
         txtcost_price.setText(cost_price);
@@ -98,7 +101,7 @@ public class SingleItemView extends ActionBarActivity
                 // get name
                 if( session.isUserLoggedIn()) {
                     String user_str = user.get(UserSessionLogin.KEY_EMAIL_SESSION);
-                    Toast.makeText(getApplicationContext(),user_str,Toast.LENGTH_LONG).show();
+                  //  Toast.makeText(getApplicationContext(),user_str,Toast.LENGTH_LONG).show();
 
                     new GetContacts().execute();
 

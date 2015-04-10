@@ -1,4 +1,4 @@
-package com.example.nitika.main_project_design;
+package com.example.nitika.main_project_design.Adapter;
 
 /**
  * Created by NITIKA on 19-Mar-15.
@@ -15,7 +15,11 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import com.example.nitika.main_project_design.Activity.Activity_main;
+import com.example.nitika.main_project_design.R;
+import com.example.nitika.main_project_design.Activity.SingleItemView;
+import com.example.nitika.main_project_design.Utiles.ImageLoader;
 
 import java.util.ArrayList;
 import java.util.HashMap;

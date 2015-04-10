@@ -1,14 +1,17 @@
-package com.example.nitika.main_project_design;
+package com.example.nitika.main_project_design.Adapter;
 
 import android.content.Context;
-import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.nitika.main_project_design.Activity.Activity_main;
+import com.example.nitika.main_project_design.Activity.Cart_item;
+import com.example.nitika.main_project_design.R;
+import com.example.nitika.main_project_design.Utiles.ImageLoader;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -63,7 +66,7 @@ public class Place_order_list_adapter extends BaseAdapter{
         //ImageView image_path;
 String total_product,quantity_order;
         int mul;
-        Log.d("done", "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
+    //    Log.d("done", "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
         inflater = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
@@ -83,8 +86,8 @@ String total_product,quantity_order;
         name.setText(resultp.get(Activity_main.TAG_NAME));
         price.setText(resultp.get(Activity_main.TAG_SELL_COST));
         quantity.setText(resultp.get(Activity_main.TAG_QUANTITY));
-        total_product=resultp.get(Cart_item.TAG_TOTAL_PRODUCT);
-        quantity_order=resultp.get(Cart_item.TAG_QUANTITY);
+        total_product=resultp.get(Activity_main.TAG_TOTAL_PRODUCT);
+        quantity_order=resultp.get(Activity_main.TAG_QUANTITY);
         Log.d("quantity-->",quantity_order);
         Log.d("total-->",total_product);
 

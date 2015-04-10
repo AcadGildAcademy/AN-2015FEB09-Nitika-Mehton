@@ -1,4 +1,4 @@
-package com.example.nitika.main_project_design;
+package com.example.nitika.main_project_design.Activity;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
@@ -11,6 +11,11 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.nitika.main_project_design.Adapter.Place_order_list_adapter;
+import com.example.nitika.main_project_design.R;
+import com.example.nitika.main_project_design.Utiles.ServiceHandler;
+import com.example.nitika.main_project_design.Utiles.UserSessionLogin;
 
 import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONArray;
@@ -32,7 +37,7 @@ public class Place_Order_List extends Activity {
     ArrayList<HashMap<String, String>> arraylist;
     private static String url ="http://bishasha.com/json/whdeal_SeeCartItem.php";
    private static String url_order= "http://bishasha.com/json/whdeal_Order.php";
-   // private static String url_order= "http://bishasha.com/json/whdeal_Delete_Total_product.php";
+ //   private static String url_order= "http://bishasha.com/json/whdeal_Delete_Total_product.php";
     int total_int;
     TextView grand_total_tv,email_tv;
     Place_order_list_adapter adapter;
@@ -104,7 +109,7 @@ public class Place_Order_List extends Activity {
                 try {
 
                     JSONObject jsonObj = new JSONObject(jsonStr);
-                    int success = jsonObj.getInt(Cart_item.TAG_SUCCESS);
+                    int success = jsonObj.getInt(Activity_main.TAG_SUCCESS);
                     //
 
 
@@ -119,27 +124,27 @@ public class Place_Order_List extends Activity {
                             JSONObject c = contacts.getJSONObject(i);
 
                             //String id = c.getString(Cart_item.TAG_ID);
-                            String name = c.getString(Cart_item.TAG_NAME);
+                            String name = c.getString(Activity_main.TAG_NAME);
                            // String description = c.getString(Cart_item.TAG_DESCRIPTION);
                             //String image_path = c.getString(Cart_item.TAG_IMAGE_PATH);
                            // String cost_price = c.getString(Cart_item.TAG_COST_PRICE);
-                            String selling_price = c.getString(Cart_item.TAG_SELL_COST);
+                            String selling_price = c.getString(Activity_main.TAG_SELL_COST);
                            // String brand= c.getString(Cart_item.TAG_BRAND);
-                           String quantity=c.getString(Cart_item.TAG_QUANTITY);
-                            String total_product=c.getString(Cart_item.TAG_TOTAL_PRODUCT);
+                           String quantity=c.getString(Activity_main.TAG_QUANTITY);
+                            String total_product=c.getString(Activity_main.TAG_TOTAL_PRODUCT);
                            // String total=c.getString(Cart_item.TAG_TOTAL);
 
                             HashMap<String, String> contact = new HashMap<String, String>();
                             // adding each child node to HashMap key => value
                      //       contact.put(Cart_item.TAG_ID, id);
-                            contact.put(Cart_item.TAG_NAME, name);
+                            contact.put(Activity_main.TAG_NAME, name);
                        //     contact.put(Cart_item.TAG_DESCRIPTION, description);
                          //   contact.put(Cart_item.TAG_IMAGE_PATH, image_path);
                            // contact.put(Cart_item.TAG_COST_PRICE,cost_price);
-                            contact.put(Cart_item.TAG_SELL_COST,selling_price);
+                            contact.put(Activity_main.TAG_SELL_COST,selling_price);
                             //ontact.put(Cart_item.TAG_BRAND,brand);
-                            contact.put(Cart_item.TAG_QUANTITY,quantity);
-                            contact.put(Cart_item.TAG_TOTAL_PRODUCT,total_product);
+                            contact.put(Activity_main.TAG_QUANTITY,quantity);
+                            contact.put(Activity_main.TAG_TOTAL_PRODUCT,total_product);
                             //contact.put(Cart_item.TAG_TOTAL,total);
                            // total_product=resultp.get(Cart_item.TAG_TOTAL_PRODUCT);
                            // quantity_order=res.get(Cart_item.TAG_QUANTITY);
@@ -266,7 +271,7 @@ user_email_str=user_email.toString();
             if (success == 1) {
                 Log.d("order is Placed!", " Success");
                 Toast.makeText(getApplicationContext(),"Order is Placed",Toast.LENGTH_LONG).show();
-                Intent i = new Intent(Place_Order_List.this,Place_Order_List.class);//temp
+                Intent i = new Intent(Place_Order_List.this,Index.class);//temp
                 finish();
                 startActivity(i);
                 //  return json.getString(TAG_MESSAGE);

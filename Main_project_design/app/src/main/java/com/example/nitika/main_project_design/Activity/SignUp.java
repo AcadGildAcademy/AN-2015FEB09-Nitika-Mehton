@@ -1,13 +1,9 @@
-package com.example.nitika.main_project_design;
+package com.example.nitika.main_project_design.Activity;
 
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
-import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Menu;
@@ -18,6 +14,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.nitika.main_project_design.R;
+import com.example.nitika.main_project_design.Utiles.UserSessionLogin;
+import com.example.nitika.main_project_design.Utiles.ServiceHandler;
 
 import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONArray;

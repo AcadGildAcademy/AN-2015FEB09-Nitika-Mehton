@@ -1,4 +1,4 @@
-package com.example.nitika.main_project_design;
+package com.example.nitika.main_project_design.Activity;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
@@ -13,6 +13,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
+
+import com.example.nitika.main_project_design.R;
+import com.example.nitika.main_project_design.Utiles.ServiceHandler;
 
 import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONException;
@@ -216,7 +219,7 @@ public class User_Profile_india extends Activity {
                         adp2 = new ArrayAdapter<String>(User_Profile_india.this,
                                 android.R.layout.simple_dropdown_item_1line, city);
                         city_spinner.setAdapter(adp2);
-                        Toast.makeText(getApplication(), "2222222222", Toast.LENGTH_SHORT).show();
+                      //  Toast.makeText(getApplication(), "2222222222", Toast.LENGTH_SHORT).show();
                           select();
 
                         break;
@@ -226,7 +229,7 @@ public class User_Profile_india extends Activity {
                         adp2 = new ArrayAdapter<String>(User_Profile_india.this,
                                 android.R.layout.simple_dropdown_item_1line, city);
                         city_spinner.setAdapter(adp2);
-                        Toast.makeText(getApplication(), "2222222222", Toast.LENGTH_SHORT).show();
+                  //      Toast.makeText(getApplication(), "2222222222", Toast.LENGTH_SHORT).show();
                         //   select();
 
                         break;

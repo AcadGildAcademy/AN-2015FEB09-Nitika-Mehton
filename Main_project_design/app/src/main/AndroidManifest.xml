@@ -9,22 +9,22 @@
         >
 
 
-<activity android:name=".Index">
+<activity android:name=".Activity.Index" android:label="Home">
     <intent-filter>
         <action android:name="android.intent.action.MAIN"></action>
             <category android:name="android.intent.category.LAUNCHER"></category>
     </intent-filter>
 </activity>
-        <activity android:name=".Login" android:label="Login"></activity>
-        <activity android:name=".SignUp"></activity>
-        <activity android:name=".Activity_main"></activity>
-        <activity android:name=".SingleItemView"></activity>
-        <activity android:name=".Cart_item"></activity>
-        <activity android:name=".Cart_SingleItemView"></activity>
-        <activity android:name=".User_Profile"></activity>
-        <activity android:name=".User_Profile_india"></activity>
-        <activity android:name=".DEMOcart_User_Profile"></activity>
-        <activity android:name=".Place_Order_List"></activity>
+        <activity android:name=".Activity.Login" android:label="Login"></activity>
+        <activity android:name=".Activity.SignUp"  android:label="Sign-Up"></activity>
+        <activity android:name=".Activity.Activity_main" android:label="Product"></activity>
+        <activity android:name=".Activity.SingleItemView" android:label="Product"></activity>
+        <activity android:name=".Activity.Cart_item" android:label="Cart"></activity>
+        <activity android:name=".Activity.Cart_SingleItemView" android:label="Product"></activity>
+        <activity android:name=".Activity.User_Profile" android:label="Profile"></activity>
+        <activity android:name=".Activity.User_Profile_india"  android:label="Profile"></activity>
+        <activity android:name=".Activity.DEMOcart_User_Profile" android:label="Profile"></activity>
+        <activity android:name=".Activity.Place_Order_List" android:label="Order" ></activity>
     </application>
 
 </manifest>

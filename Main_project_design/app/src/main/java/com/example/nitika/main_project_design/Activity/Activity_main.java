@@ -1,12 +1,10 @@
-package com.example.nitika.main_project_design;
+package com.example.nitika.main_project_design.Activity;
 
 
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Menu;
@@ -14,6 +12,11 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import com.example.nitika.main_project_design.Adapter.ListViewAdapter;
+import com.example.nitika.main_project_design.R;
+import com.example.nitika.main_project_design.Utiles.ServiceHandler;
+import com.example.nitika.main_project_design.Utiles.UserSessionLogin;
 
 import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONArray;
@@ -38,18 +41,20 @@ public class Activity_main extends ActionBarActivity
     ListViewAdapter adapter;
     ProgressDialog mProgressDialog;
     ArrayList<HashMap<String, String>> arraylist;
-    static  String TAG_SUCCESS="success";
-    static String TAG_ID = "id";
-    static String TAG_NAME = "name";
-    static String TAG_DESCRIPTION = "description";
-    static String TAG_IMAGE_PATH = "image_path";
-    static String TAG_SELL_COST = "selling_price";
-    static String TAG_COST_PRICE = "cost_price";
-    static String TAG_STATUS = "status";
-    static String TAG_BRAND = "brand";
-    static String TAG_CATEGORY = "category";
-     static String TAG_QUANTITY="quantity";
-     static String TAG_TOTAL="total";
+ public    static  String TAG_SUCCESS="success";
+     public    static String TAG_ID = "id";
+     public  static String TAG_NAME = "name";
+     public  static String TAG_DESCRIPTION = "description";
+     public   static String TAG_IMAGE_PATH = "image_path";
+     public    static String TAG_SELL_COST = "selling_price";
+     public  static String TAG_COST_PRICE = "cost_price";
+     public    static String TAG_STATUS = "status";
+     public   static String TAG_BRAND = "brand";
+     public   static String TAG_CATEGORY = "category";
+
+     public   static String TAG_QUANTITY ="quantity";
+     public    static String TAG_TOTAL="total";
+     public static String TAG_TOTAL_PRODUCT="totol_product";
     private static String url ="http://bishasha.com/json/products.php";
     // "http://bishasha.com/json/product_demo.php";
     String category;

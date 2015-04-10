@@ -4,13 +4,19 @@
 
         <item name="android:itemBackground">@drawable/item_selector</item>
         <item name="android:popupBackground">@drawable/item_selector</item>
-
+        <item name="actionBarStyle">@style/MyActionBar</item>
     </style>
     <style name="CustomActionBar" parent="@android:style/Widget.ActionBar">
         <item name="android:indeterminateProgressStyle">@android:style/Widget.ProgressBar.Small.Inverse</item>
         <item name="android:background">@color/orange</item>
     </style>
+    <!-- ActionBar styles -->
+    <style name="MyActionBar"
+        parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
 
+        <!-- Support library compatibility -->
+        <item name="background">@color/orange</item>
+    </style>
 
 
 </resources>

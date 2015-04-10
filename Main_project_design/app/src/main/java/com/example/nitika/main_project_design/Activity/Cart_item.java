@@ -1,10 +1,9 @@
-package com.example.nitika.main_project_design;
+package com.example.nitika.main_project_design.Activity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Menu;
@@ -12,10 +11,15 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.nitika.main_project_design.Adapter.Cart_Adapter;
+import com.example.nitika.main_project_design.Adapter.ListViewAdapter;
+import com.example.nitika.main_project_design.R;
+import com.example.nitika.main_project_design.Utiles.ServiceHandler;
+import com.example.nitika.main_project_design.Utiles.UserSessionLogin;
 
 import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONArray;
@@ -37,19 +41,19 @@ public class Cart_item extends ActionBarActivity {
     Cart_Adapter cart_adapter;
     ProgressDialog mProgressDialog;
     ArrayList<HashMap<String, String>> arraylist;
-    static  String TAG_SUCCESS="success";
-    static String TAG_ID = "id";
-    static String TAG_NAME = "name";
-    static String TAG_DESCRIPTION = "description";
-    static String TAG_IMAGE_PATH = "image_path";
-    static String TAG_SELL_COST = "selling_price";
-    static String TAG_COST_PRICE = "cost_price";
-    static String TAG_STATUS = "status";
-    static String TAG_BRAND = "brand";
-    static String TAG_CATEGORY = "category";
-    static String TAG_QUANTITY ="quantity";
-    static String TAG_TOTAL="total";
-    static String TAG_TOTAL_PRODUCT="totol_product";
+ //   static  String TAG_SUCCESS="success";
+   // static String TAG_ID = "id";
+   // static String TAG_NAME = "name";
+   // static String TAG_DESCRIPTION = "description";
+   // static String TAG_IMAGE_PATH = "image_path";
+    //static String TAG_SELL_COST = "selling_price";
+    //static String TAG_COST_PRICE = "cost_price";
+    //static String TAG_STATUS = "status";
+    //static String TAG_BRAND = "brand";
+    //static String TAG_CATEGORY = "category";
+  //public   static String TAG_QUANTITY ="quantity";
+ //public    static String TAG_TOTAL="total";
+  // public static String TAG_TOTAL_PRODUCT="totol_product";
     private static String url ="http://bishasha.com/json/whdeal_SeeCartItem.php";
 
     TextView total_tv;
@@ -74,7 +78,7 @@ public class Cart_item extends ActionBarActivity {
         if( session.isUserLoggedIn()) {
             String user_str = user.get(UserSessionLogin.KEY_EMAIL_SESSION);
             new DownloadJSON().execute();
-            Toast.makeText(getApplication(),"done",Toast.LENGTH_SHORT).show();
+          //  Toast.makeText(getApplication(),"done",Toast.LENGTH_SHORT).show();
         }
         getActionBar();
 
@@ -133,7 +137,7 @@ public class Cart_item extends ActionBarActivity {
                 try {
 
                     JSONObject jsonObj = new JSONObject(jsonStr);
-                    int success = jsonObj.getInt(TAG_SUCCESS);
+                    int success = jsonObj.getInt(Activity_main.TAG_SUCCESS);
                     //
 
 
@@ -147,29 +151,29 @@ public class Cart_item extends ActionBarActivity {
                         for (int i = 0; i < contacts.length(); i++) {
                             JSONObject c = contacts.getJSONObject(i);
 
-                            String id = c.getString(TAG_ID);
-                            String name = c.getString(TAG_NAME);
-                            String description = c.getString(TAG_DESCRIPTION);
-                            String image_path = c.getString(TAG_IMAGE_PATH);
-                            String cost_price = c.getString(TAG_COST_PRICE);
-                            String selling_price = c.getString(TAG_SELL_COST);
-                            String brand= c.getString(TAG_BRAND);
-                            String quantity=c.getString(TAG_QUANTITY);
-                            String total=c.getString(TAG_TOTAL);
-                            String total_product=c.getString(TAG_TOTAL_PRODUCT);
+                            String id = c.getString(Activity_main.TAG_ID);
+                            String name = c.getString(Activity_main.TAG_NAME);
+                            String description = c.getString(Activity_main.TAG_DESCRIPTION);
+                            String image_path = c.getString(Activity_main.TAG_IMAGE_PATH);
+                            String cost_price = c.getString(Activity_main.TAG_COST_PRICE);
+                            String selling_price = c.getString(Activity_main.TAG_SELL_COST);
+                            String brand= c.getString(Activity_main.TAG_BRAND);
+                            String quantity=c.getString(Activity_main.TAG_QUANTITY);
+                            String total=c.getString(Activity_main.TAG_TOTAL);
+                            String total_product=c.getString(Activity_main.TAG_TOTAL_PRODUCT);
 
                             HashMap<String, String> contact = new HashMap<String, String>();
                             // adding each child node to HashMap key => value
-                            contact.put(TAG_ID, id);
-                            contact.put(TAG_NAME, name);
-                            contact.put(TAG_DESCRIPTION, description);
-                            contact.put(TAG_IMAGE_PATH, image_path);
-                            contact.put(TAG_COST_PRICE,cost_price);
-                            contact.put(TAG_SELL_COST,selling_price);
-                            contact.put(TAG_BRAND,brand);
-                            contact.put(TAG_QUANTITY,quantity);
-                            contact.put(TAG_TOTAL,total);
-                            contact.put(TAG_TOTAL_PRODUCT,total_product);
+                            contact.put(Activity_main.TAG_ID, id);
+                            contact.put(Activity_main.TAG_NAME, name);
+                            contact.put(Activity_main.TAG_DESCRIPTION, description);
+                            contact.put(Activity_main.TAG_IMAGE_PATH, image_path);
+                            contact.put(Activity_main.TAG_COST_PRICE,cost_price);
+                            contact.put(Activity_main.TAG_SELL_COST,selling_price);
+                            contact.put(Activity_main.TAG_BRAND,brand);
+                            contact.put(Activity_main.TAG_QUANTITY,quantity);
+                            contact.put(Activity_main.TAG_TOTAL,total);
+                            contact.put(Activity_main.TAG_TOTAL_PRODUCT,total_product);
 
 
                             if(total.matches("\\d+")) //check if only digits. Could also be text.matches("[0-9]+")

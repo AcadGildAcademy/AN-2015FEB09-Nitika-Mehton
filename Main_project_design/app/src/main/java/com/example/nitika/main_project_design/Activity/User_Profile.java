@@ -1,4 +1,4 @@
-package com.example.nitika.main_project_design;
+package com.example.nitika.main_project_design.Activity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -10,6 +10,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.example.nitika.main_project_design.R;
+import com.example.nitika.main_project_design.Utiles.ServiceHandler;
 
 import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONException;
@@ -178,7 +181,7 @@ Log.d("->"+user_email1+"->"+user_first_name+"->"+user_last_name+"->"+address+"->
             int  success=values[0];
             if (success == 1) {
                 Log.d("update Successful!", " Success");
-                Toast.makeText(getApplicationContext(),"DONE",Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(),"Update",Toast.LENGTH_LONG).show();
                 //  String user_email = email.getText().toString();
                 // String user_name=name.getText().toString();
                 Intent i = new Intent(User_Profile.this, Login.class) ;

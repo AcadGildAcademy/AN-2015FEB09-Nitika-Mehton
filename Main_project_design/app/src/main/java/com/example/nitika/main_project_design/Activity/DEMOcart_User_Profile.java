@@ -1,4 +1,4 @@
-package com.example.nitika.main_project_design;
+package com.example.nitika.main_project_design.Activity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -9,8 +9,11 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.Toast;
+
+import com.example.nitika.main_project_design.R;
+import com.example.nitika.main_project_design.Utiles.ServiceHandler;
+import com.example.nitika.main_project_design.Utiles.UserSessionLogin;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
@@ -74,10 +77,20 @@ save=(Button)findViewById(R.id.save_bt);
         email.setText(user_email);
         email.setEnabled(false);
         name.setText(user_name);
-       //  name.setEnabled(false);
-        new GetUserData().execute();
 
-//next.setEnabled(false);
+        new GetUserData().execute();
+        //next.setEnabled(false);
+        String user_email1 = email.getText().toString();
+        String user_first_name=name.getText().toString();
+        String user_last_name=last_name.getText().toString();
+        String address= user_adress.getText().toString();
+        String state1=state.getText().toString();
+        String city1=city.getText().toString();
+        String user_pin=zip.getText().toString();
+        String ph_no=phno.getText().toString();
+        String country1=country.getText().toString();
+
+       next.setEnabled(false);
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -113,6 +126,7 @@ Log.d("->"+user_email1+"->"+user_first_name+"->"+user_last_name+"->"+address+"->
            !user_pin.equals("")&& !ph_no.equals("") && !country1.equals("")))
         {
              new GetContacts().execute();
+            next.setEnabled(true);
         }
         else
         {
@@ -314,18 +328,18 @@ Log.d("->"+user_email1+"->"+user_first_name+"->"+user_last_name+"->"+address+"->
             int  success=values[0];
             if (success == 1) {
                 Log.d("update Successful!", " Success");
-                Toast.makeText(getApplicationContext(),"DONE",Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(),"Update",Toast.LENGTH_LONG).show();
                 //  String user_email = email.getText().toString();
                 // String user_name=name.getText().toString();
-                Intent i = new Intent(DEMOcart_User_Profile.this, DEMOcart_User_Profile.class) ;//
-                i.putExtra("user_email",user_email);
-                i.putExtra("user_name",user_name);
-                finish();
-                startActivity(i);
+              //  Intent i = new Intent(DEMOcart_User_Profile.this, DEMOcart_User_Profile.class) ;//
+               // i.putExtra("user_email",user_email);
+                //i.putExtra("user_name",user_name);
+                //finish();
+                //startActivity(i);
                 //  return json.getString(TAG_MESSAGE);
             } else {
                 Log.d("update fail"," fail");
-                Toast.makeText(DEMOcart_User_Profile.this," fail",Toast.LENGTH_LONG).show();
+                Toast.makeText(DEMOcart_User_Profile.this," Fail To Update",Toast.LENGTH_LONG).show();
                 // return json.getString(TAG_MESSAGE);
             }
         }

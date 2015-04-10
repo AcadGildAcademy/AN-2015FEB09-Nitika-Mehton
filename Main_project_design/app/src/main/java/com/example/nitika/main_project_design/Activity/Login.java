@@ -1,16 +1,12 @@
-package com.example.nitika.main_project_design;
+package com.example.nitika.main_project_design.Activity;
 
-import android.app.ActionBar;
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.ActionBarActivity;
-import android.text.Html;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -21,6 +17,10 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.nitika.main_project_design.R;
+import com.example.nitika.main_project_design.Utiles.ServiceHandler;
+import com.example.nitika.main_project_design.Utiles.UserSessionLogin;
 
 import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONArray;
@@ -226,7 +226,7 @@ public class Login extends  ActionBarActivity
             if (success == 1) {
                 Log.d("Login Successful!", "Login Success");
 
-                Toast.makeText(getApplicationContext(),"login success",Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(),"Login success",Toast.LENGTH_LONG).show();
                 session.createUserLoginSession(st,st2);
                 Intent i = new Intent(Login.this, Index.class);
             //    i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);

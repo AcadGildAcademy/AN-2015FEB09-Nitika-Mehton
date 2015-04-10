@@ -1,4 +1,4 @@
-package com.example.nitika.main_project_design;
+package com.example.nitika.main_project_design.Utiles;
 
 /**
  * Created by NITIKA on 19-Mar-15.
@@ -9,6 +9,8 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Handler;
 import android.widget.ImageView;
+
+import com.example.nitika.main_project_design.R;
 
 import java.io.File;
 import java.io.FileInputStream;

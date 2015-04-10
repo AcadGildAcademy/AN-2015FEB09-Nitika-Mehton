@@ -1,27 +1,19 @@
-package com.example.nitika.main_project_design;
+package com.example.nitika.main_project_design.Activity;
 
-import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.ActionBarActivity;
-import android.util.AttributeSet;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
+import com.example.nitika.main_project_design.R;
+import com.example.nitika.main_project_design.Utiles.UserSessionLogin;
+
 import java.util.HashMap;
-import java.util.List;
 
 /**
  * Created by NITIKA on 05-Mar-15.
