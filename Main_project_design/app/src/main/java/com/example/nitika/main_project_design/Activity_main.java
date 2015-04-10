@@ -33,6 +33,7 @@ public class Activity_main extends ActionBarActivity
     // Declare Variables
     JSONObject jsonobject;
     JSONArray jsonarray;
+     UserSessionLogin session;
     ListView listview;
     ListViewAdapter adapter;
     ProgressDialog mProgressDialog;
@@ -63,7 +64,8 @@ public class Activity_main extends ActionBarActivity
         category = i.getStringExtra("category");               // selected from menu
         Toast.makeText(getApplicationContext(),category,Toast.LENGTH_LONG).show();
         // Execute DownloadJSON AsyncTask
-        getActionBar();
+        //getActionBar();
+        getSupportActionBar();
         new DownloadJSON().execute();
     }
 
@@ -170,88 +172,106 @@ public class Activity_main extends ActionBarActivity
             mProgressDialog.dismiss();
         }
     }
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.menu, menu);
 
-        return super.onCreateOptionsMenu(menu);
+     @Override
+     public boolean onCreateOptionsMenu(Menu menu) {
+         MenuInflater menuInflater = getMenuInflater();
+         menuInflater.inflate(R.menu.menu, menu);
 
-
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        if (id == R.id.login_id_menu) {
-            Intent intent = new Intent(Activity_main.this, Login.class);
-            startActivity(intent);
-        }
-        if (id == R.id.signup_id_menu) {
-            Intent intent = new Intent(Activity_main.this, SignUp.class);
-            startActivity(intent);
-        }
-        if(id==R.id.mobile)
-        {
-            Intent intent =new Intent(Activity_main.this,Activity_main.class);
-            intent.putExtra("category","mobile");
-            startActivity(intent);
-        }
-        if(id==R.id.camera)
-        {
-            Intent intent =new Intent(Activity_main.this,Activity_main.class);
-            intent.putExtra("category","camera");
-            startActivity(intent);
-        }
-        if(id==R.id.fire_table)
-        {
-            Intent intent =new Intent(Activity_main.this,Activity_main.class);
-            intent.putExtra("category","fire table");
-            startActivity(intent);
-        }
-        if(id==R.id.accessories)
-        {
-            Intent intent =new Intent(Activity_main.this,Activity_main.class);
-            intent.putExtra("category","accessories");
-            startActivity(intent);
-        }
-        if(id==R.id.car)
-        {
-            Intent intent =new Intent(Activity_main.this,Activity_main.class);
-            intent.putExtra("category","Car");
-            startActivity(intent);
-        }
-        if(id==R.id.laptop_computer)
-        {
-            Intent intent =new Intent(Activity_main.this,Activity_main.class);
-            intent.putExtra("category","computer");
-            startActivity(intent);
-        }
-        if(id==R.id.tablets)
-        {
-            Intent intent =new Intent(Activity_main.this,Activity_main.class);
-            intent.putExtra("category","tablets");
-            startActivity(intent);
-        }
-        if(id==R.id.video_games)
-        {
-            Intent intent =new Intent(Activity_main.this,Activity_main.class);
-            intent.putExtra("category","video games ");
-            startActivity(intent);
-        }
-        if(id==R.id.gadgets)
-        {
-            Intent intent =new Intent(Activity_main.this,Activity_main.class);
-            intent.putExtra("category","gadgets");
-            startActivity(intent);
-        }
+         return super.onCreateOptionsMenu(menu);
 
 
-        return super.onOptionsItemSelected(item);
-    }
+     }
+
+     @Override
+     public boolean onOptionsItemSelected(MenuItem item) {
+         int id = item.getItemId();
+         if (id == R.id.login_id_menu) {
+             Intent intent = new Intent(Activity_main.this, Login.class);
+
+             startActivity(intent);
+         }
+         if (id == R.id.signup_id_menu) {
+             Intent intent = new Intent(Activity_main.this, SignUp.class);
+             startActivity(intent);
+         }
+         if(id == R.id.cart_menu)
+         {
+             session = new UserSessionLogin(getApplicationContext());
+             HashMap<String, String> user = session.getUserDetails();
+             // get name
+             if( session.isUserLoggedIn()) {
+                 String user_str = user.get(UserSessionLogin.KEY_EMAIL_SESSION);
+                 Intent intent = new Intent(Activity_main.this, Cart_item.class);
+                 startActivity(intent);
+
+             }
+             else{
+                 Toast.makeText(getApplicationContext(),"Login First",Toast.LENGTH_SHORT).show();
+             }
+         }
+         if(id==R.id.mobile)
+         {
+             Intent intent =new Intent(Activity_main.this,Activity_main.class);
+             intent.putExtra("category","mobile");
+             startActivity(intent);
+         }
+         if(id==R.id.camera)
+         {
+             Intent intent =new Intent(Activity_main.this,Activity_main.class);
+             intent.putExtra("category","camera");
+             startActivity(intent);
+         }
+         if(id==R.id.fire_table)
+         {
+             Intent intent =new Intent(Activity_main.this,Activity_main.class);
+             intent.putExtra("category","fire table");
+             startActivity(intent);
+         }
+         if(id==R.id.accessories)
+         {
+             Intent intent =new Intent(Activity_main.this,Activity_main.class);
+             intent.putExtra("category","accessories");
+             startActivity(intent);
+         }
+         if(id==R.id.car)
+         {
+             Intent intent =new Intent(Activity_main.this,Activity_main.class);
+             intent.putExtra("category","Car");
+             startActivity(intent);
+         }
+         if(id==R.id.laptop_computer)
+         {
+             Intent intent =new Intent(Activity_main.this,Activity_main.class);
+             intent.putExtra("category","computer");
+             startActivity(intent);
+         }
+         if(id==R.id.tablets)
+         {
+             Intent intent =new Intent(Activity_main.this,Activity_main.class);
+             intent.putExtra("category","tablets");
+             startActivity(intent);
+         }
+         if(id==R.id.video_games)
+         {
+             Intent intent =new Intent(Activity_main.this,Activity_main.class);
+             intent.putExtra("category","video games");
+             startActivity(intent);
+         }
+         if(id==R.id.gadgets)
+         {
+             Intent intent =new Intent(Activity_main.this,Activity_main.class);
+             intent.putExtra("category","gadgets");
+             startActivity(intent);
+         }
 
 
-}
+         return super.onOptionsItemSelected(item);
+     }
+
+
+
+ }
 
 
 

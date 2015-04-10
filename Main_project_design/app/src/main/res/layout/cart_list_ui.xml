@@ -61,7 +61,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/cart_pay"
+        android:id="@+id/cart_buy"
         android:textColor="@color/black"
         android:textSize="@dimen/text_size"
         android:text="Buy All"/>

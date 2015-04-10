@@ -9,6 +9,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -31,6 +32,7 @@ import java.util.List;
 public class Cart_item extends ActionBarActivity {
     private ProgressDialog pDialog;
     ListView listview;
+
     ListViewAdapter adapter;
     Cart_Adapter cart_adapter;
     ProgressDialog mProgressDialog;
@@ -47,13 +49,14 @@ public class Cart_item extends ActionBarActivity {
     static String TAG_CATEGORY = "category";
     static String TAG_QUANTITY ="quantity";
     static String TAG_TOTAL="total";
+    static String TAG_TOTAL_PRODUCT="totol_product";
     private static String url ="http://bishasha.com/json/whdeal_SeeCartItem.php";
 
     TextView total_tv;
     int total_int;
     String t_string;
-TextView total_edit_txt;
-
+    TextView total_edit_txt;
+    Button buy;
     JSONArray contacts = null;
     UserSessionLogin session;
 
@@ -66,6 +69,7 @@ TextView total_edit_txt;
         HashMap<String, String> user = session.getUserDetails();
         total_tv=(TextView)findViewById(R.id.total_value);
         total_edit_txt=(TextView)findViewById(R.id.total_btn);
+        buy=(Button)findViewById(R.id.cart_buy);
         // get name
         if( session.isUserLoggedIn()) {
             String user_str = user.get(UserSessionLogin.KEY_EMAIL_SESSION);
@@ -74,12 +78,21 @@ TextView total_edit_txt;
         }
         getActionBar();
 
-     total_edit_txt.setOnClickListener(new View.OnClickListener() {
-         @Override
-         public void onClick(View v) {
-           //  new UpdateJSON().execute();
-         }
-     });
+    buy.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            HashMap<String, String> user = session.getUserDetails();
+            String user_str = user.get(UserSessionLogin.KEY_EMAIL_SESSION);
+            String ss=Integer.toString(total_int);
+            Intent intent =new Intent(Cart_item.this,DEMOcart_User_Profile.class);
+
+            intent.putExtra("grand_total",ss);
+            intent.putExtra("user_email",user_str);
+
+            startActivity(intent);
+
+        }
+    });
     }
     private class DownloadJSON extends AsyncTask<Void, Void, Void> {
 
@@ -143,6 +156,7 @@ TextView total_edit_txt;
                             String brand= c.getString(TAG_BRAND);
                             String quantity=c.getString(TAG_QUANTITY);
                             String total=c.getString(TAG_TOTAL);
+                            String total_product=c.getString(TAG_TOTAL_PRODUCT);
 
                             HashMap<String, String> contact = new HashMap<String, String>();
                             // adding each child node to HashMap key => value
@@ -155,13 +169,15 @@ TextView total_edit_txt;
                             contact.put(TAG_BRAND,brand);
                             contact.put(TAG_QUANTITY,quantity);
                             contact.put(TAG_TOTAL,total);
+                            contact.put(TAG_TOTAL_PRODUCT,total_product);
+
 
                             if(total.matches("\\d+")) //check if only digits. Could also be text.matches("[0-9]+")
                             {
                                 String ss=total.toString();
                                 total_int += Integer.parseInt(ss);
 
-                                Log.d("$$$$", "" +total_tv );
+                                Log.d("$$$$", "" +total_tv.toString() );
                             }
                             else
                             {
@@ -206,6 +222,7 @@ TextView total_edit_txt;
     }
 
 
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater = getMenuInflater();
@@ -215,5 +232,92 @@ TextView total_edit_txt;
 
 
     }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.login_id_menu) {
+            Intent intent = new Intent(Cart_item.this, Login.class);
+
+            startActivity(intent);
+        }
+        if (id == R.id.signup_id_menu) {
+            Intent intent = new Intent(Cart_item.this, SignUp.class);
+            startActivity(intent);
+        }
+        if(id == R.id.cart_menu)
+        {
+            session = new UserSessionLogin(getApplicationContext());
+            HashMap<String, String> user = session.getUserDetails();
+            // get name
+            if( session.isUserLoggedIn()) {
+                String user_str = user.get(UserSessionLogin.KEY_EMAIL_SESSION);
+                Intent intent = new Intent(Cart_item.this, Cart_item.class);
+                startActivity(intent);
+
+            }
+            else{
+                Toast.makeText(getApplicationContext(),"Login First",Toast.LENGTH_SHORT).show();
+            }
+        }
+        if(id==R.id.mobile)
+        {
+            Intent intent =new Intent(Cart_item.this,Activity_main.class);
+            intent.putExtra("category","mobile");
+            startActivity(intent);
+        }
+        if(id==R.id.camera)
+        {
+            Intent intent =new Intent(Cart_item.this,Activity_main.class);
+            intent.putExtra("category","camera");
+            startActivity(intent);
+        }
+        if(id==R.id.fire_table)
+        {
+            Intent intent =new Intent(Cart_item.this,Activity_main.class);
+            intent.putExtra("category","fire table");
+            startActivity(intent);
+        }
+        if(id==R.id.accessories)
+        {
+            Intent intent =new Intent(Cart_item.this,Activity_main.class);
+            intent.putExtra("category","accessories");
+            startActivity(intent);
+        }
+        if(id==R.id.car)
+        {
+            Intent intent =new Intent(Cart_item.this,Activity_main.class);
+            intent.putExtra("category","Car");
+            startActivity(intent);
+        }
+        if(id==R.id.laptop_computer)
+        {
+            Intent intent =new Intent(Cart_item.this,Activity_main.class);
+            intent.putExtra("category","computer");
+            startActivity(intent);
+        }
+        if(id==R.id.tablets)
+        {
+            Intent intent =new Intent(Cart_item.this,Activity_main.class);
+            intent.putExtra("category","tablets");
+            startActivity(intent);
+        }
+        if(id==R.id.video_games)
+        {
+            Intent intent =new Intent(Cart_item.this,Activity_main.class);
+            intent.putExtra("category","video games");
+            startActivity(intent);
+        }
+        if(id==R.id.gadgets)
+        {
+            Intent intent =new Intent(Cart_item.this,Activity_main.class);
+            intent.putExtra("category","gadgets");
+            startActivity(intent);
+        }
+
+
+        return super.onOptionsItemSelected(item);
+    }
+
 
 }

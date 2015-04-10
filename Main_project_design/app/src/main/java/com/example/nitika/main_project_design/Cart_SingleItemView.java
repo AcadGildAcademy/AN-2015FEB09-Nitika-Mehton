@@ -29,7 +29,7 @@ import java.util.List;
 public class Cart_SingleItemView extends Activity{
     // Declare Variables
     private ProgressDialog pDialog;
-
+    UserSessionLogin session;
     String name;
     String id;
     String description;

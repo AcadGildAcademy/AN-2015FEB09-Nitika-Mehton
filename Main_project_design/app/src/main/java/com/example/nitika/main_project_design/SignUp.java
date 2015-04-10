@@ -37,10 +37,10 @@ public class SignUp extends ActionBarActivity
 {
 
     private ProgressDialog pDialog;
-
+    UserSessionLogin session;
     EditText email,password1,name;
     Button sign_up, cancel;
-        //TextView profile;
+        TextView profile;
     private static String url = "http://bishasha.com/json/whdeal_signup.php";
 
     // JSON Node names
@@ -62,12 +62,12 @@ public class SignUp extends ActionBarActivity
         setContentView(R.layout.signup);
         getActionBar();
         contactList = new ArrayList<HashMap<String, String>>();
-      //  profile =(TextView)findViewById(R.id.id_profile);
+       profile =(TextView)findViewById(R.id.id_profile);
         name=(EditText)findViewById(R.id.id_name);
         email =(EditText)findViewById(R.id.id_username);
         password1=(EditText)findViewById(R.id.id_password);
 
-        /*profile.setOnClickListener(new View.OnClickListener() {
+      /* profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String user_email = "nitika@gmail.com";
@@ -172,7 +172,7 @@ public class SignUp extends ActionBarActivity
                 Toast.makeText(getApplicationContext(),"sign up success",Toast.LENGTH_LONG).show();
                 String user_email = email.getText().toString();
                 String user_name=name.getText().toString();
-                Intent i = new Intent(SignUp.this, User_Profile_india.class) ;
+                Intent i = new Intent(SignUp.this, User_Profile.class) ;
                 i.putExtra("user_email",user_email);
                 i.putExtra("user_name",user_name);
                finish();
@@ -206,6 +206,7 @@ public class SignUp extends ActionBarActivity
         return false;
     }
 
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater = getMenuInflater();
@@ -221,61 +222,87 @@ public class SignUp extends ActionBarActivity
         int id = item.getItemId();
         if (id == R.id.login_id_menu) {
             Intent intent = new Intent(SignUp.this, Login.class);
+
             startActivity(intent);
         }
         if (id == R.id.signup_id_menu) {
             Intent intent = new Intent(SignUp.this, SignUp.class);
             startActivity(intent);
         }
+        if(id == R.id.cart_menu)
+        {
+            session = new UserSessionLogin(getApplicationContext());
+            HashMap<String, String> user = session.getUserDetails();
+            // get name
+            if( session.isUserLoggedIn()) {
+                String user_str = user.get(UserSessionLogin.KEY_EMAIL_SESSION);
+                Intent intent = new Intent(SignUp.this, Cart_item.class);
+                startActivity(intent);
+
+            }
+            else{
+                Toast.makeText(getApplicationContext(),"Login First",Toast.LENGTH_SHORT).show();
+            }
+        }
         if(id==R.id.mobile)
         {
             Intent intent =new Intent(SignUp.this,Activity_main.class);
+            intent.putExtra("category","mobile");
             startActivity(intent);
         }
         if(id==R.id.camera)
         {
             Intent intent =new Intent(SignUp.this,Activity_main.class);
+            intent.putExtra("category","camera");
             startActivity(intent);
         }
         if(id==R.id.fire_table)
         {
             Intent intent =new Intent(SignUp.this,Activity_main.class);
+            intent.putExtra("category","fire table");
             startActivity(intent);
         }
         if(id==R.id.accessories)
         {
             Intent intent =new Intent(SignUp.this,Activity_main.class);
+            intent.putExtra("category","accessories");
             startActivity(intent);
         }
         if(id==R.id.car)
         {
             Intent intent =new Intent(SignUp.this,Activity_main.class);
+            intent.putExtra("category","Car");
             startActivity(intent);
         }
         if(id==R.id.laptop_computer)
         {
             Intent intent =new Intent(SignUp.this,Activity_main.class);
+            intent.putExtra("category","computer");
             startActivity(intent);
         }
         if(id==R.id.tablets)
         {
             Intent intent =new Intent(SignUp.this,Activity_main.class);
+            intent.putExtra("category","tablets");
             startActivity(intent);
         }
         if(id==R.id.video_games)
         {
             Intent intent =new Intent(SignUp.this,Activity_main.class);
+            intent.putExtra("category","video games");
             startActivity(intent);
         }
         if(id==R.id.gadgets)
         {
             Intent intent =new Intent(SignUp.this,Activity_main.class);
+            intent.putExtra("category","gadgets");
             startActivity(intent);
         }
 
 
         return super.onOptionsItemSelected(item);
     }
+
 
 
 }

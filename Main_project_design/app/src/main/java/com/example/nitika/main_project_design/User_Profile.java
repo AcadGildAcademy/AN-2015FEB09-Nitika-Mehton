@@ -42,7 +42,7 @@ String user_email,user_name;
         city=(EditText)findViewById(R.id.id_city);
         state=(EditText)findViewById(R.id.id_state);
         phno=(EditText)findViewById(R.id.ph_no);
-
+        country=(EditText)findViewById(R.id.id_country);
 save=(Button)findViewById(R.id.save_bt);
         cancel=(Button)findViewById(R.id.cancel_bt);
 
@@ -54,33 +54,42 @@ save=(Button)findViewById(R.id.save_bt);
         email.setText(user_email);
         email.setEnabled(false);
         name.setText(user_name);
-         name.setEnabled(false);
+       //  name.setEnabled(false);
 
-save.setOnClickListener(new View.OnClickListener() {
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(User_Profile.this, Index.class) ;
+                startActivity(i);
+
+            }
+        });
+        save.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
-        String user_email = email.getText().toString();
+
+        String user_email1 = email.getText().toString();
         String user_first_name=name.getText().toString();
         String user_last_name=last_name.getText().toString();
-
         String address= user_adress.getText().toString();
         String state1=state.getText().toString();
         String city1=city.getText().toString();
         String user_pin=zip.getText().toString();
         String ph_no=phno.getText().toString();
+        String country1=country.getText().toString();
 
-
-
-        if(!user_first_name.equals("")&& !user_last_name.equals("")&& !address.equals("")&& !state.equals("")
-                && !city.equals("")&& !user_pin.equals("")&& !ph_no.equals(""))
+Log.d("->"+user_email1+"->"+user_first_name+"->"+user_last_name+"->"+address+"->"+state1+"->"+
+        city1+"->"+user_pin+"->"+ph_no+"->"+country1,"");
+       if((!user_email1.equals("")  && !user_first_name.equals("")&& !user_last_name.equals("")
+               && !address.equals("")&& !state1.equals("")&& !city1.equals("")&&
+           !user_pin.equals("")&& !ph_no.equals("") && !country1.equals("")))
         {
-            Toast.makeText(getApplication(), "All fields are mandatory", Toast.LENGTH_SHORT).show();
+             new GetContacts().execute();
         }
-
         else
         {
-            Toast.makeText(getApplication(), "All ", Toast.LENGTH_SHORT).show();
-            new GetContacts().execute();
+            Toast.makeText(getApplication(), "All fields are  mandatory", Toast.LENGTH_SHORT).show();
+
         }
 
     }
@@ -117,6 +126,7 @@ save.setOnClickListener(new View.OnClickListener() {
             String city1=city.getText().toString();
             String user_pin=zip.getText().toString();
             String ph_no=phno.getText().toString();
+            String countryname=country.getText().toString();
             Log.d("data", "" + user_email + "-->" + user_first_name + "\n"
                     + user_last_name + "\n" + address + "\n" + state + "\n" + city + "\n");
             try {
@@ -131,7 +141,7 @@ save.setOnClickListener(new View.OnClickListener() {
                 params.add(new BasicNameValuePair("city",city1));
                 params.add(new BasicNameValuePair("pin_code",user_pin));
                 params.add(new BasicNameValuePair("mobile",ph_no));
-              //  params.add(new BasicNameValuePair("country",countryname));
+                params.add(new BasicNameValuePair("country",countryname));
 
 
                 ServiceHandler sh = new ServiceHandler();

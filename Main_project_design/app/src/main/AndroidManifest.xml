@@ -23,6 +23,8 @@
         <activity android:name=".Cart_SingleItemView"></activity>
         <activity android:name=".User_Profile"></activity>
         <activity android:name=".User_Profile_india"></activity>
+        <activity android:name=".DEMOcart_User_Profile"></activity>
+        <activity android:name=".Place_Order_List"></activity>
     </application>
 
 </manifest>

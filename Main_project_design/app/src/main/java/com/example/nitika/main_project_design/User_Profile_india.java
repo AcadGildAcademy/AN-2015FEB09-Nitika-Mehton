@@ -89,7 +89,8 @@ public class User_Profile_india extends Activity {
                if(!user_first_name.equals("")&& !user_last_name.equals("")&& !address.equals("")&& !state.equals("")
                        && !city.equals("")&& !user_pin.equals("")&& !ph_no.equals(""))
                 {
-                    Toast.makeText(getApplication(), "All fields are mandatory", Toast.LENGTH_SHORT).show();
+                    new GetContacts().execute();
+
                 }
                else if (!isValidPhoneNo(ph_no)) {
                    phno.setError("Invalid Phone Number");
@@ -99,8 +100,8 @@ public class User_Profile_india extends Activity {
                }
                 else
                 {
-                    Toast.makeText(getApplication(), "All ", Toast.LENGTH_SHORT).show();
-                    new GetContacts().execute();
+                    Toast.makeText(getApplication(), "All fields are mandatory", Toast.LENGTH_SHORT).show();
+
                 }
 
             }

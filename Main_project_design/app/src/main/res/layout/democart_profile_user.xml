@@ -9,7 +9,7 @@
 
     <ImageView
         android:layout_width="wrap_content"
-        android:layout_height="40dp"
+        android:layout_height="60dp"
         android:id="@+id/imag"
         android:src="@drawable/logo"
         />
@@ -19,7 +19,7 @@
         android:layout_height="50dp"
         android:text="Profile"
         android:layout_marginTop="20dp"
-        android:textSize="10dp"
+        android:textSize="25dp"
         android:textColor="@color/orange"
         android:id="@+id/textView"
         android:layout_gravity="center"
@@ -36,8 +36,8 @@
         android:ems="10"
         android:textColor="@color/orange"
         android:layout_marginBottom="5dp"
-        android:hint="Email"
-        android:id="@+id/india_user_email"
+        android:hint="email"
+        android:id="@+id/pp_id_user_email"
         android:background="@color/white"
         android:layout_gravity="center"
         android:layout_marginTop="5dp"/>
@@ -49,8 +49,8 @@
         android:ems="10"
         android:textColor="@color/orange"
         android:paddingBottom="10dp"
-        android:hint=" Name"
-        android:id="@+id/india_name"
+        android:hint=" name"
+        android:id="@+id/pp_id_name"
 
         android:background="@color/white"
         android:layout_gravity="center"/>
@@ -62,55 +62,60 @@
         android:textColor="@color/orange"
         android:paddingBottom="10dp"
         android:hint="last name"
-        android:id="@+id/india_last_name"
+        android:id="@+id/pp_id_last_name"
 
         android:background="@color/white"
         android:layout_gravity="center"/>
 
+
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textPostalAddress"
+        android:inputType="textMultiLine"
         android:ems="10"
-        android:textColor="@color/orange"
-        android:paddingBottom="10dp"
-        android:hint="enter address"
-        android:layout_gravity="center"
-        android:id="@+id/india_address" />
+        android:hint="Address"
+        android:id="@+id/pp_id_address"
+        android:layout_gravity="center_horizontal" />
 
-
-
-
-
-    <Spinner
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/orange"
-        android:paddingBottom="10dp"
-        android:ems="10"
-        android:layout_gravity="center"
-        android:id="@+id/india_state"
-        />
-
-    <Spinner
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/india_city"
-        android:paddingBottom="10dp"
-        android:ems="10"
-        android:textColor="@color/orange"
-         android:layout_gravity="center" />
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="number"
-        android:id="@+id/india_pin_code"
+        android:ems="10"
+        android:hint="Country"
+        android:id="@+id/pp_id_country"
+        android:layout_gravity="center_horizontal" />
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/orange"
+        android:paddingBottom="10dp"
+        android:ems="10"
+        android:hint="State"
+        android:layout_gravity="center"
+        android:id="@+id/pp_id_state"
+        />
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/pp_id_city"
         android:ems="10"
         android:textColor="@color/orange"
         android:paddingBottom="10dp"
-        android:hint="Enter Pin"
+        android:hint="City"
         android:layout_gravity="center"
         />
+
+
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/pp_id_pin"
+        android:paddingBottom="10dp"
+        android:ems="10"
+        android:hint="Pin Code"
+        android:layout_gravity="center" />
+
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -118,33 +123,34 @@
         android:ems="10"
         android:textColor="@color/orange"
         android:paddingBottom="10dp"
-        android:hint="enter phone no"
+        android:hint="Phone number"
         android:layout_gravity="center"
-        android:id="@+id/india_ph_no"
+        android:id="@+id/pp_ph_no"
         />
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="wrap_content"
-        android:layout_height="30dp"
+        android:layout_height="wrap_content"
         android:id="@+id/linearLayout"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="30dp"
         android:layout_gravity="center_horizontal">
 
         <Button
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Save "
+            android:layout_height="30dp"
+            android:text="Save"
             android:layout_marginRight="10dp"
 
-            android:id="@+id/india_save"
+            android:id="@+id/save_bt"
             android:background="@color/orange" />
 
         <Button
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Skip"
-            android:id="@+id/india_cancel"
+            android:layout_height="30dp"
+            android:text="NEXT"
+
+            android:id="@+id/next_bt"
             android:background="@color/orange" />
     </LinearLayout>
 
