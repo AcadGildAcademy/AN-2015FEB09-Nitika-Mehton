@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/datee"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="25sp"
+        android:text="@string/date"
+        android:layout_below="@+id/flag2"
+        android:textColor="@color/reddish"
+        />
+    <TextView
+        android:id="@+id/date2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_below="@+id/flag2"
+        android:layout_toRightOf="@+id/datee"
+        />
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="25sp"
+        android:text="@string/Desc"
+
+        android:textColor="@color/reddish"
+        android:layout_below="@+id/datee"/>
+
+    <TextView
+        android:id="@+id/desc2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_below="@+id/date2"
+        android:layout_toRightOf="@+id/description"
+        />
+
+
+
+
+
+    <ImageView
+        android:id="@+id/flag2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+       android:layout_centerHorizontal="true"
+        android:fadingEdge="vertical"
+        android:padding="15dp"
+        android:backgroundTint="@color/brown"
+
+        />
+
+</RelativeLayout>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:android1="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    tools:context="package com.example.eku.first_page">
+
+    <item
+        android:id="@+id/add_menu"
+         android:title="SIGN UP"
+        android:icon="@android:drawable/ic_input_add"
+        android1:showAsAction="always">
+
+    </item>
+
+    <item
+        android:id="@+id/sign_in"
+        android:title="SIGN_IN"
+        android:icon="@drawable/sign_in_user"
+        android1:showAsAction="always">
+    </item>
+
+    <item
+        android:id="@+id/now_on_sale"
+        android:title="Now On Sale"
+        android:icon="@drawable/item_selector"
+        >
+    </item>
+    <item
+        android:id="@+id/upcoming"
+        android:title="Upcoming Events"
+        android:icon="@drawable/item_selector"
+        >
+
+    </item>
+    <item
+        android:id="@+id/past"
+        android:title="Past Events"
+        android:icon="@drawable/item_selector"
+        >
+
+    </item>
+    <item
+        android:id="@+id/booking"
+        android:title="Booking"
+        android:icon="@drawable/item_selector"
+        >
+
+    </item>
+
+    <item
+        android:id="@+id/artists"
+        android:title="Artists"
+        android:icon="@drawable/item_selector"
+        >
+
+    </item>
+    <item
+        android:id="@+id/venue"
+        android:title="Venue's"
+        android:icon="@drawable/item_selector"
+        >
+
+    </item>
+    <item
+        android:id="@+id/contact_us"
+        android:title="Contacts us"
+        android:icon="@drawable/item_selector"
+        >
+
+    </item>
+
+
+
+
+</menu>

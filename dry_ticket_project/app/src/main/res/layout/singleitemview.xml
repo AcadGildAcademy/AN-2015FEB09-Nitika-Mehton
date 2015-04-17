@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+<RelativeLayout
+   android:layout_width="match_parent"
+     android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/flag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+       android:layout_centerHorizontal="true"
+        android:padding="15dp" />
+
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="25sp"
+        android:text="@string/Desc"
+        android:layout_below="@+id/flag"
+        android:textColor="@color/reddish"
+        />
+    <TextView
+        android:id="@+id/desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_below="@+id/flag"
+        android:layout_toRightOf="@+id/description"
+        />
+    <TextView
+        android:id="@+id/datee"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="25sp"
+        android:text="@string/date"
+        android:textColor="@color/reddish"
+        android:layout_below="@+id/description"
+      />
+
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="25sp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:layout_toRightOf ="@+id/datee"
+        android:layout_below="@+id/desc"
+        />
+
+    <TextView
+        android:id="@+id/timee"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="25sp"
+        android:text="@string/time"
+        android:layout_below="@+id/datee"
+
+        android:textColor="@color/reddish"/>
+    <TextView
+        android:id="@+id/time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="25sp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:layout_below="@+id/date"
+        android:layout_toRightOf="@+id/timee"
+        />
+    <TextView
+        android:id="@+id/pricee"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="25sp"
+        android:text="@string/price"
+        android:layout_below="@+id/timee"
+
+        android:textColor="@color/reddish"/>
+
+    <TextView
+        android:id="@+id/price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/time"
+        android:textSize="25sp"
+
+        android:textColor="@color/black"
+        android:layout_toRightOf="@+id/pricee"
+
+        />
+    <TextView
+        android:id="@+id/venuee"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="25dp"
+        android:text="@string/venue"
+        android:textColor="@color/reddish"
+
+        android:layout_below="@+id/pricee"
+       />
+    <TextView
+
+        android:id="@+id/venue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="25sp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:layout_below="@+id/price"
+        android:layout_toRightOf="@+id/venuee"
+
+        />
+
+
+
+    <Button
+    android:id="@+id/buy_ticket"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textColor="@color/reddish"
+    android:text="@string/buy"
+      android:textStyle="italic"
+
+   android:layout_alignParentLeft="true"
+      android:layout_below="@+id/venue"
+        android:padding="20dp"
+
+
+    />
+
+
+   </RelativeLayout>
+</LinearLayout>

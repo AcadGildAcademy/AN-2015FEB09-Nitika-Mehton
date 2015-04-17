@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Home</string>
+    <string name="enter_name">Enter Name</string>
+    <string name="password">Enter Password</string>
+    <string name="remember">Remember Me</string>
+    <string name="sign_in">SIGN IN</string>
+    <string name="desc">You need to sign up</string>
+    <string name="add">Add</string>
+    <string name="cancel">Cancel</string>
+    <string name="Desc">Description::-</string>
+    <string name="date">Date::-</string>
+    <string name="time">Time::-</string>
+    <string name="venue">Venue::-</string>
+    <string name="price">Price::-</string>
+    <string name="buy">Ticket Category</string>
+    <string name="title_activity_maps">Contact Us</string>
+    <string name="name">Enter Full Name</string>
+    <string name="phone">Enter Phone Number</string>
+    <string name="email">Enter Email address </string>
+    <string name="msg">Enter Message</string>
+
+    <string-array name="Enquiry_array">
+        <item>Sell Ticket on drytickets.com.au</item>
+        <item>Advertisement on drytickets.com.au</item>
+        <item>Technical issues</item>
+        <item>Event Enquiry</item>
+        <item>Marketing Enquiry</item>
+        <item>Event Enquiry</item>
+        <item>Website Feedback</item>
+        <item>Other</item>
+    </string-array>
+
+    <string name="send">Send</string>
+    <string name="title_activity_venue_map">Venue Map</string>
+
+</resources>
