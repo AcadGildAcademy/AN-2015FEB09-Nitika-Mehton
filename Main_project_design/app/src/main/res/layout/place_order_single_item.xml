@@ -1,0 +1,131 @@
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical" android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="#000000"
+            android:padding="1dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/_email"
+            android:textSize="@dimen/text_size"
+            android:textColor="@color/orange"
+            android:text="product_name"
+            android:paddingRight="5dp"
+            android:padding="20dp"
+            android:layout_gravity="center"
+           />
+
+        <LinearLayout
+            android:orientation="horizontal" android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="20dp">
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="10dp">
+       <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/_name"
+        android:textSize="@dimen/text_size"
+        android:textColor="@color/black"
+        android:text="Name"
+      />
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:id="@+id/_product_name"
+                   android:textSize="@dimen/text_size"
+                   android:textColor="@color/orange"
+
+                  android:paddingRight="5dp"/>
+
+    </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/price"
+                    android:textSize="@dimen/text_size"
+                    android:textColor="@color/black"
+                    android:text="Price"
+
+                    android:paddingRight="5dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/_product_price"
+                    android:textSize="@dimen/text_size"
+                    android:textColor="@color/orange"
+
+                    android:paddingRight="5dp"/>
+                </LinearLayout>
+
+
+
+
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/_quantity"
+                android:textSize="@dimen/text_size"
+                android:textColor="@color/black"
+                android:text="Quantity"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/_product_quantity"
+                android:textSize="@dimen/text_size"
+                android:textColor="@color/orange"
+               />
+
+            </LinearLayout>
+        </LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/total"
+            android:textSize="@dimen/text_size"
+            android:textColor="@color/black"
+            android:text="Total"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/_total"
+            android:textSize="20dp"
+            android:textColor="@color/orange"
+            android:text="total"/>
+
+
+<Button
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="order"
+
+    android:id="@+id/btn_order"
+    android:background="@color/orange"
+    android:layout_gravity="center"/>
+
+    </LinearLayout>

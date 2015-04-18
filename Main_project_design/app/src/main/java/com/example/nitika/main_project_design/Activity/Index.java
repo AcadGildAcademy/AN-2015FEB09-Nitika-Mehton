@@ -1,5 +1,6 @@
 package com.example.nitika.main_project_design.Activity;
 
+import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -7,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,12 +25,14 @@ public class Index extends ActionBarActivity
 
     TextView tv;
     UserSessionLogin session;
+    Button order_btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.index_ui);
         tv = (TextView) findViewById(R.id.textView2);
+        order_btn=(Button)findViewById(R.id.my_order_btn);
         session = new UserSessionLogin(getApplicationContext());
         HashMap<String, String> user = session.getUserDetails();
         // get name
@@ -42,8 +46,29 @@ public class Index extends ActionBarActivity
 
             }
         });
-    getSupportActionBar();
+
+        order_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                session = new UserSessionLogin(getApplicationContext());
+                HashMap<String, String> user = session.getUserDetails();
+                // get name
+                if( session.isUserLoggedIn()) {
+                    String user_str = user.get(UserSessionLogin.KEY_EMAIL_SESSION);
+                   Intent intent = new Intent(Index.this, See_my_order.class);
+                    startActivity(intent);
+
+                }
+                else{
+                    Toast.makeText(getApplicationContext(),"Login First",Toast.LENGTH_SHORT).show();
+                }
+
+            }
+        });
+  //  getSupportActionBar();
        // getActionBar();
+        android.support.v7.app.ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
     }
 
     @Override

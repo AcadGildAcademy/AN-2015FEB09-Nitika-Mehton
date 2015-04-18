@@ -1,11 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <string name="app_name">Main_project_design</string>
     <string name="spinner">Menu</string>
     <string name="username">ENTER EMAIL</string>
-<string name="password">ENTER PASSWORD</string>
+    <string name="password">ENTER PASSWORD</string>
     <string name="name">"Name : "</string>
-    <string name="cost_price">"Cost Price : "</string>
-    <string name="selling_price">"Selling Price : "</string>
+    <string name="cost_price">"MRP: "</string>
+    <string name="selling_price">"Price : "</string>
     <string name="category">"Category : "</string>
     <string name="brand">"Brand : "</string>
     <string name="status">"Status : "</string>
@@ -14,29 +16,25 @@
     <string name="buy_now">"Buy Now " </string>
     <string name="cart_remove">"Remove From Cart " </string>
 
-
     <string-array name="state_list">
-       <item> Andhra Pradesh </item>
+        <item> Andhra Pradesh </item>
         <item>  Arunachal Pradesh </item>
         <item>  Assam </item>
         <item>  Bihar </item>
         <item> Goa </item>
         <item>   Gujarat </item>
         <item>   Haryana </item>
-      <item>  Madhya Pradesh </item>
+        <item>  Madhya Pradesh </item>
         <item>    Maharashtra </item>
         <item>  Punjab </item>
         <item>  Uttarakhand </item>
         <item>  Uttar Pradesh </item>
         <item> Chandigarh </item>
         <item> Delhi </item>
-
     </string-array>
-
     <string-array name="chandigarah">
-       <item> Chandigarh</item>
+        <item> Chandigarh</item>
     </string-array>
-
     <string-array name="delhi">
         <item>  Central Delhi</item>
         <item> East Delhi</item>
@@ -49,14 +47,13 @@
         <item> South East Delhi</item>
         <item> South West Delhi</item>
         <item> West Delhi</item>
-        </string-array>
+    </string-array>
     <string-array name="AndhraPradesht">
         <item>  Anantapur</item>
         <item>  Expand Chittoor</item>
         <item> Expand East Godavari</item>
         <item> Expand Guntur</item>
     </string-array>
-
     <string-array name="ArunachalPradesh">
         <item>  Collapse Anjaw</item>
         <item>  Expand Changlang</item>
@@ -68,23 +65,21 @@
         <item>  Collapse Longding</item>
     </string-array>
     <string-array name="assam">
-
         <item> Baksa</item>
         <item>  Expand Barpeta</item>
         <item>   Expand  Bongaigaon</item>
         <item>    Expand Cachar</item>
-        </string-array>
-
+    </string-array>
     <string-array name="bihar">
         <item>    Araria</item>
         <item>         Expand Arwal</item>
         <item>  Collapse Aurangabad</item>
         <item>   Collapse Banka</item>
-        </string-array>
+    </string-array>
     <string-array name="goa">
         <item> North Goa</item>
         <item> Expand South Goa</item>
-        </string-array>
+    </string-array>
     <string-array name="gujrat">
         <item>  Rajkot</item>
         <item>  Sabarkantha (Himmatnagar)</item>
@@ -94,7 +89,6 @@
         <item>  Vadodara</item>
         <item>  Valsad</item>
     </string-array>
-
     <string-array name="punjab_list">
         <item>  Amritsar</item>
         <item>Barnala</item>
@@ -116,26 +110,26 @@
         <item>   Rupnagar</item>
         <item>Sangrur</item>
         <item>SAS Nagar</item>
-        </string-array>
+    </string-array>
     <string-array name="Haryana_list">
-    <item> Ambala</item>
-    <item> Bhiwani</item>
-    <item>Faridabad</item>
-    <item>Jhajjar</item>
-    <item>Jind</item>
-    <item>Kaithal</item>
-    <item>Karnal</item>
-    <item>Kurukshetra</item>
-    <item>Mahendragarh</item>
-    <item>Mewat</item>
-    <item>Palwal</item>
-    <item>Panchkula</item>
-    <item> Panipatv</item>
-    <item>Rewari</item>
-    <item>Rohtak</item>
-    <item> Sirsa</item>
-    <item>Sonipat</item>
-    <item>Yamunanagar</item>
+        <item> Ambala</item>
+        <item> Bhiwani</item>
+        <item>Faridabad</item>
+        <item>Jhajjar</item>
+        <item>Jind</item>
+        <item>Kaithal</item>
+        <item>Karnal</item>
+        <item>Kurukshetra</item>
+        <item>Mahendragarh</item>
+        <item>Mewat</item>
+        <item>Palwal</item>
+        <item>Panchkula</item>
+        <item> Panipatv</item>
+        <item>Rewari</item>
+        <item>Rohtak</item>
+        <item> Sirsa</item>
+        <item>Sonipat</item>
+        <item>Yamunanagar</item>
     </string-array>
     <string-array name="Mplist">
         <item> Raisen</item>
@@ -147,7 +141,6 @@
         <item> Sehore</item>
     </string-array>
     <string-array name="Maharastra_list">
-
         <item> Hingoli</item>
         <item>Jalgaon</item>
         <item> Jalna</item>
@@ -155,7 +148,7 @@
         <item> Latur</item>
         <item> Mumbai City</item>
         <item> Mumbai Suburban</item>
-        </string-array>
+    </string-array>
     <string-array name="uttarakhand_list">
         <item> Almora</item>
         <item> Bageshwar</item>
@@ -173,5 +166,8 @@
         <item> Ghazipur</item>
         <item> Gonda</item>
         <item> Gorakhpur</item>
-        </string-array>
+    </string-array>
+
+    <string name="title_activity_maps">Map</string>
+
 </resources>

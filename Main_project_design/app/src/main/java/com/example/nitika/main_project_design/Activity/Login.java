@@ -46,7 +46,9 @@ public class Login extends  ActionBarActivity
     CheckBox checkBox;
     TextView profile;
     Boolean status;
-    private static String url = "http://bishasha.com/json/whdeal_login.php";
+   private static String url = "http://bishasha.com/json/whdeal_login.php";
+
+
     UserSessionLogin session;
 
 
@@ -151,7 +153,24 @@ public class Login extends  ActionBarActivity
        logout.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
+
                session.logoutUser();
+               String st = email.getText().toString();
+               String st2 = password.getText().toString();
+
+               // Starting MainActivity
+               savedMySharedPreferences("check", checkBox.isChecked());
+               if (checkBox.isChecked()) {
+
+                   savedMySharedPreferences("user", st);
+                   savedMySharedPreferences("password", st2);
+               }
+               else if (!checkBox.isChecked())
+               {
+                   savedMySharedPreferences("user","");
+                   savedMySharedPreferences("password","");
+
+               }
 
            }
        });

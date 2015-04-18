@@ -3,6 +3,7 @@ package com.example.nitika.main_project_design.Activity;
 /**
  * Created by NITIKA on 19-Mar-15.
  */
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -11,6 +12,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -28,7 +30,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class SingleItemView extends ActionBarActivity
+public class SingleItemView extends Activity
 {
     // Declare Variables
     private ProgressDialog pDialog;
@@ -40,19 +42,25 @@ public class SingleItemView extends ActionBarActivity
     String selling_price;
     String cost_price;
     String brand;
-    String status;
-    Button add_to_cart;
+    String total_pro;
+    Button add_to_cart,buy_now;
     String position;
+    EditText qq;
+    TextView total_qq;
     private static String url = "http://bishasha.com/json/whdeal_AddToCart.php";
     ImageLoader imageLoader = new ImageLoader(this);
     private static final String TAG_SUCCESS = "success";
-
+    int total_s;
+  String  text ;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // Get the view from singleitemview.xml
         setContentView(R.layout.singleitemview);
         add_to_cart =(Button)findViewById(R.id.id_button_add_cart);
+        buy_now=(Button)findViewById(R.id.id_button_buy_now);
+        total_qq=(TextView)findViewById(R.id.id_total_qq);
+        qq=(EditText)findViewById(R.id.id_qq);
                 Intent i = getIntent();
         // Get the result of name
         name = i.getStringExtra("name");
@@ -68,15 +76,17 @@ public class SingleItemView extends ActionBarActivity
         cost_price =i.getStringExtra("cost_price");
         //Get the result of cost price
         brand =i.getStringExtra("brand");
-
+        total_pro=i.getStringExtra("total_product");
         // Locate the TextViews in singleitemview.xml
-        TextView txtname = (TextView) findViewById(R.id.id_name_value);
+        final TextView txtname = (TextView) findViewById(R.id.id_name_value);
         TextView txtcost_price = (TextView) findViewById(R.id.id_cost_price_value);
         TextView txtselling_price = (TextView) findViewById(R.id.id_selling_price_value);
         TextView txtbrand=(TextView)findViewById(R.id.id_brand_value);
         TextView txtdescription=(TextView)findViewById(R.id.id_description_value);
         // Locate the ImageView in singleitemview.xml
         ImageView imgflag = (ImageView) findViewById(R.id.image);
+
+
      // Toast.makeText(getApplication(),id,Toast.LENGTH_LONG).show();
         // Set results to the TextViews
         txtname.setText(name);
@@ -89,7 +99,7 @@ public class SingleItemView extends ActionBarActivity
         // Passes flag images URL into ImageLoader.class
         imageLoader.DisplayImage(image_path, imgflag);
 
-
+        text = txtselling_price.getText().toString();
         //add_to_cart code
         add_to_cart.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -113,6 +123,60 @@ public class SingleItemView extends ActionBarActivity
 
                 }
             });
+
+        buy_now.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                UserSessionLogin session;
+
+                session = new UserSessionLogin(getApplicationContext());
+                HashMap<String, String> user = session.getUserDetails();
+                // get name
+                if( session.isUserLoggedIn()) {
+                    String user_str = user.get(UserSessionLogin.KEY_EMAIL_SESSION);
+                    //  Toast.makeText(getApplicationContext(),user_str,Toast.LENGTH_LONG).show();
+                    Log.d("userlogin",""+user_str);
+                    if(text.matches("\\d+")) //check if only digits. Could also be text.matches("[0-9]+")
+                    {
+                        String ss=qq.getText().toString();
+                        total_s = Integer.parseInt(text)*Integer.parseInt(ss);
+                        total_qq.setText(Integer.toString(total_s).toString());
+                        Log.d("$$$$", "" + total_qq.toString() + "q-->" + Integer.toString(total_s).toString());
+
+
+
+                    }
+                    else
+                    {
+                        Toast.makeText(getApplicationContext(),"connect to internet",Toast.LENGTH_LONG).show();
+                        Log.d("not a valid number","");
+                    }
+                    String ss=qq.getText().toString();
+                    String uu=total_qq.getText().toString();
+                    String nn=txtname.getText().toString();
+                    Toast.makeText(getApplicationContext(),uu,Toast.LENGTH_LONG).show();
+                    Log.d("uu",""+uu);
+                    Intent intent =new Intent(SingleItemView.this,DEMOcart_User_Profile_single_buy.class);
+                    intent.putExtra("product_name",nn);
+                    intent.putExtra("quantity",ss);
+                    intent.putExtra("grand_total",uu);
+                    intent.putExtra("user_email",user_str);
+                    intent.putExtra("product_id",id);
+                    intent.putExtra("total_product", total_pro);
+                    intent.putExtra("price",text);
+                    startActivity(intent);
+
+                    Toast.makeText(getApplicationContext(),"id",Toast.LENGTH_LONG).show();
+                }
+                else
+                {
+                    Toast.makeText(getApplicationContext(),"Please Login First",Toast.LENGTH_LONG).show();
+                }
+
+
+            }
+        });
 
     }
 
@@ -187,9 +251,9 @@ public class SingleItemView extends ActionBarActivity
             if (success == 1) {
                 Log.d("add to cart !", " Success");
                 Toast.makeText(getApplicationContext(),"Product is added to cart",Toast.LENGTH_LONG).show();
-                Intent i = new Intent(SingleItemView.this,Activity_main.class);//temp
-                finish();
-                startActivity(i);
+              //  Intent i = new Intent(SingleItemView.this,Activity_main.class);//temp
+               // finish();
+               // startActivity(i);
                 //  return json.getString(TAG_MESSAGE);
             } else {
                 Log.d("add to Failure!"," fail");
@@ -198,5 +262,6 @@ public class SingleItemView extends ActionBarActivity
             }
         }
     }
+
 
 }

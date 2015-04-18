@@ -8,6 +8,7 @@
     android:layout_height="wrap_content"
     android:id="@+id/place_product_name"
     android:textSize="@dimen/text_size"
+    android:ems="5"
     android:textColor="@color/black"
     android:text="product_name"
     android:paddingRight="5dp"/>
@@ -16,6 +17,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/place_product_price"
         android:textSize="@dimen/text_size"
+        android:ems="5"
         android:textColor="@color/black"
         android:text="product_anme"
         android:paddingRight="5dp"/>
@@ -24,6 +26,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/place_product_quantity"
         android:textSize="@dimen/text_size"
+        android:ems="5"
         android:textColor="@color/black"
         android:text="product_anme"/>
 

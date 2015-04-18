@@ -10,18 +10,10 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="60dp"
-        android:id="@+id/imag"
+        android:id="@+id/_imag"
         android:src="@drawable/logo"
         />
-    <ScrollView
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
 
-        android:id="@+id/sc_invoice">
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:orientation="vertical">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="50dp"
@@ -29,7 +21,7 @@
         android:layout_marginTop="20dp"
         android:textSize="25dp"
         android:textColor="@color/orange"
-        android:id="@+id/textView"
+        android:id="@+id/_textView"
         android:layout_gravity="center"
         />
 
@@ -45,7 +37,7 @@
         android:textColor="@color/orange"
         android:layout_marginBottom="5dp"
         android:hint="email"
-        android:id="@+id/pp_id_user_email"
+        android:id="@+id/_id_user_email"
         android:background="@color/white"
         android:layout_gravity="center"
         android:layout_marginTop="5dp"/>
@@ -58,7 +50,7 @@
         android:textColor="@color/orange"
         android:paddingBottom="10dp"
         android:hint=" name"
-        android:id="@+id/pp_id_name"
+        android:id="@+id/_id_name"
 
         android:background="@color/white"
         android:layout_gravity="center"/>
@@ -70,9 +62,9 @@
         android:textColor="@color/orange"
         android:paddingBottom="10dp"
         android:hint="last name"
-        android:id="@+id/pp_id_last_name"
+        android:id="@+id/_id_last_name"
 
-
+        android:background="@color/white"
         android:layout_gravity="center"/>
 
 
@@ -81,9 +73,8 @@
         android:layout_height="wrap_content"
         android:inputType="textMultiLine"
         android:ems="10"
-        android:textColor="@color/orange"
         android:hint="Address"
-        android:id="@+id/pp_id_address"
+        android:id="@+id/_id_address"
         android:layout_gravity="center_horizontal" />
 
     <EditText
@@ -91,23 +82,22 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="Country"
-        android:id="@+id/pp_id_country"
+        android:id="@+id/_id_country"
         android:layout_gravity="center_horizontal" />
-    <EditText
+    <Spinner
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/orange"
         android:paddingBottom="10dp"
         android:ems="10"
-
         android:hint="State"
         android:layout_gravity="center"
-        android:id="@+id/pp_id_state"
+        android:id="@+id/_id_state"
         />
-    <EditText
+    <Spinner
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/pp_id_city"
+        android:id="@+id/_id_city"
         android:ems="10"
         android:textColor="@color/orange"
         android:paddingBottom="10dp"
@@ -120,10 +110,9 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/pp_id_pin"
+        android:id="@+id/_id_pin"
         android:paddingBottom="10dp"
         android:ems="10"
-        android:textColor="@color/orange"
         android:hint="Pin Code"
         android:layout_gravity="center" />
 
@@ -136,7 +125,7 @@
         android:paddingBottom="10dp"
         android:hint="Phone number"
         android:layout_gravity="center"
-        android:id="@+id/pp_ph_no"
+        android:id="@+id/_ph_no"
         />
 
     <LinearLayout
@@ -145,8 +134,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/linearLayout"
         android:layout_marginTop="30dp"
-        android:layout_gravity="center_horizontal"
-        android:paddingBottom="20dp">
+        android:layout_gravity="center_horizontal">
 
         <Button
             android:layout_width="wrap_content"
@@ -154,7 +142,7 @@
             android:text="Save"
             android:layout_marginRight="10dp"
 
-            android:id="@+id/save_bt"
+            android:id="@+id/_save_bt"
             android:background="@color/orange" />
 
         <Button
@@ -162,9 +150,8 @@
             android:layout_height="30dp"
             android:text="NEXT"
 
-            android:id="@+id/next_bt"
+            android:id="@+id/_next_bt"
             android:background="@color/orange" />
     </LinearLayout>
-        </LinearLayout>
-</ScrollView>
+
 </LinearLayout>

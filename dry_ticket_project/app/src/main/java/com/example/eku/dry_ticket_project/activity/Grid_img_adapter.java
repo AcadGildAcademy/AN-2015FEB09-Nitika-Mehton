@@ -12,9 +12,13 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.BaseAdapter;
+import android.widget.Toast;
+
 import com.example.eku.dry_ticket_project.R;
 public class Grid_img_adapter extends BaseAdapter {
-
+int x,m;
+    Boolean f0=false,f1=false,f2=false;
+    int count;
     private Context context;
    //1 private final String[] gridValues;
    private final int[] gridValues;
@@ -71,9 +75,9 @@ public class Grid_img_adapter extends BaseAdapter {
 
             // set image based on selected text
 
-            ImageView imageView = (ImageView) gridView
+      final       ImageView imageView = (ImageView) gridView
                     .findViewById(R.id.grid_item_image);
-
+   
             int arrLabel = gridValues[ position ];
             if (arrLabel==0) {
 
@@ -87,6 +91,105 @@ public class Grid_img_adapter extends BaseAdapter {
 
                 imageView.setImageResource(R.drawable.ic_launcher);
             }
+/*
+gridView.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+
+        Toast.makeText(context, "You Clicked " +x, Toast.LENGTH_LONG).show();
+Log.d("x",""+x+"m"+m);
+
+
+        switch(x) {
+            case 0:
+
+                if ( m == 1) {
+                    Toast.makeText(context, "You Clicked all", Toast.LENGTH_LONG).show();
+
+                    Log.d("case0", "" + x);
+                } else {
+                    if(f0==false)
+                    {
+                        count = count + 1;
+                        Log.d("count++>", "" + count+"flag0"+""+f0);
+
+
+                        imageView.setImageResource(R.drawable.seat);
+                        f0 = true;
+
+                    }else  if(f0==true)
+                    {
+                        count = count - 1;
+                        Log.d("count-->", "" + count+"flag0"+""+f0);
+
+
+                        imageView.setImageResource(R.drawable.ic_launcher);
+                        f0 = false;
+                    }
+
+                       }
+                break;
+            case 1:
+
+                if ( m == 1) {
+                    Toast.makeText(context, "You Clicked all", Toast.LENGTH_LONG).show();
+
+                    Log.d("case0", "" + x);
+                } else {
+                    if(f1==false)
+                    {
+                        count = count + 1;
+                        Log.d("count++>", "" + count+"flag1"+""+f1);
+
+
+                        imageView.setImageResource(R.drawable.seat);
+                        f1 = true;
+
+                    }else if(f0==true)
+                    {
+                        count = count - 1;
+                        Log.d("count-->", "" + count+"flag1"+""+f1);
+
+
+                        imageView.setImageResource(R.drawable.ic_launcher);
+                        f1 = false;
+                    }
+
+                }
+                break;
+            case 2:
+
+                if ( m == 1) {
+                    Toast.makeText(context, "You Clicked all", Toast.LENGTH_LONG).show();
+
+                    Log.d("case2", "" + x);
+                } else {
+                    if(f2==false)
+                    {
+                        count = count + 1;
+                        Log.d("count++>", "" + count+"flag2"+""+f2);
+
+
+                        imageView.setImageResource(R.drawable.seat);
+                        f2 = true;
+
+                    }else if(f0==true)
+                    {
+                        count = count - 1;
+                        Log.d("count-->", "" + count+"flag1"+""+f2);
+
+
+                        imageView.setImageResource(R.drawable.ic_launcher);
+                        f2 = false;
+                    }
+
+                }
+                break;
+        }
+    }
+});*/
+
+
 /*
             if (arrLabel.equals("Windows")) {
 

@@ -86,9 +86,18 @@ Log.d("->"+user_email1+"->"+user_first_name+"->"+user_last_name+"->"+address+"->
        if((!user_email1.equals("")  && !user_first_name.equals("")&& !user_last_name.equals("")
                && !address.equals("")&& !state1.equals("")&& !city1.equals("")&&
            !user_pin.equals("")&& !ph_no.equals("") && !country1.equals("")))
-        {
-             new GetContacts().execute();
-        }
+       {
+                  if (!isValidPhoneNo(ph_no))
+                    {
+                            phno.setError("Invalid Phone Number");
+                    } else if (!isValidPinCode(user_pin))
+                        {
+                      zip.setError("Invalid Pin Number");
+                       }
+           else {
+                      new GetContacts().execute();
+                  }
+       }
         else
         {
             Toast.makeText(getApplication(), "All fields are  mandatory", Toast.LENGTH_SHORT).show();
@@ -197,4 +206,16 @@ Log.d("->"+user_email1+"->"+user_first_name+"->"+user_last_name+"->"+address+"->
             }
         }
     }
+        private boolean isValidPhoneNo(String pass) {
+            if (pass != null && pass.length() == 10) {
+                return true;
+            }
+            return false;
+        }
+        private boolean isValidPinCode(String pass) {
+            if (pass != null && pass.length() == 6) {
+                return true;
+            }
+            return false;
+        }
 }

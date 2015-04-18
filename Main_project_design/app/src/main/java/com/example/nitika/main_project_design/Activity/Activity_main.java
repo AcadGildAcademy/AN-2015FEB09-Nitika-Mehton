@@ -51,7 +51,7 @@ public class Activity_main extends ActionBarActivity
      public    static String TAG_STATUS = "status";
      public   static String TAG_BRAND = "brand";
      public   static String TAG_CATEGORY = "category";
-
+     public   static String TAG_DATE_ORDER = "date_order";
      public   static String TAG_QUANTITY ="quantity";
      public    static String TAG_TOTAL="total";
      public static String TAG_TOTAL_PRODUCT="totol_product";
@@ -63,7 +63,8 @@ public class Activity_main extends ActionBarActivity
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // Get the view from listview_main.xml
-        setContentView(R.layout.activity_main_ui);
+       setContentView(com.example.nitika.main_project_design.R.layout.activity_main_ui);
+       // setContentView(.layout.activity_main_ui);
         Intent i = getIntent();
         // Get the result of name
         category = i.getStringExtra("category");               // selected from menu
@@ -133,7 +134,7 @@ public class Activity_main extends ActionBarActivity
                         String cost_price = c.getString(TAG_COST_PRICE);
                         String selling_price = c.getString(TAG_SELL_COST);
                        String brand= c.getString(TAG_BRAND);
-
+                        String total_product=c.getString(TAG_TOTAL_PRODUCT);
                         HashMap<String, String> contact = new HashMap<String, String>();
                         // adding each child node to HashMap key => value
                         contact.put(TAG_ID, id);
@@ -143,7 +144,7 @@ public class Activity_main extends ActionBarActivity
                         contact.put(TAG_COST_PRICE,cost_price);
                         contact.put(TAG_SELL_COST,selling_price);
                         contact.put(TAG_BRAND,brand);
-
+                        contact.put(TAG_TOTAL_PRODUCT,total_product);
 
 
                         arraylist.add(contact);
@@ -168,7 +169,7 @@ public class Activity_main extends ActionBarActivity
         @Override
         protected void onPostExecute(Void args) {
             // Locate the listview in listview_main.xml
-            listview = (ListView) findViewById(R.id.listview);
+            listview = (ListView) findViewById(com.example.nitika.main_project_design.R.id.listview);
             // Pass the results into ListViewAdapter.java
             adapter = new ListViewAdapter(Activity_main.this, arraylist);
             // Set the adapter to the ListView
@@ -181,8 +182,8 @@ public class Activity_main extends ActionBarActivity
      @Override
      public boolean onCreateOptionsMenu(Menu menu) {
          MenuInflater menuInflater = getMenuInflater();
-         menuInflater.inflate(R.menu.menu, menu);
-
+        // menuInflater.inflate(com.example.nitika.main_project_design.R.menu.menu, menu);
+menuInflater.inflate(com.example.nitika.main_project_design.R.menu.menu,menu);
          return super.onCreateOptionsMenu(menu);
 
 
@@ -191,7 +192,7 @@ public class Activity_main extends ActionBarActivity
      @Override
      public boolean onOptionsItemSelected(MenuItem item) {
          int id = item.getItemId();
-         if (id == R.id.login_id_menu) {
+         if (id == com.example.nitika.main_project_design.R.id.login_id_menu) {
              Intent intent = new Intent(Activity_main.this, Login.class);
 
              startActivity(intent);

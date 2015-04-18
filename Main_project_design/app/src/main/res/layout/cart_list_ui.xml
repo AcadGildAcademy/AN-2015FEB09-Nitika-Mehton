@@ -3,13 +3,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent" >
 
-    <ListView
-        android:id="@+id/cart_listview"
-        android:layout_width="fill_parent"
-        android:layout_height="459dp"
-        android:background="@color/white"
-        android:divider="@color/orange"
-        android:dividerHeight="1dp"/>
+
 
 
 
@@ -19,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:orientation="vertical"
-        android:layout_below="@+id/cart_listview"
+
         android:id="@+id/linearLayout4"
         >
 
@@ -76,5 +70,13 @@
    </LinearLayout>
 
 </LinearLayout>
+    <ListView
+        android:id="@+id/cart_listview"
+        android:layout_width="fill_parent"
+        android:layout_height="459dp"
+        android:background="@color/white"
+        android:divider="@color/orange"
+        android:dividerHeight="1dp"
+        android:layout_below="@+id/linearLayout4"/>
 
 </RelativeLayout>

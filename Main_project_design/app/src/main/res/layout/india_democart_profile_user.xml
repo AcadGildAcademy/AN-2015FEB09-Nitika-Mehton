@@ -13,15 +13,7 @@
         android:id="@+id/imag"
         android:src="@drawable/logo"
         />
-    <ScrollView
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
 
-        android:id="@+id/sc_invoice">
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:orientation="vertical">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="50dp"
@@ -72,7 +64,7 @@
         android:hint="last name"
         android:id="@+id/pp_id_last_name"
 
-
+        android:background="@color/white"
         android:layout_gravity="center"/>
 
 
@@ -81,7 +73,6 @@
         android:layout_height="wrap_content"
         android:inputType="textMultiLine"
         android:ems="10"
-        android:textColor="@color/orange"
         android:hint="Address"
         android:id="@+id/pp_id_address"
         android:layout_gravity="center_horizontal" />
@@ -93,18 +84,17 @@
         android:hint="Country"
         android:id="@+id/pp_id_country"
         android:layout_gravity="center_horizontal" />
-    <EditText
+    <Spinner
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/orange"
         android:paddingBottom="10dp"
         android:ems="10"
-
         android:hint="State"
         android:layout_gravity="center"
         android:id="@+id/pp_id_state"
         />
-    <EditText
+    <Spinner
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/pp_id_city"
@@ -123,7 +113,6 @@
         android:id="@+id/pp_id_pin"
         android:paddingBottom="10dp"
         android:ems="10"
-        android:textColor="@color/orange"
         android:hint="Pin Code"
         android:layout_gravity="center" />
 
@@ -145,8 +134,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/linearLayout"
         android:layout_marginTop="30dp"
-        android:layout_gravity="center_horizontal"
-        android:paddingBottom="20dp">
+        android:layout_gravity="center_horizontal">
 
         <Button
             android:layout_width="wrap_content"
@@ -165,6 +153,5 @@
             android:id="@+id/next_bt"
             android:background="@color/orange" />
     </LinearLayout>
-        </LinearLayout>
-</ScrollView>
+
 </LinearLayout>

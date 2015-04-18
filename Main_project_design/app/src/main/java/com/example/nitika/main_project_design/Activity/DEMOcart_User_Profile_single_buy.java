@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+//import com.example.nitika.main_project_design.R;
 import com.example.nitika.main_project_design.R;
 import com.example.nitika.main_project_design.Utiles.ServiceHandler;
 import com.example.nitika.main_project_design.Utiles.UserSessionLogin;
@@ -28,15 +29,16 @@ import java.util.List;
 /**
  * Created by NITIKA on 02-Apr-15.
  */
-public class DEMOcart_User_Profile extends ActionBarActivity {
+public class DEMOcart_User_Profile_single_buy extends ActionBarActivity {
+
 String str_name,str_last_name,str_city,str_country,str_state,str_pin_code,str_address,str_phone_no;
     private ProgressDialog pDialog;
     UserSessionLogin session;
-String user_email,user_name;
+String user_email,user_name,quantity,product_name;
     EditText email,name,last_name,user_adress,zip,city,state,phno,country;
     Button save,next;
     private static String url = "http://bishasha.com/json/whdeal_profile.php";
-    private static String url_getdata="http://bishasha.com/json/whdeal_seeProfile.php";
+   private static String url_getdata="http://bishasha.com/json/whdeal_seeProfile.php";
 
     ArrayList<HashMap<String, String>> arraylist;
     JSONArray contacts = null;
@@ -49,23 +51,24 @@ String user_email,user_name;
     static  String TAG_PIN="pin_code";
     static  String TAG_PHONE_NO="mobile";
     static  String TAG_COUNTRY="country";
-    String grand_total;
+    String grand_total,price1;
+    String product_id,total_pro;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.democart_profile_user);
-
-        name=(EditText)findViewById(R.id.pp_id_name);
-       last_name=(EditText)findViewById(R.id.pp_id_last_name);
-       email =(EditText)findViewById(R.id.pp_id_user_email);
-        user_adress=(EditText)findViewById(R.id.pp_id_address);
-        zip=(EditText)findViewById(R.id.pp_id_pin);
-        city=(EditText)findViewById(R.id.pp_id_city);
-        state=(EditText)findViewById(R.id.pp_id_state);
-        phno=(EditText)findViewById(R.id.pp_ph_no);
-        country=(EditText)findViewById(R.id.pp_id_country);
-save=(Button)findViewById(R.id.save_bt);
-        next=(Button)findViewById(R.id.next_bt);
+        //setContentView(R.layout.democart_profile_user_single_buy);
+setContentView(R.layout.democart_profile_user_single_buy);
+        name=(EditText)findViewById(R.id._id_name);
+       last_name=(EditText)findViewById(R.id._id_last_name);
+       email =(EditText)findViewById(R.id._id_user_email);
+        user_adress=(EditText)findViewById(R.id._id_address);
+        zip=(EditText)findViewById(R.id._id_pin);
+        city=(EditText)findViewById(R.id._id_city);
+        state=(EditText)findViewById(R.id._id_state);
+        phno=(EditText)findViewById(R.id._ph_no);
+        country=(EditText)findViewById(R.id._id_country);
+save=(Button)findViewById(R.id._save_bt);
+        next=(Button)findViewById(R.id._next_bt);
 
         session = new UserSessionLogin(getApplicationContext());
         HashMap<String, String> user = session.getUserDetails();
@@ -73,14 +76,20 @@ save=(Button)findViewById(R.id.save_bt);
         Intent i = getIntent();
         grand_total=i.getStringExtra("grand_total");
          user_email = i.getStringExtra("user_email");
-        user_name =i.getStringExtra("user_name");
+         user_name =i.getStringExtra("user_name");
+        quantity=i.getStringExtra("quantity");
+        product_name=i.getStringExtra("product_name");
+        product_id=i.getStringExtra("product_id");
+        total_pro=i.getStringExtra("total_product");
+        //intent.putExtra("price",text);
+        price1=i.getStringExtra("price");
         email.setText(user_email);
         email.setEnabled(false);
-        name.setText(user_name);
+       //name.setText(user_name);
 
         new GetUserData().execute();
         //next.setEnabled(false);
-        String user_email1 = email.getText().toString();
+        final String user_email1 = email.getText().toString();
         String user_first_name=name.getText().toString();
         String user_last_name=last_name.getText().toString();
         String address= user_adress.getText().toString();
@@ -94,8 +103,16 @@ save=(Button)findViewById(R.id.save_bt);
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(DEMOcart_User_Profile.this, Place_Order_List.class);
+                Toast.makeText(getApplication(), "All ", Toast.LENGTH_SHORT).show();
+
+                Intent i = new Intent(DEMOcart_User_Profile_single_buy.this, place_order_single_product.class);
                 i.putExtra("grand_total", grand_total);
+                i.putExtra("product_name", product_name);
+                i.putExtra("quantity", quantity);
+                i.putExtra("user_email", user_email);
+                i.putExtra("product_id", product_id);
+                i.putExtra("total_product",total_pro);
+                i.putExtra("price",price1);
                 finish();
                 startActivity(i);
 
@@ -125,8 +142,7 @@ Log.d("->"+user_email1+"->"+user_first_name+"->"+user_last_name+"->"+address+"->
                && !address.equals("")&& !state1.equals("")&& !city1.equals("")&&
            !user_pin.equals("")&& !ph_no.equals("") && !country1.equals("")))
         {
-            
-             new GetContacts().execute();
+            new GetContacts().execute();
             next.setEnabled(true);
         }
         else
@@ -147,7 +163,7 @@ Log.d("->"+user_email1+"->"+user_first_name+"->"+user_last_name+"->"+address+"->
         protected void onPreExecute() {
             super.onPreExecute();
             // Showing progress dialog
-            pDialog = new ProgressDialog(DEMOcart_User_Profile.this);
+            pDialog = new ProgressDialog(DEMOcart_User_Profile_single_buy.this);
             pDialog.setMessage("Please wait...");
          //   pDialog.setIndeterminate(false);
             pDialog.setCancelable(false);
@@ -258,7 +274,7 @@ Log.d("->"+user_email1+"->"+user_first_name+"->"+user_last_name+"->"+address+"->
         protected void onPreExecute() {
             super.onPreExecute();
             // Showing progress dialog
-            pDialog = new ProgressDialog(DEMOcart_User_Profile.this);
+            pDialog = new ProgressDialog(DEMOcart_User_Profile_single_buy.this);
             pDialog.setMessage("Please wait...");
             pDialog.setCancelable(false);
             pDialog.show();
@@ -340,7 +356,7 @@ Log.d("->"+user_email1+"->"+user_first_name+"->"+user_last_name+"->"+address+"->
                 //  return json.getString(TAG_MESSAGE);
             } else {
                 Log.d("update fail"," fail");
-                Toast.makeText(DEMOcart_User_Profile.this," Fail To Update",Toast.LENGTH_LONG).show();
+                Toast.makeText(DEMOcart_User_Profile_single_buy.this," Fail To Update",Toast.LENGTH_LONG).show();
                 // return json.getString(TAG_MESSAGE);
             }
         }
