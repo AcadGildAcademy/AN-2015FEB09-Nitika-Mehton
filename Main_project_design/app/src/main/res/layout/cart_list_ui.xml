@@ -56,16 +56,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/cart_buy"
+        android:background="@color/orange"
         android:textColor="@color/black"
         android:textSize="@dimen/text_size"
-        android:text="Buy All"/>
+        android:text="Buy All"
+        android:layout_weight="1"/>
        <Button
+           android:layout_marginLeft="10dp"
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
            android:id="@+id/id_remove_all_cart"
            android:textColor="@color/black"
            android:textSize="@dimen/text_size"
-           android:text="Remove All"/>
+           android:background="@color/orange"
+           android:text="Remove All"
+           android:layout_weight="1"/>
 
    </LinearLayout>
 

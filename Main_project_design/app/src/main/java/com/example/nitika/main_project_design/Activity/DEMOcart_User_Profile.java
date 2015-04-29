@@ -119,8 +119,7 @@ save=(Button)findViewById(R.id.save_bt);
         String ph_no=phno.getText().toString();
         String country1=country.getText().toString();
 
-Log.d("->"+user_email1+"->"+user_first_name+"->"+user_last_name+"->"+address+"->"+state1+"->"+
-        city1+"->"+user_pin+"->"+ph_no+"->"+country1,"");
+
        if((!user_email1.equals("")  && !user_first_name.equals("")&& !user_last_name.equals("")
                && !address.equals("")&& !state1.equals("")&& !city1.equals("")&&
            !user_pin.equals("")&& !ph_no.equals("") && !country1.equals("")))
@@ -187,15 +186,7 @@ Log.d("->"+user_email1+"->"+user_first_name+"->"+user_last_name+"->"+address+"->
 
                             JSONObject c = contacts.getJSONObject(0);
 
-                          //  name = (EditText) findViewById(R.id.pp_id_name);
-                       //     last_name = (EditText) findViewById(R.id.pp_id_last_name);
-                            // email =(EditText)findViewById(R.id.id_user_email);
-                       //     user_adress = (EditText) findViewById(R.id.pp_id_address);
-                        //    zip = (EditText) findViewById(R.id.pp_id_pin);
-                        //    city = (EditText) findViewById(R.id.pp_id_city);
-                         //   state = (EditText) findViewById(R.id.pp_id_state);
-                      //      phno = (EditText) findViewById(R.id.pp_ph_no);
-                        //    country = (EditText) findViewById(R.id.pp_id_country);
+
                         str_name=c.getString((TAG_NAME));
                         str_last_name= c.getString(TAG_LAST_NAME);
                         str_city=c.getString(TAG_CITY);
@@ -204,14 +195,7 @@ Log.d("->"+user_email1+"->"+user_first_name+"->"+user_last_name+"->"+address+"->
                         str_pin_code=c.getString(TAG_PIN);
                         str_address=c.getString(TAG_ADDRESS);
                         str_phone_no=c.getString(TAG_PHONE_NO);
-                   //         name.setText(name_j.toString());
-                      // last_name.setText( (c.getString(TAG_LAST_NAME)));
-                        //   user_adress.setText(c.getString(TAG_ADDRESS));
-                           //zip.setText( c.getString(TAG_PIN));
-                            //city.setText(c.getString(TAG_CITY));
-                      //      state.setText( c.getString(TAG_STATE));
-                        //    country.setText(c.getString(TAG_COUNTRY));
-                          //  phno.setText(c.getString(TAG_PHONE_NO));
+
                         Log.d("",""+c.getString((TAG_LAST_NAME)));
 
                         Log.d("",""+c.getString((TAG_NAME)));
@@ -330,14 +314,7 @@ Log.d("->"+user_email1+"->"+user_first_name+"->"+user_last_name+"->"+address+"->
             if (success == 1) {
                 Log.d("update Successful!", " Success");
                 Toast.makeText(getApplicationContext(),"Update",Toast.LENGTH_LONG).show();
-                //  String user_email = email.getText().toString();
-                // String user_name=name.getText().toString();
-              //  Intent i = new Intent(DEMOcart_User_Profile.this, DEMOcart_User_Profile.class) ;//
-               // i.putExtra("user_email",user_email);
-                //i.putExtra("user_name",user_name);
-                //finish();
-                //startActivity(i);
-                //  return json.getString(TAG_MESSAGE);
+
             } else {
                 Log.d("update fail"," fail");
                 Toast.makeText(DEMOcart_User_Profile.this," Fail To Update",Toast.LENGTH_LONG).show();

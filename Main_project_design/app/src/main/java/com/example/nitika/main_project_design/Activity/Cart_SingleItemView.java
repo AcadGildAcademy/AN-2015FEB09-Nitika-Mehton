@@ -44,16 +44,18 @@ public class Cart_SingleItemView extends Activity{
     Button add_to_cart;
     String total;
     String quantity;
+    String total_product;
     int get_post;
     private static String url = "http://bishasha.com/json/whdeal_RemoveFromCart.php";
     private static String update_url = "http://bishasha.com/json/whdeal_UpDateCartQuantity.php";
     ImageLoader imageLoader = new ImageLoader(this);
     private static final String TAG_SUCCESS = "success";
-    Button total_btn;
+    Button total_btn,buy_btn;
    EditText txtquantity;
     TextView cart_tot_value;
     int total_seeling_cost;
     String text;
+   Boolean update_q_btn_bol=false;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,6 +65,7 @@ public class Cart_SingleItemView extends Activity{
       total_btn=(Button)findViewById(R.id.cart_total_btn);
         txtquantity=(EditText)findViewById(R.id.cart_quantity_value_singleView);//for quanity
         cart_tot_value=(TextView)findViewById(R.id.cart_total_value);
+        buy_btn=(Button)findViewById(R.id.cart_id_button_buy_now);
                 Intent i = getIntent();
         // Get the result of name
         name = i.getStringExtra("name");
@@ -80,13 +83,15 @@ public class Cart_SingleItemView extends Activity{
         brand =i.getStringExtra("brand");
          quantity=i.getStringExtra("quantity");
        total=i.getStringExtra("total");
+        total_product=i.getStringExtra("total_product");
+
         // Locate the TextViews in singleitemview.xml
         TextView txtname = (TextView) findViewById(R.id.cart_id_name_value);
         TextView txtcost_price = (TextView) findViewById(R.id.cart_id_cost_price_value);
         TextView txtselling_price = (TextView) findViewById(R.id.cart_id_selling_price_value);
         TextView txtbrand=(TextView)findViewById(R.id.cart_id_brand_value);
         TextView txtdescription=(TextView)findViewById(R.id.cart_id_description_value);
-
+       TextView stock=(TextView)findViewById(R.id.id_stock);
         // Locate the ImageView in singleitemview.xml
         ImageView imgflag = (ImageView) findViewById(R.id.cart_image);
    //   Toast.makeText(getApplication(),id,Toast.LENGTH_LONG).show();
@@ -102,6 +107,11 @@ public class Cart_SingleItemView extends Activity{
         imageLoader.DisplayImage(image_path, imgflag);
 
         String ss=txtquantity.getText().toString();
+        String ss1="Out Of Stock";
+        if(total_product.equals("0"))
+        {
+            stock.setText(ss1);
+        }
 
 
 
@@ -127,6 +137,8 @@ public class Cart_SingleItemView extends Activity{
        total_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                update_q_btn_bol=true;
                get_post=2;
 
                 if(text.matches("\\d+")) //check if only digits. Could also be text.matches("[0-9]+")
@@ -143,8 +155,56 @@ public class Cart_SingleItemView extends Activity{
                 new GetContacts().execute();
                 String ss=txtquantity.getText().toString();
 
-               // Toast.makeText(getApplicationContext(),ss,Toast.LENGTH_SHORT).show();
-               //Toast.makeText(getApplicationContext(),"update",Toast.LENGTH_SHORT).show();
+
+            }
+        });
+        buy_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                if(update_q_btn_bol==false)
+                {
+                    Toast.makeText(getApplicationContext(), "Please update quantity value", Toast.LENGTH_LONG).show();
+
+                }else
+                {
+                    update_q_btn_bol=false;
+
+
+                    UserSessionLogin session;
+
+                    session = new UserSessionLogin(getApplicationContext());
+                    HashMap<String, String> user = session.getUserDetails();
+                    // get name
+                    if( session.isUserLoggedIn()) {
+                        String user_str = user.get(UserSessionLogin.KEY_EMAIL_SESSION);
+                        //  Toast.makeText(getApplicationContext(),user_str,Toast.LENGTH_LONG).show();
+                        Log.d("userlogin",""+user_str);
+
+                        String ss=txtquantity.getText().toString();
+                        String uu=cart_tot_value.getText().toString();
+
+
+                        Log.d("uu",""+uu);
+                        Intent intent =new Intent(Cart_SingleItemView.this,DEMOcart_User_Profile_single_buy.class);
+                        intent.putExtra("product_name",name);
+                        intent.putExtra("quantity",ss);
+                        intent.putExtra("grand_total",uu);
+                        intent.putExtra("user_email",user_str);
+                        intent.putExtra("product_id",id);
+                        intent.putExtra("total_product", total_product);
+                        intent.putExtra("price",text);
+                        startActivity(intent);
+
+
+                    }
+                    else
+                    {
+                        Toast.makeText(getApplicationContext(),"Please Login First",Toast.LENGTH_LONG).show();
+                    }
+
+                }
             }
         });
     }
@@ -276,10 +336,10 @@ String tt=Integer.toString(total_seeling_cost).toString();
                     {
                         //System.out.println("not a valid number");
                     }
-                     Toast.makeText(getApplicationContext(), "Product Quantity is Updated", Toast.LENGTH_LONG).show();
-                    Intent i = new Intent(Cart_SingleItemView.this, Cart_item.class);//temp
-                     finish();
-                     startActivity(i);
+                     Toast.makeText(getApplicationContext(), "Quantity is Updated", Toast.LENGTH_LONG).show();
+                  //  Intent i = new Intent(Cart_SingleItemView.this, Cart_item.class);//temp
+                   //  finish();
+                    // startActivity(i);
 
                 }
             }

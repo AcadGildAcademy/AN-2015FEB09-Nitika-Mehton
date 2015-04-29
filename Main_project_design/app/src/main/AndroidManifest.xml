@@ -15,63 +15,67 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/ic_launcher"
+        android:icon="@drawable/logosmall"
+        android:theme="@style/AppTheme"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
-        <activity
-            android:name=".Activity.Index"
-            android:label="Home" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+        android:banner="@drawable/ic_launcher">
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".Activity.Login"
-            android:label="Login" />
-        <activity
-            android:name=".Activity.SignUp"
-            android:label="Sign-Up" />
-        <activity
-            android:name=".Activity.Activity_main"
-            android:label="Product" />
-        <activity
-            android:name=".Activity.SingleItemView"
-            android:label="Product" />
-        <activity
-            android:name=".Activity.Cart_item"
-            android:label="Cart" />
-        <activity
-            android:name=".Activity.Cart_SingleItemView"
-            android:label="Product" />
-        <activity
-            android:name=".Activity.User_Profile"
-            android:label="Profile" />
-        <activity
-            android:name=".Activity.User_Profile_india"
-            android:label="Profile" />
-        <activity
-            android:name=".Activity.DEMOcart_User_Profile"
-            android:label="Profile" />
-        <activity
-            android:name=".Activity.Place_Order_List"
-            android:label="Order" />
-        <activity android:name=".Activity.DEMOcart_User_Profile_single_buy" />
-        <activity android:name=".Activity.place_order_single_product" />
-        <activity android:name=".Activity.See_my_order" />
+      <activity
+          android:name=".Activity.Index"
+          android:icon="@drawable/logosmall">
+          <intent-filter>
+              <action android:name="android.intent.action.MAIN" />
 
-        <meta-data
-            android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version" />
-        <meta-data
-            android:name="com.google.android.maps.v2.API_KEY"
-            android:value="@string/google_maps_key" />
+              <category android:name="android.intent.category.LAUNCHER" />
+          </intent-filter>
+      </activity>
+      <activity
+          android:name=".Activity.Login"
+          android:icon="@drawable/logosmall"
+         />
+      <activity
+          android:name=".Activity.SignUp"
+          android:label="Sign-Up" />
+      <activity
+          android:name=".Activity.Activity_main"
+          android:label="Product"
+          android:icon="@drawable/ic_launcher"/>
+      <activity
+          android:name=".Activity.SingleItemView"
+          android:label="Product" />
+      <activity
+          android:name=".Activity.Cart_item"
+          android:label="Cart" />
+      <activity
+          android:name=".Activity.Cart_SingleItemView"
+          android:label="Product" />
+      <activity
+          android:name=".Activity.User_Profile"
+          android:label="Profile" />
+      <activity
+          android:name=".Activity.User_Profile_india"
+          android:label="Profile" />
+      <activity
+          android:name=".Activity.DEMOcart_User_Profile"
+          android:label="Profile" />
+      <activity
+          android:name=".Activity.Place_Order_List"
+          android:label="Order" />
+      <activity android:name=".Activity.DEMOcart_User_Profile_single_buy" />
+      <activity android:name=".Activity.place_order_single_product" />
+      <activity android:name=".Activity.See_my_order" />
+       <activity android:name=".Activity.Contact_us"/>
+      <meta-data
+          android:name="com.google.android.gms.version"
+          android:value="@integer/google_play_services_version" />
+      <meta-data
+          android:name="com.google.android.maps.v2.API_KEY"
+          android:value="@string/google_maps_key" />
 
-        <activity
-            android:name=".MapsActivity"
-            android:label="@string/title_activity_maps" >
-        </activity>
-    </application>
+      <activity
+          android:name=".MapsActivity"
+          android:label="@string/title_activity_maps" >
+      </activity>
+  </application>
 
 </manifest>

@@ -25,7 +25,7 @@ public class Index extends ActionBarActivity
 
     TextView tv;
     UserSessionLogin session;
-    Button order_btn;
+    Button order_btn,contact;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +33,9 @@ public class Index extends ActionBarActivity
         setContentView(R.layout.index_ui);
         tv = (TextView) findViewById(R.id.textView2);
         order_btn=(Button)findViewById(R.id.my_order_btn);
+        contact=(Button)findViewById(R.id.contact);
+
+
         session = new UserSessionLogin(getApplicationContext());
         HashMap<String, String> user = session.getUserDetails();
         // get name
@@ -47,6 +50,25 @@ public class Index extends ActionBarActivity
             }
         });
 
+
+        contact.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if( session.isUserLoggedIn()) {
+                    session = new UserSessionLogin(getApplicationContext());
+                    HashMap<String, String> user = session.getUserDetails();
+                    String user_str = user.get(UserSessionLogin.KEY_EMAIL_SESSION);
+                    Intent intent = new Intent(Index.this, Contact_us.class);
+                    startActivity(intent);
+
+                }
+                else{
+                    Toast.makeText(getApplicationContext(),"Login First",Toast.LENGTH_SHORT).show();
+                }
+
+
+            }
+        });
         order_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -67,8 +89,8 @@ public class Index extends ActionBarActivity
         });
   //  getSupportActionBar();
        // getActionBar();
-        android.support.v7.app.ActionBar actionBar = getSupportActionBar();
-        actionBar.setDisplayHomeAsUpEnabled(true);
+     getSupportActionBar();
+
     }
 
     @Override
@@ -84,15 +106,19 @@ public class Index extends ActionBarActivity
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
+
+        if(id==R.id.home_id_menu)
+        {
+            Intent intent = new Intent(Index.this, Index.class);
+           finish();
+            startActivity(intent);
+        }
         if (id == R.id.login_id_menu) {
             Intent intent = new Intent(Index.this, Login.class);
 
             startActivity(intent);
         }
-        if (id == R.id.signup_id_menu) {
-            Intent intent = new Intent(Index.this, SignUp.class);
-            startActivity(intent);
-        }
+
         if(id == R.id.cart_menu)
         {
             session = new UserSessionLogin(getApplicationContext());

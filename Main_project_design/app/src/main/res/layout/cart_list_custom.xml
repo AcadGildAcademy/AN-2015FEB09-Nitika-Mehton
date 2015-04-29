@@ -112,6 +112,15 @@ android:text="1000"
         android:layout_below="@+id/cart_id_selling_price_value"
         android:layout_toRightOf="@+id/cart_total_id" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/cart_image"
+        android:id="@+id/id_stock"
+        android:layout_below="@+id/cart_total_id"
+        android:textColor="@color/red"
+        android:textSize="@dimen/text_size"
+        />
 
     <TextView
         android:id="@+id/cart_text"
@@ -120,7 +129,7 @@ android:text="1000"
         android:text="Click To See Detail"
         android:textColor="@color/black"
         android:textSize="@dimen/text_size"
-        android:layout_below="@+id/cart_total_id"
+        android:layout_below="@+id/id_stock"
         android:paddingTop="5dp"
         android:layout_toRightOf="@+id/cart_image"
         />

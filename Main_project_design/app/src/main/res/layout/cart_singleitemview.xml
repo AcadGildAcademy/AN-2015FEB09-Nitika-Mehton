@@ -3,17 +3,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:background="@color/white"
     >
-
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/zero"
+    android:layout_gravity="center">
     <ImageView
         android:id="@+id/cart_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:background="#000000"
+
+        android:background="@color/orange"
         android:padding="1dp"
         />
-
+</LinearLayout>
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/zero"
+    android:id="@+id/one">
     <TextView
         android:id="@+id/cart_name"
         android:layout_width="wrap_content"
@@ -21,7 +31,7 @@
         android:text="@string/name"
         android:textColor="@color/black"
         android:textSize="@dimen/text_size"
-        android:layout_below="@+id/cart_image"
+
         />
 
           <TextView
@@ -31,35 +41,27 @@
               android:textColor="@color/black"
               android:textSize="@dimen/text_size"
                 android:layout_toRightOf="@+id/cart_name"
-                android:layout_below="@+id/cart_image"/>
+              />
 
-    <TextView
-        android:id="@+id/cart_description"
+</LinearLayout>
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/discription"
-        android:textColor="@color/black"
-        android:textSize="@dimen/text_size"
-        android:layout_below="@+id/cart_name"
-        />
-
-            <TextView
-                android:id="@+id/cart_id_description_value"
-                 android:layout_width="wrap_content"
-                 android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:textSize="@dimen/text_size"
-                 android:layout_toRightOf="@+id/cart_description"
-                android:layout_below="@+id/cart_id_name_value"/>
-
+        android:id="@+id/two"
+        android:layout_below="@id/one">
     <TextView
         android:id="@+id/cart_id_cost_price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/black"
         android:textSize="@dimen/text_size"
-        android:layout_below="@+id/cart_description"
+
         android:text="@string/cost_price" />
+        <ImageView
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:src="@drawable/rupee"/>
 
             <TextView
                 android:id="@+id/cart_id_cost_price_value"
@@ -67,19 +69,29 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
                 android:textSize="@dimen/text_size"
-                android:layout_below="@+id/cart_id_description_value"
+
                 android:layout_toRightOf="@+id/cart_id_cost_price"
 
         />
+    </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/three"
+        android:layout_below="@+id/two">
     <TextView
         android:id="@+id/cart_Selling_price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/black"
         android:textSize="20dp"
-        android:layout_below="@+id/cart_id_cost_price"
+
         android:text="@string/selling_price" />
+        <ImageView
+            android:layout_width="15dp"
+            android:layout_height="25dp"
+            android:src="@drawable/rupee"/>
 
          <TextView
                 android:id="@+id/cart_id_selling_price_value"
@@ -98,6 +110,7 @@
         android:textColor="@color/black"
         android:layout_below="@id/cart_id_cost_price"
         android:layout_toRightOf="@+id/cart_id_selling_price_value"
+        android:layout_marginRight="5dp"
         />
 
     <EditText
@@ -106,18 +119,35 @@
         android:layout_height="wrap_content"
         android:text="1"
         android:ems="5"
-        android:layout_below="@id/cart_id_cost_price_value"
+
         android:layout_toRightOf="@+id/txt"
+        android:paddingBottom="5dp"
 
         />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/three"
+        android:id="@+id/liner5"
+        >
     <Button
         android:id="@+id/cart_total_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/black"
-        android:textSize="20dp"
-        android:layout_below="@+id/cart_id_selling_price_value"
-        android:text="Total" />
+        android:textSize="10dp"
+
+        android:text="Up-date Quantity "
+        android:layout_margin="10dp"/>
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/rupee"
+            android:id="@+id/rupee_img"
+            android:layout_margin="10dp"/>
 
     <TextView
         android:id="@+id/cart_total_value"
@@ -126,38 +156,62 @@
         android:textColor="@color/orange"
         android:textSize="20dp"
 
-        android:layout_below="@+id/cart_quantity_value_singleView"
-        android:layout_toRightOf="@+id/cart_total_btn"
+        android:layout_toRightOf="@+id/rupee_img"
        android:paddingLeft="10dp"
         />
+</LinearLayout>
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="fill_parent"
         android:layout_height="50dp"
-        android:layout_below="@+id/cart_Selling_price"
+
         android:layout_marginTop="43dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:id="@+id/linearLayout2">
+        android:id="@+id/linearLayout2"
+        android:layout_below="@+id/liner5"
+      >
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/cart_remove"
-            android:textColor="@color/orange"
+            android:textColor="@color/black"
             android:id="@+id/cart_id_button_add_cart"
-            android:layout_weight="1"/>
+          android:layout_weight="1"
+            android:background="@color/orange"
+            android:layout_marginRight="10dp"/>
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/buy_now"
             android:id="@+id/cart_id_button_buy_now"
-            android:textColor="@color/orange"
-            android:layout_weight="1"/>
+            android:textColor="@color/black"
+            android:layout_weight="1"
+          android:background="@color/orange"/>
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/stock_layout"
+        android:layout_below="@+id/linearLayout2">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
 
+        android:id="@+id/id_stock"
+        android:layout_below="@+id/linearLayout2"
+        android:textColor="@color/red"
+        android:textSize="@dimen/text_size"
+        />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/five"
+        android:layout_below="@+id/stock_layout">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -165,7 +219,7 @@
         android:id="@+id/cart_id_brand"
         android:textColor="@color/black"
         android:textSize="@dimen/text_size"
-        android:layout_below="@+id/linearLayout2" />
+        />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -173,7 +227,25 @@
         android:textSize="@dimen/text_size"
         android:id="@+id/cart_id_brand_value"
         android:layout_toRightOf="@+id/cart_id_brand"
-        android:layout_below="@+id/linearLayout2" />
+         />
+    </LinearLayout>
 
+    <TextView
+        android:id="@+id/cart_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/discription"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_size"
+        android:layout_below="@+id/five"
+        />
 
+    <TextView
+        android:id="@+id/cart_id_description_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_size"
+        android:layout_toRightOf="@+id/cart_description"
+        android:layout_below="@+id/five"/>
 </RelativeLayout>

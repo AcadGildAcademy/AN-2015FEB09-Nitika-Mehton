@@ -56,7 +56,7 @@ public class Place_Order_List extends Activity {
 
         Intent i = getIntent();
         grand_total=i.getStringExtra("grand_total");
-        Toast.makeText(getApplication(),grand_total,Toast.LENGTH_SHORT).show();
+
         grand_total_tv.setText(grand_total);
         new DownloadJSON().execute();
 
@@ -123,31 +123,21 @@ public class Place_Order_List extends Activity {
                         for (int i = 0; i < contacts.length(); i++) {
                             JSONObject c = contacts.getJSONObject(i);
 
-                            //String id = c.getString(Cart_item.TAG_ID);
+
                             String name = c.getString(Activity_main.TAG_NAME);
-                           // String description = c.getString(Cart_item.TAG_DESCRIPTION);
-                            //String image_path = c.getString(Cart_item.TAG_IMAGE_PATH);
-                           // String cost_price = c.getString(Cart_item.TAG_COST_PRICE);
                             String selling_price = c.getString(Activity_main.TAG_SELL_COST);
-                           // String brand= c.getString(Cart_item.TAG_BRAND);
                            String quantity=c.getString(Activity_main.TAG_QUANTITY);
                             String total_product=c.getString(Activity_main.TAG_TOTAL_PRODUCT);
-                           // String total=c.getString(Cart_item.TAG_TOTAL);
 
-                            HashMap<String, String> contact = new HashMap<String, String>();
-                            // adding each child node to HashMap key => value
-                     //       contact.put(Cart_item.TAG_ID, id);
+                           HashMap<String, String> contact = new HashMap<String, String>();
+
                             contact.put(Activity_main.TAG_NAME, name);
-                       //     contact.put(Cart_item.TAG_DESCRIPTION, description);
-                         //   contact.put(Cart_item.TAG_IMAGE_PATH, image_path);
-                           // contact.put(Cart_item.TAG_COST_PRICE,cost_price);
+
                             contact.put(Activity_main.TAG_SELL_COST,selling_price);
-                            //ontact.put(Cart_item.TAG_BRAND,brand);
+
                             contact.put(Activity_main.TAG_QUANTITY,quantity);
                             contact.put(Activity_main.TAG_TOTAL_PRODUCT,total_product);
-                            //contact.put(Cart_item.TAG_TOTAL,total);
-                           // total_product=resultp.get(Cart_item.TAG_TOTAL_PRODUCT);
-                           // quantity_order=res.get(Cart_item.TAG_QUANTITY);
+
                           if(Integer.parseInt(quantity)<=Integer.parseInt(total_product)) {
                                 Log.d(" palced ordre",""+order_flag);
                             //  place_order_bt.setEnabled(true);
@@ -185,6 +175,7 @@ public class Place_Order_List extends Activity {
 if(order_flag==0)
 {
     place_order_bt.setEnabled(false);
+    Toast.makeText(getApplication(),"Quantity out-of stock",Toast.LENGTH_SHORT).show();
 
 } else {
     place_order_bt.setEnabled(true);

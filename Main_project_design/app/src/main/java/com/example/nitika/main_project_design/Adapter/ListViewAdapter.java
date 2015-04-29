@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.nitika.main_project_design.Activity.Activity_main;
 import com.example.nitika.main_project_design.R;
@@ -59,7 +60,7 @@ public class ListViewAdapter extends BaseAdapter{
         // Declare Variables
         TextView name;
         TextView id;
-        TextView description;
+        TextView stock;
         TextView cost_price;
         TextView selling_price;
         TextView brand;
@@ -79,6 +80,7 @@ public class ListViewAdapter extends BaseAdapter{
         name = (TextView) itemView.findViewById(R.id.id_name_value);
         cost_price = (TextView) itemView.findViewById(R.id.id_cost_price_value);
         selling_price = (TextView) itemView.findViewById(R.id.id_selling_price_value);
+stock=(TextView)itemView.findViewById(R.id.stock);
 
         // Locate the ImageView in listview_item.xml
         image_path = (ImageView) itemView.findViewById(R.id.image);
@@ -87,8 +89,19 @@ public class ListViewAdapter extends BaseAdapter{
         name.setText(resultp.get(Activity_main.TAG_NAME));
         cost_price.setText(resultp.get(Activity_main.TAG_COST_PRICE));
         selling_price.setText(resultp.get(Activity_main.TAG_SELL_COST));
+         String tt=resultp.get(Activity_main.TAG_TOTAL_PRODUCT);
+        String ss="Out Of Stock";
+      if(tt.equals(("0")))
+      {
+         Log.d("total",tt);
+          stock.setText(ss);
 
+      }
+        else
+      {
+          Log.d("total>>",tt);
 
+      }
 
         // Capture position and set results to the ImageView
         // Passes flag images URL into ImageLoader.class

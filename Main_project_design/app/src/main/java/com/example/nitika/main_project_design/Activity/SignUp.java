@@ -225,10 +225,7 @@ public class SignUp extends ActionBarActivity
 
             startActivity(intent);
         }
-        if (id == R.id.signup_id_menu) {
-            Intent intent = new Intent(SignUp.this, SignUp.class);
-            startActivity(intent);
-        }
+
         if(id == R.id.cart_menu)
         {
             session = new UserSessionLogin(getApplicationContext());

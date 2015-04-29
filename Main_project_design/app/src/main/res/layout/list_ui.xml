@@ -65,6 +65,16 @@
         android:textColor="@color/black"
         android:textSize="@dimen/text_size"
         android:layout_toRightOf="@+id/Selling_price" />
+    <TextView
+        android:id="@+id/stock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:textColor="@color/red"
+        android:textSize="@dimen/text_size"
+        android:layout_below="@+id/id_selling_price_value"
+        android:layout_toRightOf="@+id/image"
+        />
 
     <TextView
         android:id="@+id/text"
@@ -73,7 +83,7 @@
         android:text="Click To See Detail"
         android:textColor="@color/black"
         android:textSize="@dimen/text_size"
-        android:layout_below="@+id/id_selling_price_value"
+        android:layout_below="@+id/stock"
         android:layout_toRightOf="@+id/image"
         />
 

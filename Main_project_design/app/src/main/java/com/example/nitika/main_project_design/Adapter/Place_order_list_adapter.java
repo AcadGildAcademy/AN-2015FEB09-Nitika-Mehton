@@ -1,6 +1,8 @@
 package com.example.nitika.main_project_design.Adapter;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -56,14 +58,10 @@ public class Place_order_list_adapter extends BaseAdapter{
     public View getView(final int position, View convertView, ViewGroup parent) {
         // Declare Variables
         TextView name;
-       // TextView id;
-        //TextView description;
+
         TextView price;
         TextView quantity;
-      //  TextView brand;
-      //TextView total_custom_ui;
-       // TextView cart_quantity;
-        //ImageView image_path;
+
 String total_product,quantity_order;
         int mul;
     //    Log.d("done", "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
@@ -90,12 +88,14 @@ String total_product,quantity_order;
         quantity_order=resultp.get(Activity_main.TAG_QUANTITY);
         Log.d("quantity-->",quantity_order);
         Log.d("total-->",total_product);
-
+        int color = Color.red(255);
+        int co =Color.argb(255, 255, 1, 1);
         if(Integer.parseInt(quantity_order)<=Integer.parseInt(total_product)) {
             Log.d(" palced ordre","");
         }
         else{
             Log.d("canot palced ordre","");
+            itemView.setBackgroundColor(co);
         }
 
         return itemView;

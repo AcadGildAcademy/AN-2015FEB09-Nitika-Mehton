@@ -59,14 +59,14 @@ public class Cart_Adapter  extends BaseAdapter{
         // Declare Variables
         TextView name;
         TextView id;
-        TextView description;
+        TextView stock;
         TextView cost_price;
         TextView selling_price;
         TextView brand;
       TextView total_custom_ui;
         TextView cart_quantity;
         ImageView image_path;
-
+String total_product;
         int mul;
         Log.d("done", "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
         inflater = (LayoutInflater) context
@@ -85,6 +85,7 @@ public class Cart_Adapter  extends BaseAdapter{
         cart_quantity=(TextView)itemView.findViewById(R.id.cart_quantity_value);//quantity
         // Locate the ImageView in listview_item.xml
         image_path = (ImageView) itemView.findViewById(R.id.cart_image);
+        stock=(TextView)itemView.findViewById(R.id.id_stock);
 
 
 
@@ -94,9 +95,15 @@ public class Cart_Adapter  extends BaseAdapter{
         selling_price.setText(resultp.get(Activity_main.TAG_SELL_COST));
         cart_quantity.setText(resultp.get(Activity_main.TAG_QUANTITY));
         total_custom_ui.setText(resultp.get(Activity_main.TAG_TOTAL));
+        total_product=resultp.get(Activity_main.TAG_TOTAL_PRODUCT);
         // Capture position and set results to the ImageView
         // Passes flag images URL into ImageLoader.class
         imageLoader.DisplayImage(resultp.get(Activity_main.TAG_IMAGE_PATH), image_path);
+        String ss="Out Of Stock";
+        if(total_product.equals("0"))
+        {
+            stock.setText(ss);
+        }
 
         // Capture ListView item click
         itemView.setOnClickListener(new View.OnClickListener() {
@@ -117,6 +124,7 @@ public class Cart_Adapter  extends BaseAdapter{
                 intent.putExtra("brand",resultp.get(Activity_main.TAG_BRAND));
                  intent.putExtra("quantity",resultp.get(Activity_main.TAG_QUANTITY));
                     intent.putExtra("total",resultp.get(Activity_main.TAG_TOTAL));
+                intent.putExtra("total_product",resultp.get(Activity_main.TAG_TOTAL_PRODUCT));
                 // Start SingleItemView Class
                 context.startActivity(intent);
 

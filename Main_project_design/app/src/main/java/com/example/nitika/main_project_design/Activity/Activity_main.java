@@ -192,15 +192,18 @@ menuInflater.inflate(com.example.nitika.main_project_design.R.menu.menu,menu);
      @Override
      public boolean onOptionsItemSelected(MenuItem item) {
          int id = item.getItemId();
+         if(id==R.id.home_id_menu)
+         {
+             Intent intent = new Intent(Activity_main.this, Index.class);
+             finish();
+             startActivity(intent);
+         }
          if (id == com.example.nitika.main_project_design.R.id.login_id_menu) {
              Intent intent = new Intent(Activity_main.this, Login.class);
 
              startActivity(intent);
          }
-         if (id == R.id.signup_id_menu) {
-             Intent intent = new Intent(Activity_main.this, SignUp.class);
-             startActivity(intent);
-         }
+
          if(id == R.id.cart_menu)
          {
              session = new UserSessionLogin(getApplicationContext());

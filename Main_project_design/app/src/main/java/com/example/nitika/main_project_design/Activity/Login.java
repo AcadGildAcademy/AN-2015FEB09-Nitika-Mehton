@@ -44,7 +44,7 @@ public class Login extends  ActionBarActivity
     EditText email, password,confirm_password;
     Button sign_in, logout;
     CheckBox checkBox;
-    TextView profile;
+    TextView signup_txt;
     Boolean status;
    private static String url = "http://bishasha.com/json/whdeal_login.php";
 
@@ -69,7 +69,7 @@ public class Login extends  ActionBarActivity
         password =(EditText)findViewById(R.id.id_password);
         checkBox=(CheckBox)findViewById(R.id.id_remember_me);
         logout=(Button)findViewById(R.id.logout);
-
+         signup_txt=(TextView)findViewById(R.id.signup);
         session = new UserSessionLogin(getApplicationContext());
        loadMySavePreferences();//for email and password
         getActionBar();
@@ -101,7 +101,15 @@ public class Login extends  ActionBarActivity
         }*/
 
         //Toast.makeText(getApplicationContext(),"User Login Status: " + session.isUserLoggedIn(),Toast.LENGTH_LONG).show();
+  signup_txt.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+          Intent intent = new Intent(Login.this, SignUp.class);
+          finish();
+          startActivity(intent);
 
+      }
+  });
 
 
         sign_in.setOnClickListener(new View.OnClickListener() {
@@ -334,10 +342,7 @@ public class Login extends  ActionBarActivity
 
              startActivity(intent);
          }
-         if (id == R.id.signup_id_menu) {
-             Intent intent = new Intent(Login.this, SignUp.class);
-             startActivity(intent);
-         }
+
          if(id == R.id.cart_menu)
          {
              session = new UserSessionLogin(getApplicationContext());
@@ -356,6 +361,7 @@ public class Login extends  ActionBarActivity
          if(id==R.id.mobile)
          {
              Intent intent =new Intent(Login.this,Activity_main.class);
+             finish();
              intent.putExtra("category","mobile");
              startActivity(intent);
          }
@@ -363,48 +369,56 @@ public class Login extends  ActionBarActivity
          {
              Intent intent =new Intent(Login.this,Activity_main.class);
              intent.putExtra("category","camera");
+             finish();
              startActivity(intent);
          }
          if(id==R.id.fire_table)
          {
              Intent intent =new Intent(Login.this,Activity_main.class);
              intent.putExtra("category","fire table");
+             finish();
              startActivity(intent);
          }
          if(id==R.id.accessories)
          {
              Intent intent =new Intent(Login.this,Activity_main.class);
              intent.putExtra("category","accessories");
+             finish();
              startActivity(intent);
          }
          if(id==R.id.car)
          {
              Intent intent =new Intent(Login.this,Activity_main.class);
              intent.putExtra("category","Car");
+             finish();
              startActivity(intent);
          }
          if(id==R.id.laptop_computer)
          {
              Intent intent =new Intent(Login.this,Activity_main.class);
              intent.putExtra("category","computer");
+             finish();
              startActivity(intent);
          }
          if(id==R.id.tablets)
          {
              Intent intent =new Intent(Login.this,Activity_main.class);
              intent.putExtra("category","tablets");
+             finish();
              startActivity(intent);
          }
          if(id==R.id.video_games)
          {
              Intent intent =new Intent(Login.this,Activity_main.class);
              intent.putExtra("category","video games");
+             finish();
              startActivity(intent);
          }
          if(id==R.id.gadgets)
          {
              Intent intent =new Intent(Login.this,Activity_main.class);
              intent.putExtra("category","gadgets");
+             finish();
              startActivity(intent);
          }
 

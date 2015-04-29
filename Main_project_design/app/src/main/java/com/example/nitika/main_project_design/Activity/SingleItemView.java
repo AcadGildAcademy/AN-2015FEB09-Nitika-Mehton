@@ -83,11 +83,12 @@ public class SingleItemView extends Activity
         TextView txtselling_price = (TextView) findViewById(R.id.id_selling_price_value);
         TextView txtbrand=(TextView)findViewById(R.id.id_brand_value);
         TextView txtdescription=(TextView)findViewById(R.id.id_description_value);
+        TextView stock=(TextView)findViewById(R.id.id_stock);
         // Locate the ImageView in singleitemview.xml
         ImageView imgflag = (ImageView) findViewById(R.id.image);
 
 
-     // Toast.makeText(getApplication(),id,Toast.LENGTH_LONG).show();
+
         // Set results to the TextViews
         txtname.setText(name);
         txtcost_price.setText(cost_price);
@@ -98,6 +99,16 @@ public class SingleItemView extends Activity
         // Capture position and set results to the ImageView
         // Passes flag images URL into ImageLoader.class
         imageLoader.DisplayImage(image_path, imgflag);
+
+        String ss="Out Of Stock";
+        if(total_pro.equals(("0")))
+        {
+            Log.d("total","0");
+            stock.setText(ss);
+            buy_now.setEnabled(false);
+
+        }
+
 
         text = txtselling_price.getText().toString();
         //add_to_cart code
@@ -155,7 +166,7 @@ public class SingleItemView extends Activity
                     String ss=qq.getText().toString();
                     String uu=total_qq.getText().toString();
                     String nn=txtname.getText().toString();
-                    Toast.makeText(getApplicationContext(),uu,Toast.LENGTH_LONG).show();
+
                     Log.d("uu",""+uu);
                     Intent intent =new Intent(SingleItemView.this,DEMOcart_User_Profile_single_buy.class);
                     intent.putExtra("product_name",nn);
@@ -167,7 +178,7 @@ public class SingleItemView extends Activity
                     intent.putExtra("price",text);
                     startActivity(intent);
 
-                    Toast.makeText(getApplicationContext(),"id",Toast.LENGTH_LONG).show();
+
                 }
                 else
                 {

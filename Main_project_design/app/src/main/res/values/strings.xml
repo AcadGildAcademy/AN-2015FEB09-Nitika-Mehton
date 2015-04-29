@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Main_project_design</string>
+    <string name="app_name">whdeal</string>
     <string name="spinner">Menu</string>
     <string name="username">ENTER EMAIL</string>
     <string name="password">ENTER PASSWORD</string>
-    <string name="name">"Name : "</string>
-    <string name="cost_price">"MRP: "</string>
-    <string name="selling_price">"Price : "</string>
-    <string name="category">"Category : "</string>
-    <string name="brand">"Brand : "</string>
-    <string name="status">"Status : "</string>
-    <string name="discription">"Discription " </string>
-    <string name="add_to_cart">"Add To Cart " </string>
-    <string name="buy_now">"Buy Now " </string>
-    <string name="cart_remove">"Remove From Cart " </string>
+    <string name="name">"Name :   "</string>
+    <string name="cost_price">"MRP : "</string>
+    <string name="selling_price">"Price:   "</string>
+    <string name="category">"Category :   "</string>
+    <string name="brand">"Brand :   "</string>
+    <string name="status">"Status :   "</string>
+    <string name="discription">"Discription :   " </string>
+    <string name="add_to_cart">"Add To Cart" </string>
+    <string name="buy_now">"Buy Now" </string>
+    <string name="cart_remove">"Remove From Cart" </string>
 
     <string-array name="state_list">
         <item> Andhra Pradesh </item>

@@ -223,10 +223,7 @@ public class See_my_order extends ActionBarActivity {
 
             startActivity(intent);
         }
-        if (id == R.id.signup_id_menu) {
-            Intent intent = new Intent(See_my_order.this, SignUp.class);
-            startActivity(intent);
-        }
+
         if(id == R.id.cart_menu)
         {
             session = new UserSessionLogin(getApplicationContext());

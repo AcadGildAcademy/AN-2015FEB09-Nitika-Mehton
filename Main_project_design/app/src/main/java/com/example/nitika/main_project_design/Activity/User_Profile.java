@@ -63,6 +63,7 @@ save=(Button)findViewById(R.id.save_bt);
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(User_Profile.this, Index.class) ;
+                finish();
                 startActivity(i);
 
             }

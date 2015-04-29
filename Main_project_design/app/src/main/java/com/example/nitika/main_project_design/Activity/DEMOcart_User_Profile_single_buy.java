@@ -103,7 +103,7 @@ save=(Button)findViewById(R.id._save_bt);
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplication(), "All ", Toast.LENGTH_SHORT).show();
+
 
                 Intent i = new Intent(DEMOcart_User_Profile_single_buy.this, place_order_single_product.class);
                 i.putExtra("grand_total", grand_total);
