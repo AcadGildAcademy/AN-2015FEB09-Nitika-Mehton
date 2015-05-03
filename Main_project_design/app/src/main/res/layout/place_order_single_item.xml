@@ -18,7 +18,7 @@
             android:id="@+id/_email"
             android:textSize="@dimen/text_size"
             android:textColor="@color/orange"
-            android:text="product_name"
+            android:text="user_name"
             android:paddingRight="5dp"
             android:padding="20dp"
             android:layout_gravity="center"
@@ -29,7 +29,7 @@
             android:layout_height="wrap_content"
             android:padding="20dp">
 <LinearLayout
-    android:layout_width="wrap_content"
+    android:layout_width="90dp"
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:padding="10dp">
@@ -52,20 +52,30 @@
 
     </LinearLayout>
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="90dp"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="10dp">
+                android:padding="10dp"
+                >
+              <LinearLayout
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/price"
                     android:textSize="@dimen/text_size"
                     android:textColor="@color/black"
-                    android:text="Price"
+                    android:text="Price in"
 
                     android:paddingRight="5dp"/>
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:src="@drawable/rupee"
+                    android:id="@+id/rupee_img1"></ImageView>
 
+            </LinearLayout>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -82,7 +92,7 @@
 
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="10dp">
@@ -110,6 +120,15 @@
             android:textSize="@dimen/text_size"
             android:textColor="@color/black"
             android:text="Total"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/rupee"
+            android:id="@+id/rupee_img2"></ImageView>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -117,7 +136,7 @@
             android:textSize="20dp"
             android:textColor="@color/orange"
             android:text="total"/>
-
+        </LinearLayout>
 
 <Button
     android:layout_width="wrap_content"

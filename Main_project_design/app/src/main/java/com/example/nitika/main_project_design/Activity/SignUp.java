@@ -220,6 +220,12 @@ public class SignUp extends ActionBarActivity
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
+        if(id==R.id.home_id_menu)
+        {
+            Intent intent = new Intent(SignUp.this, Index.class);
+            finish();
+            startActivity(intent);
+        }
         if (id == R.id.login_id_menu) {
             Intent intent = new Intent(SignUp.this, Login.class);
 
@@ -234,6 +240,7 @@ public class SignUp extends ActionBarActivity
             if( session.isUserLoggedIn()) {
                 String user_str = user.get(UserSessionLogin.KEY_EMAIL_SESSION);
                 Intent intent = new Intent(SignUp.this, Cart_item.class);
+                finish();
                 startActivity(intent);
 
             }
@@ -245,42 +252,49 @@ public class SignUp extends ActionBarActivity
         {
             Intent intent =new Intent(SignUp.this,Activity_main.class);
             intent.putExtra("category","mobile");
+            finish();
             startActivity(intent);
         }
         if(id==R.id.camera)
         {
             Intent intent =new Intent(SignUp.this,Activity_main.class);
             intent.putExtra("category","camera");
+            finish();
             startActivity(intent);
         }
         if(id==R.id.fire_table)
         {
             Intent intent =new Intent(SignUp.this,Activity_main.class);
             intent.putExtra("category","fire table");
+            finish();
             startActivity(intent);
         }
         if(id==R.id.accessories)
         {
             Intent intent =new Intent(SignUp.this,Activity_main.class);
             intent.putExtra("category","accessories");
+            finish();
             startActivity(intent);
         }
         if(id==R.id.car)
         {
             Intent intent =new Intent(SignUp.this,Activity_main.class);
             intent.putExtra("category","Car");
+            finish();
             startActivity(intent);
         }
         if(id==R.id.laptop_computer)
         {
             Intent intent =new Intent(SignUp.this,Activity_main.class);
             intent.putExtra("category","computer");
+            finish();
             startActivity(intent);
         }
         if(id==R.id.tablets)
         {
             Intent intent =new Intent(SignUp.this,Activity_main.class);
             intent.putExtra("category","tablets");
+            finish();
             startActivity(intent);
         }
         if(id==R.id.video_games)
@@ -293,6 +307,7 @@ public class SignUp extends ActionBarActivity
         {
             Intent intent =new Intent(SignUp.this,Activity_main.class);
             intent.putExtra("category","gadgets");
+            finish();
             startActivity(intent);
         }
 

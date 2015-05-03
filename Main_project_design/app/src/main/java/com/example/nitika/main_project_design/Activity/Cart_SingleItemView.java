@@ -114,7 +114,15 @@ public class Cart_SingleItemView extends Activity{
         }
 
 
+        imgflag.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Cart_SingleItemView.this, image.class);
+                intent.putExtra("image", image_path);
+                startActivity(intent);
 
+            }
+        });
         text = txtselling_price.getText().toString();
         //add_to_cart code
         add_to_cart.setOnClickListener(new View.OnClickListener() {
@@ -139,23 +147,27 @@ public class Cart_SingleItemView extends Activity{
             public void onClick(View v) {
 
                 update_q_btn_bol=true;
-               get_post=2;
+                int check_quantity= Integer.parseInt(txtquantity.getText().toString());
 
-                if(text.matches("\\d+")) //check if only digits. Could also be text.matches("[0-9]+")
+                if (check_quantity<1)
                 {
-                    String ss=txtquantity.getText().toString();
-                    total_seeling_cost = Integer.parseInt(text)*Integer.parseInt(ss);
-                    cart_tot_value.setText(Integer.toString(total_seeling_cost).toString());
-                    Log.d("$$$$", "" + cart_tot_value.toString() + "q-->" + Integer.toString(total_seeling_cost).toString());
-                }
-                else
-                {
-                    Log.d("not a valid number","");
-                }
-                new GetContacts().execute();
-                String ss=txtquantity.getText().toString();
+                    Toast.makeText(getApplicationContext(),"Enter valid quantity",Toast.LENGTH_LONG).show();
+                } else {
+                    get_post = 2;
 
+                    if (text.matches("\\d+")) //check if only digits. Could also be text.matches("[0-9]+")
+                    {
+                        String ss = txtquantity.getText().toString();
+                        total_seeling_cost = Integer.parseInt(text) * Integer.parseInt(ss);
+                        cart_tot_value.setText(Integer.toString(total_seeling_cost).toString());
+                        Log.d("$$$$", "" + cart_tot_value.toString() + "q-->" + Integer.toString(total_seeling_cost).toString());
+                    } else {
+                        Log.d("not a valid number", "");
+                    }
+                    new GetContacts().execute();
+                    String ss = txtquantity.getText().toString();
 
+                }
             }
         });
         buy_btn.setOnClickListener(new View.OnClickListener() {
@@ -165,6 +177,7 @@ public class Cart_SingleItemView extends Activity{
 
                 if(update_q_btn_bol==false)
                 {
+
                     Toast.makeText(getApplicationContext(), "Please update quantity value", Toast.LENGTH_LONG).show();
 
                 }else
@@ -195,6 +208,7 @@ public class Cart_SingleItemView extends Activity{
                         intent.putExtra("product_id",id);
                         intent.putExtra("total_product", total_product);
                         intent.putExtra("price",text);
+                        finish();
                         startActivity(intent);
 
 
@@ -337,14 +351,14 @@ String tt=Integer.toString(total_seeling_cost).toString();
                         //System.out.println("not a valid number");
                     }
                      Toast.makeText(getApplicationContext(), "Quantity is Updated", Toast.LENGTH_LONG).show();
-                  //  Intent i = new Intent(Cart_SingleItemView.this, Cart_item.class);//temp
-                   //  finish();
-                    // startActivity(i);
+             //    Intent i = new Intent(Cart_SingleItemView.this, Cart_item.class);//temp
+                 //    finish();
+               //     startActivity(i);
 
                 }
             }
             else {
-                Log.d("Remove from cart  Failure!"," fail");
+
                 Toast.makeText(getApplicationContext(),"Slow Internet",Toast.LENGTH_LONG).show();
                 // return json.getString(TAG_MESSAGE);
             }

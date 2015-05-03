@@ -10,7 +10,11 @@
         android:layout_alignParentLeft="true"
         android:background="#000000"
         android:padding="1dp" />
-
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/linearLayout"
+    android:layout_toRightOf="@+id/image">
     <TextView
         android:id="@+id/name"
         android:layout_width="wrap_content"
@@ -18,7 +22,7 @@
         android:text="@string/name"
         android:textColor="@color/black"
         android:textSize="@dimen/text_size"
-        android:layout_toRightOf="@+id/image"/>
+      />
 
     <TextView
         android:id="@+id/id_name_value"
@@ -27,16 +31,33 @@
         android:textColor="@color/black"
         android:textSize="@dimen/text_size"
         android:layout_toRightOf="@+id/name" />
+</LinearLayout>
+
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/linearLayout1"
+    android:layout_below="@+id/linearLayout"
+    android:layout_toRightOf="@+id/image">
 
     <TextView
         android:id="@+id/id_cost_price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/name"
+
         android:text="@string/cost_price"
         android:textColor="@color/black"
         android:textSize="@dimen/text_size"
         android:layout_toRightOf="@+id/image"/>
+    <ImageView
+        android:id="@+id/rupee_img"
+        android:layout_width="12dp"
+        android:layout_height="12dp"
+        android:src="@drawable/rupee"
+        android:layout_below="@+id/name"
+        android:layout_marginTop="5dp"
+
+        android:layout_toRightOf="@+id/id_cost_price"/>
 
     <TextView
         android:id="@+id/id_cost_price_value"
@@ -45,8 +66,15 @@
         android:layout_below="@+id/id_name_value"
         android:textColor="@color/black"
         android:textSize="@dimen/text_size"
-        android:layout_toRightOf="@+id/id_cost_price" />
-
+        android:layout_toRightOf="@+id/rupee_img"
+       />
+</LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout2"
+        android:layout_below="@+id/linearLayout1"
+        android:layout_toRightOf="@+id/image">
     <TextView
         android:id="@+id/Selling_price"
         android:layout_width="wrap_content"
@@ -56,15 +84,26 @@
         android:textColor="@color/black"
         android:textSize="@dimen/text_size"
         android:layout_toRightOf="@+id/image"/>
+    <ImageView
+        android:id="@+id/img_rup"
+        android:layout_width="12dp"
+        android:layout_height="12dp"
+        android:src="@drawable/rupee"
+        android:layout_marginTop="5dp"
+        android:layout_below="@+id/id_cost_price"
+        android:layout_toRightOf="@+id/Selling_price"/>
 
     <TextView
+        android:text="@string/name"
         android:id="@+id/id_selling_price_value"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/id_cost_price_value"
         android:textColor="@color/black"
+        android:layout_marginLeft="10dp"
         android:textSize="@dimen/text_size"
-        android:layout_toRightOf="@+id/Selling_price" />
+        android:layout_toRightOf="@+id/img_rup" />
+    </LinearLayout>
     <TextView
         android:id="@+id/stock"
         android:layout_width="wrap_content"
@@ -72,7 +111,7 @@
 
         android:textColor="@color/red"
         android:textSize="@dimen/text_size"
-        android:layout_below="@+id/id_selling_price_value"
+        android:layout_below="@+id/linearLayout2"
         android:layout_toRightOf="@+id/image"
         />
 

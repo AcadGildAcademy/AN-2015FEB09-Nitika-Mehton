@@ -84,7 +84,7 @@ public class Activity_main extends ActionBarActivity
             // Create a progressdialog
             mProgressDialog = new ProgressDialog(Activity_main.this);
             // Set progressdialog title
-            mProgressDialog.setTitle("Android JSON Parse Tutorial");
+            mProgressDialog.setTitle("Wait");
             // Set progressdialog message
             mProgressDialog.setMessage("Loading...");
             mProgressDialog.setIndeterminate(false);
@@ -212,6 +212,7 @@ menuInflater.inflate(com.example.nitika.main_project_design.R.menu.menu,menu);
              if( session.isUserLoggedIn()) {
                  String user_str = user.get(UserSessionLogin.KEY_EMAIL_SESSION);
                  Intent intent = new Intent(Activity_main.this, Cart_item.class);
+                 finish();
                  startActivity(intent);
 
              }
@@ -223,54 +224,63 @@ menuInflater.inflate(com.example.nitika.main_project_design.R.menu.menu,menu);
          {
              Intent intent =new Intent(Activity_main.this,Activity_main.class);
              intent.putExtra("category","mobile");
+             finish();
              startActivity(intent);
          }
          if(id==R.id.camera)
          {
              Intent intent =new Intent(Activity_main.this,Activity_main.class);
              intent.putExtra("category","camera");
+             finish();
              startActivity(intent);
          }
          if(id==R.id.fire_table)
          {
              Intent intent =new Intent(Activity_main.this,Activity_main.class);
              intent.putExtra("category","fire table");
+             finish();
              startActivity(intent);
          }
          if(id==R.id.accessories)
          {
              Intent intent =new Intent(Activity_main.this,Activity_main.class);
              intent.putExtra("category","accessories");
+             finish();
              startActivity(intent);
          }
          if(id==R.id.car)
          {
              Intent intent =new Intent(Activity_main.this,Activity_main.class);
              intent.putExtra("category","Car");
+             finish();
              startActivity(intent);
          }
          if(id==R.id.laptop_computer)
          {
              Intent intent =new Intent(Activity_main.this,Activity_main.class);
              intent.putExtra("category","computer");
+             finish();
              startActivity(intent);
          }
          if(id==R.id.tablets)
          {
              Intent intent =new Intent(Activity_main.this,Activity_main.class);
              intent.putExtra("category","tablets");
+             finish();
              startActivity(intent);
          }
          if(id==R.id.video_games)
          {
              Intent intent =new Intent(Activity_main.this,Activity_main.class);
              intent.putExtra("category","video games");
+             finish();
              startActivity(intent);
          }
          if(id==R.id.gadgets)
          {
              Intent intent =new Intent(Activity_main.this,Activity_main.class);
              intent.putExtra("category","gadgets");
+             finish();
              startActivity(intent);
          }
 

@@ -45,7 +45,9 @@
           android:label="Product" />
       <activity
           android:name=".Activity.Cart_item"
-          android:label="Cart" />
+          android:label="Cart"
+          android:noHistory="true"
+          />
       <activity
           android:name=".Activity.Cart_SingleItemView"
           android:label="Product" />
@@ -60,10 +62,11 @@
           android:label="Profile" />
       <activity
           android:name=".Activity.Place_Order_List"
-          android:label="Order" />
+          android:label="Place Order" />
       <activity android:name=".Activity.DEMOcart_User_Profile_single_buy" />
       <activity android:name=".Activity.place_order_single_product" />
-      <activity android:name=".Activity.See_my_order" />
+      <activity android:name=".Activity.See_my_order"
+          android:label="Order"/>
        <activity android:name=".Activity.Contact_us"/>
       <meta-data
           android:name="com.google.android.gms.version"
@@ -76,6 +79,7 @@
           android:name=".MapsActivity"
           android:label="@string/title_activity_maps" >
       </activity>
+        <activity android:name=".Activity.image"></activity>
   </application>
 
 </manifest>

@@ -5,7 +5,17 @@
     android:layout_height="fill_parent"
     android:background="@color/white"
     >
-<LinearLayout
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+
+        android:id="@+id/sc_invoice">
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical">
+
+    <LinearLayout
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:id="@+id/zero"
@@ -59,9 +69,11 @@
 
         android:text="@string/cost_price" />
         <ImageView
-            android:layout_width="15dp"
-            android:layout_height="15dp"
-            android:src="@drawable/rupee"/>
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:src="@drawable/rupee"
+            android:layout_marginTop="4dp"
+            android:id="@+id/rupee_img1"/>
 
             <TextView
                 android:id="@+id/cart_id_cost_price_value"
@@ -70,7 +82,7 @@
                 android:textColor="@color/black"
                 android:textSize="@dimen/text_size"
 
-                android:layout_toRightOf="@+id/cart_id_cost_price"
+                android:layout_toRightOf="@+id/rupee_img1"
 
         />
     </LinearLayout>
@@ -89,9 +101,12 @@
 
         android:text="@string/selling_price" />
         <ImageView
-            android:layout_width="15dp"
-            android:layout_height="25dp"
-            android:src="@drawable/rupee"/>
+            android:layout_width="12dp"
+            android:layout_height="15dp"
+            android:src="@drawable/rupee"
+            android:layout_marginTop="4dp"
+            android:id="@+id/rupee_img2"
+            />
 
          <TextView
                 android:id="@+id/cart_id_selling_price_value"
@@ -100,7 +115,7 @@
              android:textColor="@color/black"
              android:textSize="@dimen/text_size"
                 android:layout_below="@+id/cart_id_cost_price_value"
-                 android:layout_toRightOf="@+id/cart_Selling_price" />
+                 android:layout_toRightOf="@+id/rupee_img2" />
     <TextView
         android:id="@+id/txt"
         android:layout_width="wrap_content"
@@ -119,7 +134,9 @@
         android:layout_height="wrap_content"
         android:text="1"
         android:ems="5"
-
+        android:background="@color/orange"
+        android:textColor="@color/white"
+        android:inputType="number"
         android:layout_toRightOf="@+id/txt"
         android:paddingBottom="5dp"
 
@@ -147,13 +164,15 @@
             android:layout_height="20dp"
             android:src="@drawable/rupee"
             android:id="@+id/rupee_img"
-            android:layout_margin="10dp"/>
+            android:layout_margin="10dp"
+            android:layout_marginTop="4dp"/>
 
     <TextView
         android:id="@+id/cart_total_value"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/orange"
+
         android:textSize="20dp"
 
         android:layout_toRightOf="@+id/rupee_img"
@@ -229,7 +248,9 @@
         android:layout_toRightOf="@+id/cart_id_brand"
          />
     </LinearLayout>
-
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
     <TextView
         android:id="@+id/cart_description"
         android:layout_width="wrap_content"
@@ -247,5 +268,10 @@
         android:textColor="@color/black"
         android:textSize="@dimen/text_size"
         android:layout_toRightOf="@+id/cart_description"
-        android:layout_below="@+id/five"/>
+        android:layout_below="@+id/five"
+        android:layout_marginBottom="20dp"/>
+</LinearLayout>
+    </LinearLayout>
+    </ScrollView>
+
 </RelativeLayout>

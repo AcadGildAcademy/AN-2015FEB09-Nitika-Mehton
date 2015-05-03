@@ -24,6 +24,7 @@
         android:orientation="horizontal"
         android:paddingTop="5dp"
         android:paddingBottom="10dp"
+        android:background="@color/white"
      >
 
         <TextView
@@ -35,6 +36,12 @@
             android:textSize="25dp"
             android:textColor="@color/black"
             android:id="@+id/total_btn"/>
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/rupee"
+            android:id="@+id/rupee_img"
+            android:layout_margin="10dp"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -51,7 +58,9 @@
        android:layout_height="wrap_content"
        android:orientation="horizontal"
        android:paddingTop="5dp"
-      android:id="@+id/linearLayout3">
+      android:id="@+id/linearLayout3"
+       android:background="@color/white"
+       android:layout_gravity="center">
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -60,17 +69,10 @@
         android:textColor="@color/black"
         android:textSize="@dimen/text_size"
         android:text="Buy All"
-        android:layout_weight="1"/>
-       <Button
-           android:layout_marginLeft="10dp"
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:id="@+id/id_remove_all_cart"
-           android:textColor="@color/black"
-           android:textSize="@dimen/text_size"
-           android:background="@color/orange"
-           android:text="Remove All"
-           android:layout_weight="1"/>
+        android:layout_gravity="center"
+
+     />
+
 
    </LinearLayout>
 

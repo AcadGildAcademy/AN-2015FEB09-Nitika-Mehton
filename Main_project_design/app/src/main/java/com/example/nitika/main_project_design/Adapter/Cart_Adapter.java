@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.example.nitika.main_project_design.Activity.Activity_main;
 import com.example.nitika.main_project_design.Activity.Cart_SingleItemView;
+import com.example.nitika.main_project_design.Activity.Cart_item;
 import com.example.nitika.main_project_design.Utiles.ImageLoader;
 import com.example.nitika.main_project_design.R;
 
@@ -126,6 +127,7 @@ String total_product;
                     intent.putExtra("total",resultp.get(Activity_main.TAG_TOTAL));
                 intent.putExtra("total_product",resultp.get(Activity_main.TAG_TOTAL_PRODUCT));
                 // Start SingleItemView Class
+
                 context.startActivity(intent);
 
             }

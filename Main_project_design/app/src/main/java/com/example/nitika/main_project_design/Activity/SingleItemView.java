@@ -85,7 +85,7 @@ public class SingleItemView extends Activity
         TextView txtdescription=(TextView)findViewById(R.id.id_description_value);
         TextView stock=(TextView)findViewById(R.id.id_stock);
         // Locate the ImageView in singleitemview.xml
-        ImageView imgflag = (ImageView) findViewById(R.id.image);
+        final ImageView imgflag = (ImageView) findViewById(R.id.image);
 
 
 
@@ -100,6 +100,7 @@ public class SingleItemView extends Activity
         // Passes flag images URL into ImageLoader.class
         imageLoader.DisplayImage(image_path, imgflag);
 
+
         String ss="Out Of Stock";
         if(total_pro.equals(("0")))
         {
@@ -109,7 +110,15 @@ public class SingleItemView extends Activity
 
         }
 
+imgflag.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        Intent intent = new Intent(SingleItemView.this, image.class);
+        intent.putExtra("image", image_path);
+        startActivity(intent);
 
+    }
+});
         text = txtselling_price.getText().toString();
         //add_to_cart code
         add_to_cart.setOnClickListener(new View.OnClickListener() {
@@ -138,54 +147,55 @@ public class SingleItemView extends Activity
         buy_now.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+int check_quantity= Integer.parseInt(qq.getText().toString());
 
-                UserSessionLogin session;
-
-                session = new UserSessionLogin(getApplicationContext());
-                HashMap<String, String> user = session.getUserDetails();
-                // get name
-                if( session.isUserLoggedIn()) {
-                    String user_str = user.get(UserSessionLogin.KEY_EMAIL_SESSION);
-                    //  Toast.makeText(getApplicationContext(),user_str,Toast.LENGTH_LONG).show();
-                    Log.d("userlogin",""+user_str);
-                    if(text.matches("\\d+")) //check if only digits. Could also be text.matches("[0-9]+")
-                    {
-                        String ss=qq.getText().toString();
-                        total_s = Integer.parseInt(text)*Integer.parseInt(ss);
-                        total_qq.setText(Integer.toString(total_s).toString());
-                        Log.d("$$$$", "" + total_qq.toString() + "q-->" + Integer.toString(total_s).toString());
-
-
-
-                    }
-                    else
-                    {
-                        Toast.makeText(getApplicationContext(),"connect to internet",Toast.LENGTH_LONG).show();
-                        Log.d("not a valid number","");
-                    }
-                    String ss=qq.getText().toString();
-                    String uu=total_qq.getText().toString();
-                    String nn=txtname.getText().toString();
-
-                    Log.d("uu",""+uu);
-                    Intent intent =new Intent(SingleItemView.this,DEMOcart_User_Profile_single_buy.class);
-                    intent.putExtra("product_name",nn);
-                    intent.putExtra("quantity",ss);
-                    intent.putExtra("grand_total",uu);
-                    intent.putExtra("user_email",user_str);
-                    intent.putExtra("product_id",id);
-                    intent.putExtra("total_product", total_pro);
-                    intent.putExtra("price",text);
-                    startActivity(intent);
-
-
-                }
-                else
+                if (check_quantity<1)
                 {
-                    Toast.makeText(getApplicationContext(),"Please Login First",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(),"Enter valid quantity",Toast.LENGTH_LONG).show();
                 }
+                else {
+                    UserSessionLogin session;
+
+                    session = new UserSessionLogin(getApplicationContext());
+                    HashMap<String, String> user = session.getUserDetails();
+                    // get name
+                    if (session.isUserLoggedIn()) {
+                        String user_str = user.get(UserSessionLogin.KEY_EMAIL_SESSION);
+                        //  Toast.makeText(getApplicationContext(),user_str,Toast.LENGTH_LONG).show();
+                        Log.d("userlogin", "" + user_str);
+                        if (text.matches("\\d+")) //check if only digits. Could also be text.matches("[0-9]+")
+                        {
+                            String ss = qq.getText().toString();
+                            total_s = Integer.parseInt(text) * Integer.parseInt(ss);
+                            total_qq.setText(Integer.toString(total_s).toString());
+                            Log.d("$$$$", "" + total_qq.toString() + "q-->" + Integer.toString(total_s).toString());
 
 
+                        } else {
+                            Toast.makeText(getApplicationContext(), "connect to internet", Toast.LENGTH_LONG).show();
+                            Log.d("not a valid number", "");
+                        }
+                        String ss = qq.getText().toString();
+                        String uu = total_qq.getText().toString();
+                        String nn = txtname.getText().toString();
+
+                        Log.d("uu", "" + uu);
+                        Intent intent = new Intent(SingleItemView.this, DEMOcart_User_Profile_single_buy.class);
+                        intent.putExtra("product_name", nn);
+                        intent.putExtra("quantity", ss);
+                        intent.putExtra("grand_total", uu);
+                        intent.putExtra("user_email", user_str);
+                        intent.putExtra("product_id", id);
+                        intent.putExtra("total_product", total_pro);
+                        intent.putExtra("price", text);
+                        startActivity(intent);
+
+
+                    } else {
+                        Toast.makeText(getApplicationContext(), "Please Login First", Toast.LENGTH_LONG).show();
+                    }
+
+                }
             }
         });
 

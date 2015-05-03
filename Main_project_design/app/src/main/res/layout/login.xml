@@ -9,7 +9,7 @@
 
     <ImageView
         android:layout_width="wrap_content"
-        android:layout_height="100dp"
+        android:layout_height="50dp"
         android:id="@+id/imag"
         android:src="@drawable/logo"
        />
@@ -38,7 +38,7 @@
         android:id="@+id/id_username"
         android:background="@color/white"
         android:layout_gravity="center"
-        android:layout_marginTop="50dp"/>
+        android:layout_marginTop="20dp"/>
 
     <EditText
         android:layout_width="wrap_content"
@@ -113,7 +113,7 @@
         android:textColor="@color/orange"
         android:id="@+id/signup"
         android:layout_gravity="center"
-
+        android:layout_marginBottom="20dp"
         />
 
 </LinearLayout>

@@ -15,7 +15,6 @@
 
     <item android:id="@+id/login_id_menu"
       android:title="Login"
-
     and:showAsAction="always"
 
     ></item>
