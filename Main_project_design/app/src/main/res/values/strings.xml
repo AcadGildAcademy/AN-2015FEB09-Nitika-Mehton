@@ -15,6 +15,7 @@
     <string name="add_to_cart">"Add To Cart" </string>
     <string name="buy_now">"Buy Now" </string>
     <string name="cart_remove">"Remove From Cart" </string>
+    <string name="quantity">"Quantity" </string>
 
     <string-array name="state_list">
         <item> Andhra Pradesh </item>

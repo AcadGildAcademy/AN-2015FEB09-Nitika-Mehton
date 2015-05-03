@@ -6,14 +6,56 @@
 
     <TextView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="20dp"
         android:layout_gravity="center"
         android:id="@+id/place_email"/>
-    <ListView
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/name"
+            android:ems="5"
+            android:paddingRight="5dp"
+            android:textColor="@color/orange"
+            android:textSize="20dp"/>
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/selling_price"
+            android:ems="5"
+            android:textColor="@color/orange"
+            android:textSize="20dp"/>
+        <ImageView
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:src="@drawable/rupee"
+            android:id="@+id/rupee_img"
+         />
+      </LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/quantity"
+            android:ems="5"
+            android:textColor="@color/orange"
+            android:textSize="20dp"/>
+        </LinearLayout>
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="320dp"
         android:id="@+id/place_listView"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:divider="@color/orange"
+        android:dividerHeight="1dp"
+        android:scrollX="2dp"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -24,6 +66,17 @@
         android:textColor="@color/orange"
 
 />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+    <ImageView
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:src="@drawable/rupee"
+        android:id="@+id/rupee_img1"
+        android:layout_gravity="center"
+        />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -31,13 +84,19 @@
         android:textSize="@dimen/text_size"
         android:textColor="@color/orange"
         android:id="@+id/place_grand_total"
+
+        android:padding="10dp"
+
         />
+    </LinearLayout>
     <Button
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:layout_gravity="center"
         android:text="PLACE ORDER"
+        android:padding="10dp"
         android:background="@color/orange"
-        android:id="@+id/place_bt"/>
+        android:id="@+id/place_bt"
+        android:layout_marginBottom="10dp"/>
 
 </LinearLayout>

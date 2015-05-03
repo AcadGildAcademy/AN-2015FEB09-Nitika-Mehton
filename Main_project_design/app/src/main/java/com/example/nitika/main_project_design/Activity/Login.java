@@ -337,9 +337,15 @@ public class Login extends  ActionBarActivity
      @Override
      public boolean onOptionsItemSelected(MenuItem item) {
          int id = item.getItemId();
+         if(id==R.id.home_id_menu)
+         {
+             Intent intent = new Intent(Login.this, Index.class);
+             finish();
+             startActivity(intent);
+         }
          if (id == R.id.login_id_menu) {
              Intent intent = new Intent(Login.this, Login.class);
-
+             finish();
              startActivity(intent);
          }
 
